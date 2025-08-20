@@ -721,7 +721,7 @@ p {
 .faq-question {
   padding: 1.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
   position: relative;
@@ -737,6 +737,8 @@ p {
   background-size: contain;
   background-repeat: no-repeat;
   transition: all 0.3s ease;
+  position: absolute;
+  right: 1.5rem;
 }
 
 .faq-item.active .faq-question::after {
@@ -860,6 +862,100 @@ p {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+/* New Testimonial Section Styles */
+.testimonial-section {
+  position: relative;
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.testimonial-gradient-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #000000 0%, #0c0c1e 30%, #f0f2f5 70%, #ffffff 100%);
+  z-index: -1;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.testimonial-scroller {
+  max-height: 800px; /* Adjust as needed */
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+}
+
+.testimonial-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: scroll-testimonials 80s linear infinite;
+}
+
+.testimonial-column.reverse {
+  animation: scroll-testimonials-reverse 80s linear infinite;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  color: #1a202c;
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.testimonial-header {
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-header p {
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.testimonial-body p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-body video {
+  width: 100%;
+  border-radius: var(--radius-lg);
+}
+
+@keyframes scroll-testimonials {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%); /* Adjust based on content height */
+  }
+}
+
+@keyframes scroll-testimonials-reverse {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .testimonial-info {
@@ -1030,6 +1126,47 @@ p {
   bottom: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 70%);
   pointer-events: none;
+}
+
+/* Image Scroller in About Section */
+.image-scroller {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  margin-bottom: 2rem;
+}
+
+.image-scroller-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scroll-images 30s linear infinite;
+}
+
+.image-scroller-track img {
+  height: 250px;
+  width: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+}
+
+.image-scroller-track:hover {
+  animation-play-state: paused;
+}
+
+.image-scroller-track img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes scroll-images {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.75rem * 4)); /* Adjust for gap */
+  }
 }
 
 /* Contact form */
