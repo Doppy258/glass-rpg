@@ -435,11 +435,11 @@ p {
 }
 
 .hero-subtitle {
-  font-size: clamp(1.15rem, 2.4vw, 1.6rem); /* larger */
+  font-size: clamp(1.25rem, 2.8vw, 1.75rem); /* larger */
   color: #d1e4ff; /* brighter to match frosted blue */
   margin-bottom: 1rem; /* tighter spacing */
-  max-width: 24ch; /* match hero title width */
-  line-height: 1.55;
+  max-width: 42ch; /* match hero title width */
+  line-height: 1.6;
 }
 
 /* Hero title and tagline adjustments */
