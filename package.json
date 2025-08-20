@@ -1,0 +1,14 @@
+{
+  "name": "glass-rpg",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local dev server for the Glass RPG static export",
+  "scripts": {
+    "dev": "live-server --open='index.html' --port=8081 --watch='.'"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
+
+
