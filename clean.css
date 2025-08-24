@@ -1200,7 +1200,7 @@ p {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 0.75rem * 4)); /* Adjust for gap */
+    transform: translateX(-50%);
   }
 }
 
