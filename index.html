@@ -274,9 +274,7 @@
     
     .hero-tagline { margin-top: 0.5rem; }
     
-    .hero-subtitle {
-      /* This will be overridden by clean.css */
-    }
+    
     
     .glow-text {
       text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
@@ -433,13 +431,7 @@
               <div class="carousel-slide">
                 <div class="beam-container">
                   <div class="beam-border"></div>
-                  <img src="image.jpeg" alt="Student strategy notes" loading="lazy" />
-                </div>
-              </div>
-              <div class="carousel-slide">
-                <div class="beam-container">
-                  <div class="beam-border"></div>
-                  <img src="PNG%20image.jpeg" alt="Competition day — venue" loading="lazy" />
+                  <img src="deca_venue.jpeg" alt="Competition day — venue" loading="lazy" />
                 </div>
               </div>
               <div class="carousel-slide">
@@ -451,7 +443,25 @@
               <div class="carousel-slide">
                 <div class="beam-container">
                   <div class="beam-border"></div>
-                  <img src="IMG_7198.heic" alt="Student testimonial" loading="lazy" />
+                  <img src="IMG_7198.jpeg" alt="Student testimonial" loading="lazy" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="beam-container">
+                  <div class="beam-border"></div>
+                  <img src="IMG_0827.jpg" alt="DECA competition" loading="lazy" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="beam-container">
+                  <div class="beam-border"></div>
+                  <img src="IMG_0857.JPG" alt="DECA event" loading="lazy" />
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <div class="beam-container">
+                  <div class="beam-border"></div>
+                  <img src="IMG_1535.jpeg" alt="DECA group photo" loading="lazy" />
                 </div>
               </div>
             </div>
@@ -614,15 +624,13 @@
         <!-- Image Scroller -->
         <div class="image-scroller">
           <div class="image-scroller-track">
-            <img src="image.jpeg" alt="Erika Wu">
-            <img src="IMG_1041.jpeg" alt="Erika Wu">
-            <img src="DSC00932.JPEG" alt="Erika Wu">
-            <img src="PNG%20image.jpeg" alt="Erika Wu">
+            <img src="deca_venue.jpeg" alt="Erika Wu">
+            <img src="IMG_0152.jpeg" alt="Erika Wu">
+            <img src="IMG_0828.jpeg" alt="Erika Wu">
             <!-- Duplicates for seamless scrolling -->
-            <img src="image.jpeg" alt="Erika Wu">
-            <img src="IMG_1041.jpeg" alt="Erika Wu">
-            <img src="DSC00932.JPEG" alt="Erika Wu">
-            <img src="PNG%20image.jpeg" alt="Erika Wu">
+            <img src="deca_venue.jpeg" alt="Erika Wu">
+            <img src="IMG_0152.jpeg" alt="Erika Wu">
+            <img src="IMG_0828.jpeg" alt="Erika Wu">
           </div>
         </div>
 
@@ -671,142 +679,152 @@
       </div>
     </section>
 
-    <!-- New Testimonials Section -->
+    <!-- New Testimonials Section (Refactored) -->
     <section id="results" class="section testimonial-section">
-      <div class="testimonial-gradient-bg"></div>
       <div class="container">
-        <h2 class="section-title" style="color: #fff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);">Don't take Erika's word for it ...</h2>
-        
-        <div class="testimonial-scroller">
-          <div class="testimonial-grid">
-            <div class="testimonial-column">
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Sarah M.</h3>
-                  <p>GLASS Winner</p>
+        <h2 class="section-title aurora-text">Results, from real students</h2>
+        <p class="section-subtitle">Short video stories and written notes — clean, simple, authentic.</p>
+
+        <!-- Videos marquee (infinite, left to right) -->
+        <div class="testimonials-group">
+          <h3 class="group-title">Video testimonials</h3>
+          <div class="video-marquee">
+            <div class="vm-track">
+              <!-- Set A -->
+              <article class="vm-item" data-video-src="IMG_1936.mov">
+                <div class="vm-media">
+                  <video class="vm-video" src="IMG_1936.mov" preload="metadata" playsinline muted loop></video>
+                  <button class="vm-play" aria-label="Play video">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
                 </div>
-                <div class="testimonial-body">
-                  <p>"Erika's coaching was a game-changer. Her strategies for roleplays are unmatched and she knows exactly what the judges are looking for."</p>
-                  <video src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov" controls poster="IMG_1041.jpeg"></video>
+                <div class="vm-caption"><span class="vm-name">Devin</span><span class="vm-meta">ICDC 3rd & Chapter VP</span></div>
+              </article>
+              <article class="vm-item" data-video-src="IMG_7342.mov">
+                <div class="vm-media">
+                  <video class="vm-video" src="IMG_7342.mov" preload="metadata" playsinline muted loop></video>
+                  <button class="vm-play" aria-label="Play video">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                  </div>
+                <div class="vm-caption"><span class="vm-name">Narain Bala</span><span class="vm-meta">ICDC 2nd & Chapter Director</span></div>
+              </article>
+              <article class="vm-item" data-video-src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov">
+                <div class="vm-media">
+                  <video class="vm-video" src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov" preload="metadata" playsinline muted loop></video>
+                  <button class="vm-play" aria-label="Play video">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
                 </div>
+                <div class="vm-caption"><span class="vm-name">Shreshta Ramji</span><span class="vm-meta">CA State Officer & ICDC 3rd Place</span></div>
+              </article>
+              <article class="vm-item" data-video-src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov">
+                <div class="vm-media">
+                  <video class="vm-video" src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov" preload="metadata" playsinline muted loop></video>
+                  <button class="vm-play" aria-label="Play video">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
               </div>
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Jason K.</h3>
-                  <p>State Champion</p>
+                <div class="vm-caption"><span class="vm-name">Jessica</span></div>
+              </article>
+              <article class="vm-item" data-video-src="Testimonial.mov">
+                <div class="vm-media">
+                  <video class="vm-video" src="Testimonial.mov" preload="metadata" playsinline muted loop></video>
+                  <button class="vm-play" aria-label="Play video">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
                 </div>
-                <div class="testimonial-body">
-                  <p>"The personalized feedback helped me identify my weak spots and turn them into strengths. Highly recommend!"</p>
-                  <video src="Testimonial.mov" controls poster="PNG%20image.jpeg"></video>
+                <div class="vm-caption"><span class="vm-name">Dhanya</span></div>
+              </article>
+
+              <!-- Duplicate Set B for seamless loop -->
+              <article class="vm-item" data-video-src="IMG_1936.mov">
+                <div class="vm-media">
+                  <video class="vm-video" src="IMG_1936.mov" preload="metadata" playsinline muted loop></video>
+                  <button class="vm-play" aria-label="Play video">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                  </div>
+                <div class="vm-caption"><span class="vm-name">Devin</span><span class="vm-meta">ICDC 3rd & Chapter VP</span></div>
+              </article>
+              <article class="vm-item" data-video-src="IMG_7342.mov">
+                <div class="vm-media">
+                  <video class="vm-video" src="IMG_7342.mov" preload="metadata" playsinline muted loop></video>
+                  <button class="vm-play" aria-label="Play video">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
                 </div>
+                <div class="vm-caption"><span class="vm-name">Narain Bala</span><span class="vm-meta">ICDC 2nd & Chapter Director</span></div>
+              </article>
+              <article class="vm-item" data-video-src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov">
+                <div class="vm-media">
+                  <video class="vm-video" src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov" preload="metadata" playsinline muted loop></video>
+                  <button class="vm-play" aria-label="Play video">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
               </div>
-              <!-- Duplicates for seamless scroll -->
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Sarah M.</h3>
-                  <p>GLASS Winner</p>
+                <div class="vm-caption"><span class="vm-name">Shreshta Ramji</span><span class="vm-meta">CA State Officer & ICDC 3rd Place</span></div>
+              </article>
+              <article class="vm-item" data-video-src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov">
+                <div class="vm-media">
+                  <video class="vm-video" src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov" preload="metadata" playsinline muted loop></video>
+                  <button class="vm-play" aria-label="Play video">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
                 </div>
-                <div class="testimonial-body">
-                  <p>"Erika's coaching was a game-changer. Her strategies for roleplays are unmatched and she knows exactly what the judges are looking for."</p>
-                  <video src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov" controls poster="IMG_1041.jpeg"></video>
+                <div class="vm-caption"><span class="vm-name">Jessica</span></div>
+              </article>
+              <article class="vm-item" data-video-src="Testimonial.mov">
+                <div class="vm-media">
+                  <video class="vm-video" src="Testimonial.mov" preload="metadata" playsinline muted loop></video>
+                  <button class="vm-play" aria-label="Play video">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                  </div>
+                <div class="vm-caption"><span class="vm-name">Dhanya</span></div>
+              </article>
                 </div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Jason K.</h3>
-                  <p>State Champion</p>
-                </div>
-                <div class="testimonial-body">
-                  <p>"The personalized feedback helped me identify my weak spots and turn them into strengths. Highly recommend!"</p>
-                  <video src="Testimonial.mov" controls poster="PNG%20image.jpeg"></video>
-                </div>
+            <div class="vm-fade left"></div>
+            <div class="vm-fade right"></div>
               </div>
             </div>
 
-            <div class="testimonial-column reverse">
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Michael T.</h3>
-                  <p>ICDC Qualifier</p>
-                </div>
-                <div class="testimonial-body">
-                  <p>"I went from not knowing how to start a roleplay to qualifying for ICDC. Erika's mentorship is the real deal."</p>
-                  <video src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov" controls poster="DSC00932.JPEG"></video>
-                </div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Emma P.</h3>
-                  <p>Regional Winner</p>
-                </div>
-                <div class="testimonial-body">
-                  <p>"The practice sessions were intense but incredibly helpful. I felt so confident during my competition."</p>
-                  <video src="IMG_1936.mov" controls poster="image.jpeg"></video>
-                </div>
-              </div>
-              <!-- Duplicates for seamless scroll -->
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Michael T.</h3>
-                  <p>ICDC Qualifier</p>
-                </div>
-                <div class="testimonial-body">
-                  <p>"I went from not knowing how to start a roleplay to qualifying for ICDC. Erika's mentorship is the real deal."</p>
-                  <video src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov" controls poster="DSC00932.JPEG"></video>
-                </div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Emma P.</h3>
-                  <p>Regional Winner</p>
-                </div>
-                <div class="testimonial-body">
-                  <p>"The practice sessions were intense but incredibly helpful. I felt so confident during my competition."</p>
-                  <video src="IMG_1936.mov" controls poster="image.jpeg"></video>
-                </div>
+        <!-- Written only (2 columns, opposing scroll, infinite) -->
+        <div class="testimonials-group">
+          <h3 class="group-title">Written testimonials</h3>
+          <div class="written-marquee">
+            <!-- Column A: scroll down -->
+            <div class="wm-column down">
+              <div class="wm-stack">
+                <!-- Set A -->
+                <article class="wm-card"><h4 class="t-name">Devin</h4><p class="t-meta">ICDC 3rd & Chapter VP</p><p class="t-quote">Erika is extremely adept at both teaching and encouraging students, including myself. Even though I struggled early on in my journey, she never gave up on me. With Erika as a mentor, I was able to build off of personalized advice that I simply wouldn't have been able to find otherwise. Whether you are seeking help in DECA or public speaking in general, know that Erika will always deliver.</p></article>
+                <article class="wm-card"><h4 class="t-name">Saahithi</h4><p class="t-meta">CA 2nd Place & ICDC Qualifier</p><p class="t-quote">Even though we primarily only practiced for our roleplay event, I think your help with my public speaking is ultimately what helped me win 2nd place in CA and qualify for ICDC with my written! Thank you so much Erika, I’m super grateful :)</p></article>
+                <article class="wm-card"><h4 class="t-name">Brandon</h4><p class="t-meta">From Brandon’s mom • ICDC Qualifier</p><p class="t-quote">Erika is one of the most effective and resourceful teachers I have ever seen. She not only is extremely proficient in coaching public speaking skills, she is also extraordinary in her ability to tailor her teaching to different students with different needs and weaknesses. I know that because both I and my son have taken classes with Erica and we both benefitted tremendously with completely unique advice that Erica was able to develop for each of us.</p></article>
+                <article class="wm-card"><h4 class="t-name">Fiza</h4><p class="t-meta">Ontario Provincial Finalist</p><p class="t-quote">Erika spent hours reviewing videos of my DECA roleplays and providing detailed feedback in addition to our tutoring sessions. Although she was only my tutor for a short period of time, in that time she significantly improved my skills. She personalized her feedback to my specific strengths and weaknesses so I could get the best results. She also provided unique feedback that I didn’t get from anyone else, which was necessary to help me succeed. Her dedication and expertise made a noticeable difference in my performance, helping me refine my presentation, enhance my business terminology, and build confidence in my case studies. She goes beyond just offering general advice—her coaching is tailored, insightful, and practical. I highly recommend Erika’s tutoring to anyone looking to take their DECA skills to the next level.</p></article>
+
+                <!-- Duplicate Set B -->
+                <article class="wm-card"><h4 class="t-name">Devin</h4><p class="t-meta">ICDC 3rd & Chapter VP</p><p class="t-quote">Erika is extremely adept at both teaching and encouraging students, including myself. Even though I struggled early on in my journey, she never gave up on me. With Erika as a mentor, I was able to build off of personalized advice that I simply wouldn't have been able to find otherwise. Whether you are seeking help in DECA or public speaking in general, know that Erika will always deliver.</p></article>
+                <article class="wm-card"><h4 class="t-name">Saahithi</h4><p class="t-meta">CA 2nd Place & ICDC Qualifier</p><p class="t-quote">Even though we primarily only practiced for our roleplay event, I think your help with my public speaking is ultimately what helped me win 2nd place in CA and qualify for ICDC with my written! Thank you so much Erika, I’m super grateful :)</p></article>
+                <article class="wm-card"><h4 class="t-name">Brandon</h4><p class="t-meta">From Brandon’s mom • ICDC Qualifier</p><p class="t-quote">Erika is one of the most effective and resourceful teachers I have ever seen. She not only is extremely proficient in coaching public speaking skills, she is also extraordinary in her ability to tailor her teaching to different students with different needs and weaknesses. I know that because both I and my son have taken classes with Erica and we both benefitted tremendously with completely unique advice that Erica was able to develop for each of us.</p></article>
+                <article class="wm-card"><h4 class="t-name">Fiza</h4><p class="t-meta">Ontario Provincial Finalist</p><p class="t-quote">Erika spent hours reviewing videos of my DECA roleplays and providing detailed feedback in addition to our tutoring sessions. Although she was only my tutor for a short period of time, in that time she significantly improved my skills. She personalized her feedback to my specific strengths and weaknesses so I could get the best results. She also provided unique feedback that I didn’t get from anyone else, which was necessary to help me succeed. Her dedication and expertise made a noticeable difference in my performance, helping me refine my presentation, enhance my business terminology, and build confidence in my case studies. She goes beyond just offering general advice—her coaching is tailored, insightful, and practical. I highly recommend Erika’s tutoring to anyone looking to take their DECA skills to the next level.</p></article>
               </div>
             </div>
 
-            <div class="testimonial-column">
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Alex W.</h3>
-                  <p>National Finalist</p>
+            <!-- Column B: scroll up -->
+            <div class="wm-column up">
+              <div class="wm-stack">
+                <!-- Set A -->
+                <article class="wm-card"><h4 class="t-name">Shreshta Ramji</h4><p class="t-meta">CA State Officer & ICDC 3rd Place</p><p class="t-quote">You’re always going to be my biggest inspiration and also happened to be the only person in DECA this year who I felt safe talking to because connecting with the others was pretty hard. I owe all the glass at states and ICDC to you because your advice ultimately made the roleplay what it was (about making it interactive and having a strong intro, etc.)</p></article>
+                <article class="wm-card"><h4 class="t-name">Steven</h4><p class="t-meta">CA State Finalist</p><p class="t-quote">Proactive about ensuring student learning, realistic (won’t sugarcoat unproductive behavior), has many resources to help with studying deca. More casual student/mentor relationship while still maintaining productivity to a good extent.</p></article>
+                <article class="wm-card"><h4 class="t-name">Deetya</h4><p class="t-meta">From Deetya’s mom • VA States Finalist, 3rd Regionals</p><p class="t-quote">Erika has an exceptional ability to inspire, mentor, and guide students towards excellence in debate and public speaking. She is very knowledgeable with debating techniques and helps the kids to refine their skills. Erika helped my daughter with role plays and helped her to get placed at the Regionals. I am very happy with all the guidance she has provided my daughter.</p></article>
+                <article class="wm-card"><h4 class="t-name">Dhanya</h4><p class="t-meta">From Dhanya’s mom</p><p class="t-quote">Erika has helped my daughter improve her speaking skills by constantly identifying areas for improvement and giving thorough feedback on how to improve them. Every session, she brings in new insights on skills, business-related topics, or just competition prep that have helped my daughter a lot for DECA. Erika also gives thorough feedback outside of class through recorded videos, so it gives my daughter multiple opportunities to improve her skills.</p></article>
+
+                <!-- Duplicate Set B -->
+                <article class="wm-card"><h4 class="t-name">Shreshta Ramji</h4><p class="t-meta">CA State Officer & ICDC 3rd Place</p><p class="t-quote">You’re always going to be my biggest inspiration and also happened to be the only person in DECA this year who I felt safe talking to because connecting with the others was pretty hard. I owe all the glass at states and ICDC to you because your advice ultimately made the roleplay what it was (about making it interactive and having a strong intro, etc.)</p></article>
+                <article class="wm-card"><h4 class="t-name">Steven</h4><p class="t-meta">CA State Finalist</p><p class="t-quote">Proactive about ensuring student learning, realistic (won’t sugarcoat unproductive behavior), has many resources to help with studying deca. More casual student/mentor relationship while still maintaining productivity to a good extent.</p></article>
+                <article class="wm-card"><h4 class="t-name">Deetya</h4><p class="t-meta">From Deetya’s mom • VA States Finalist, 3rd Regionals</p><p class="t-quote">Erika has an exceptional ability to inspire, mentor, and guide students towards excellence in debate and public speaking. She is very knowledgeable with debating techniques and helps the kids to refine their skills. Erika helped my daughter with role plays and helped her to get placed at the Regionals. I am very happy with all the guidance she has provided my daughter.</p></article>
+                <article class="wm-card"><h4 class="t-name">Dhanya</h4><p class="t-meta">From Dhanya’s mom</p><p class="t-quote">Erika has helped my daughter improve her speaking skills by constantly identifying areas for improvement and giving thorough feedback on how to improve them. Every session, she brings in new insights on skills, business-related topics, or just competition prep that have helped my daughter a lot for DECA. Erika also gives thorough feedback outside of class through recorded videos, so it gives my daughter multiple opportunities to improve her skills.</p></article>
                 </div>
-                <div class="testimonial-body">
-                  <p>"Erika's insights are top-notch. She provides a clear roadmap to success in DECA."</p>
-                  <video src="IMG_7342.mov" controls poster="DSC00932.JPEG"></video>
-                </div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Sophia R.</h3>
-                  <p>GLASS Winner</p>
-                </div>
-                <div class="testimonial-body">
-                  <p>"The best DECA coach out there. Period. If you want to win, you need to work with Erika."</p>
-                </div>
-              </div>
-              <!-- Duplicates for seamless scroll -->
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Alex W.</h3>
-                  <p>National Finalist</p>
-                </div>
-                <div class="testimonial-body">
-                  <p>"Erika's insights are top-notch. She provides a clear roadmap to success in DECA."</p>
-                  <video src="IMG_7342.mov" controls poster="DSC00932.JPEG"></video>
-                </div>
-              </div>
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <h3>Sophia R.</h3>
-                  <p>GLASS Winner</p>
-                </div>
-                <div class="testimonial-body">
-                  <p>"The best DECA coach out there. Period. If you want to win, you need to work with Erika."</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -866,11 +884,29 @@
     </section>
 
     <!-- Instagram Section -->
-    <section class="section" style="padding: 3rem 0;">
+    <section id="instagram" class="section instagram-section">
       <div class="container">
-        <div class="card" style="display:flex; align-items:center; justify-content:center; gap:1rem; padding:18px 20px; max-width: 600px; margin: 0 auto;">
-          <h3 class="card-title" style="margin:0">Follow us on Instagram</h3>
-          <a class="btn btn-primary" href="https://instagram.com/glass.rpg" target="_blank" rel="noopener">@glass.rpg</a>
+        <div class="instagram-card">
+          <div class="instagram-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </div>
+          <div class="instagram-content">
+            <h3 class="instagram-title">Join the Community</h3>
+            <p class="instagram-subtitle">Follow @glass.rpg on Instagram for tips, updates, and success stories.</p>
+          </div>
+          <a href="https://instagram.com/glass.rpg" target="_blank" rel="noopener" class="btn btn-primary instagram-btn">
+            <span>Follow Us</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-2">
+              <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <div class="instagram-bg-shape shape1"></div>
+          <div class="instagram-bg-shape shape2"></div>
         </div>
       </div>
     </section>
@@ -966,7 +1002,6 @@
       // About section no longer uses slideshow
       
       // Initialize video testimonials
-      initVideoTestimonials();
       
       // Initialize mobile menu
       initMobileMenu();
@@ -1000,6 +1035,7 @@
         
       // Initialize event icon slideshow
       initEventSlideshow();
+      initVideoModal();
       });
 
     // Text reveal animation
@@ -1330,6 +1366,166 @@
 
       // Change item every 3 seconds
       setInterval(showNextItem, 3000);
+    }
+
+    // Video modal player
+    function initVideoModal() {
+      const marquee = document.querySelector('.video-marquee');
+      if (!marquee) return;
+
+      // Create modal markup once
+      let modal = document.getElementById('videoModal');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'videoModal';
+        modal.className = 'video-modal hidden';
+        modal.innerHTML = `
+          <div class="vm-backdrop" data-close></div>
+          <div class="vm-dialog">
+            <button class="vm-close" aria-label="Close" data-close>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <video class="vm-player" controls playsinline></video>
+          </div>
+        `;
+        document.body.appendChild(modal);
+      }
+
+      const player = modal.querySelector('.vm-player');
+
+      const open = (src) => {
+        player.src = src;
+        player.currentTime = 0;
+        modal.classList.remove('hidden');
+        document.documentElement.style.overflow = 'hidden';
+        setTimeout(() => player.play().catch(() => {}), 50);
+      };
+      const close = () => {
+        player.pause();
+        player.src = '';
+        modal.classList.add('hidden');
+        document.documentElement.style.overflow = '';
+      };
+
+      modal.addEventListener('click', (e) => {
+        const target = e.target;
+        if (target && (target.hasAttribute('data-close') || target.closest('[data-close]'))) {
+          close();
+        }
+      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) close(); });
+
+      // Delegate click from play buttons
+      marquee.addEventListener('click', (e) => {
+        const playBtn = e.target.closest('.vm-play');
+        if (!playBtn) return;
+        const item = playBtn.closest('.vm-item');
+        if (!item) return;
+        const src = item.getAttribute('data-video-src');
+        if (src) open(src);
+      });
+    }
+
+    // Testimonial Reel interactions
+    function initTestimonialReel() {
+      const reel = document.getElementById('testimonialReel');
+      if (!reel) return;
+
+      const track = reel.querySelector('.reel-track');
+      const items = Array.from(reel.querySelectorAll('.reel-item'));
+      const prev = reel.querySelector('.reel-nav.prev');
+      const next = reel.querySelector('.reel-nav.next');
+
+      if (!track || !items.length) return;
+
+      // Activate closest to center
+      const updateActive = () => {
+        const rect = track.getBoundingClientRect();
+        const center = rect.left + rect.width / 2;
+        let best = null;
+        let bestDist = Infinity;
+        items.forEach(item => {
+          const r = item.getBoundingClientRect();
+          const itemCenter = r.left + r.width / 2;
+          const dist = Math.abs(center - itemCenter);
+          if (dist < bestDist) { bestDist = dist; best = item; }
+        });
+        items.forEach(i => i.classList.remove('is-active'));
+        if (best) best.classList.add('is-active');
+      };
+
+      // Initial state
+      updateActive();
+
+      // Scroll handling
+      let raf = null;
+      const onScroll = () => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          updateActive();
+          raf = null;
+        });
+      };
+      track.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', updateActive);
+
+      // Nav controls
+      const snap = (dir) => {
+        const rect = track.getBoundingClientRect();
+        const center = rect.left + rect.width / 2;
+        const positions = items.map(el => {
+          const r = el.getBoundingClientRect();
+          return { el, center: r.left + r.width / 2 };
+        }).sort((a,b) => a.center - b.center);
+        const currentIndex = positions.findIndex(p => p.el.classList.contains('is-active'));
+        let targetIndex = currentIndex + dir;
+        targetIndex = Math.max(0, Math.min(positions.length - 1, targetIndex));
+
+        const target = positions[targetIndex];
+        const delta = target.center - center;
+        track.scrollBy({ left: delta, behavior: 'smooth' });
+      };
+      if (prev) prev.addEventListener('click', () => snap(-1));
+      if (next) next.addEventListener('click', () => snap(1));
+
+      // Hover preview and click-to-toggle audio
+      const videos = reel.querySelectorAll('.reel-video');
+      videos.forEach(video => {
+        const item = video.closest('.reel-item');
+        const playOverlay = item.querySelector('.reel-play');
+        let userToggled = false;
+
+        item.addEventListener('mouseenter', () => {
+          if (!userToggled) {
+            video.muted = true;
+            video.currentTime = 0;
+            video.play().catch(() => {});
+          }
+        });
+        item.addEventListener('mouseleave', () => {
+          if (!userToggled) {
+            video.pause();
+            video.currentTime = 0;
+          }
+        });
+        item.addEventListener('click', () => {
+          userToggled = !userToggled;
+          if (userToggled) {
+            // Pause others
+            videos.forEach(v => {
+              if (v !== video) { v.pause(); }
+            });
+            video.muted = false;
+            video.play().catch(() => {});
+            if (playOverlay) playOverlay.style.opacity = '0';
+          } else {
+            video.pause();
+            video.currentTime = 0;
+            video.muted = true;
+            if (playOverlay) playOverlay.style.opacity = '';
+          }
+        });
+      });
     }
     </script>
   </body>
