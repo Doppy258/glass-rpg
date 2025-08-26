@@ -24,7 +24,7 @@ async function readBody(req) {
   return {};
 }
 
-const EMAIL_TO = 'lucaszhao09@gmail.com';
+// Optional override: set EMAIL_TO to a comma-separated list in Vercel env vars.
 
 export default async function handler(req, res) {
   // Basic CORS/same-origin safety
@@ -92,9 +92,10 @@ export default async function handler(req, res) {
     // Verify connection/auth first to surface clear errors
     await transporter.verify();
 
+    const to = (process.env.EMAIL_TO || user).split(',').map(s => s.trim()).filter(Boolean);
     const info = await transporter.sendMail({
       from: user, // must match authenticated Gmail account
-      to: EMAIL_TO,
+      to,
       subject,
       text,
     });
