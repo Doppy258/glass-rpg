@@ -86,10 +86,18 @@ export default async function handler(req, res) {
       `Time per week: ${timePerWeek}`,
     ].join('\n');
 
+    const userCandidates = ['gmail_user','GMAIL_USER','SMTP_USER','EMAIL_USER'];
+    const passCandidates = ['gmail_pass','GMAIL_PASS','SMTP_PASS','EMAIL_PASS'];
     const user = (process.env.gmail_user || process.env.GMAIL_USER || process.env.SMTP_USER || process.env.EMAIL_USER || '').trim();
     const pass = (process.env.gmail_pass || process.env.GMAIL_PASS || process.env.SMTP_PASS || process.env.EMAIL_PASS || '').trim();
     if (!user || !pass) {
-      res.status(500).json({ error: 'Missing gmail_user/gmail_pass env vars' });
+      res.status(500).json({
+        error: 'Missing gmail_user/gmail_pass env vars',
+        checked: {
+          user: Object.fromEntries(userCandidates.map(k => [k, Boolean(process.env[k])])),
+          pass: Object.fromEntries(passCandidates.map(k => [k, Boolean(process.env[k])]))
+        }
+      });
       return;
     }
 
