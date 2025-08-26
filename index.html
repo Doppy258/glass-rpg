@@ -37,52 +37,80 @@
       align-items: center;
       justify-content: center;
       border-radius: var(--radius);
-      font-weight: 500;
-      transition: all 0.2s ease;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      isolation: isolate;
+      will-change: transform;
     }
     
+    /* Shimmer sweep */
     .shadcn-btn::after {
       content: '';
       position: absolute;
       top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      left: -140%;
+      height: 100%;
+      width: 120%;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.18) 35%, rgba(255,255,255,0.35) 55%, transparent 75%);
+      transform: skewX(-20deg);
       opacity: 0;
-      background: none;
-      transition: opacity 0.2s;
+      transition: transform 0.6s ease, opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 1;
     }
     
     .shadcn-btn:hover::after {
-      opacity: 0;
+      transform: translateX(180%) skewX(-20deg);
+      opacity: 0.9;
     }
     
-    .shadcn-btn:active::after {
-      opacity: 0;
-    }
+    .shadcn-btn:active { transform: translateY(0); }
     
     .shadcn-btn-primary {
-      background-color: hsl(var(--primary));
-      color: hsl(var(--primary-foreground));
+      background: linear-gradient(180deg, #22d3ee, #06b6d4 70%, #0284c7);
+      color: #001018;
       padding: 1rem 1.8rem;
       font-size: 1rem;
-      height: 44px;
-      border-radius: 9px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      border: none;
+      height: 48px;
+      border-radius: 12px;
+      border: 1px solid rgba(103, 232, 249, 0.55);
+      box-shadow: 0 10px 30px rgba(6,182,212,0.35), 0 0 24px rgba(34,211,238,0.35);
+    }
+    
+    /* Animated gradient border beam using masking */
+    .shadcn-btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(var(--btn-beam-angle, 0deg), rgba(255,255,255,0.7), rgba(125,211,252,0.9), rgba(59,130,246,1), rgba(79,70,229,0.85));
+      -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+      mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.85;
+      z-index: 0;
     }
     
     .shadcn-btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(24, 119, 242, 0.2);
+      box-shadow: 0 18px 40px rgba(6,182,212,0.45), 0 0 36px rgba(34,211,238,0.55);
     }
     
-    .shadcn-btn-primary:active {
-      transform: translateY(0);
+    .shadcn-btn-primary:hover::before { animation: btn-beam 2.2s linear infinite; }
+    
+    .shadcn-btn-primary:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(34,211,238,0.35), 0 10px 30px rgba(6,182,212,0.5), 0 0 24px rgba(34,211,238,0.45);
     }
+    
+    .shadcn-btn-lg { font-size: 1.1rem; padding: 1rem 2rem; height: 56px; }
+    
+    @keyframes btn-beam { to { --btn-beam-angle: 360deg; } }
     
     .shadcn-btn-lg {
       font-size: 1.1rem;
@@ -338,6 +366,16 @@
       .hero h1 { text-align: left; font-size: clamp(2.25rem, 8vw, 3.25rem); }
     }
 
+    /* Mobile refinements */
+    @media (max-width: 600px) {
+      .hero .container { padding-left: 16px; padding-right: 16px; }
+      .hero .hero-tagline { font-size: clamp(2rem, 8vw, 2.5rem); }
+      .carousel-container { height: 380px; }
+      .carousel-slide { width: 220px; height: 320px; }
+      .carousel-slide.prev { transform: translateX(-55%) scale(0.85); }
+      .carousel-slide.next { transform: translateX(55%) scale(0.85); }
+    }
+
     /* Force full dark theme and remove accidental light backgrounds */
     body { background-color: #000 !important; color: #fff !important; }
     .section, .header, .footer { background: transparent; }
@@ -410,14 +448,13 @@
           </div>
           
           <div class="hero-cta">
-            <a href="#contact" class="shadcn-btn shadcn-btn-primary shadcn-btn-lg" style="background: linear-gradient(180deg, #60a5fa, #3b82f6); color: #fff;">
+            <a href="#contact-form" class="shadcn-btn shadcn-btn-primary shadcn-btn-lg">
               <span>Book a free intro call</span>
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-2">
                 <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
-            <a href="#programs" class="btn btn-secondary btn-lg" style="margin-left:0.75rem">See programs</a>
           </div>
           
           <div class="carousel">
@@ -902,7 +939,7 @@
             <h3 class="instagram-title">Join the Community</h3>
             <p class="instagram-subtitle">Follow @glass.rpg on Instagram for tips, updates, and success stories.</p>
           </div>
-          <a href="https://instagram.com/glass.rpg" target="_blank" rel="noopener" class="btn btn-primary instagram-btn">
+          <a href="https://www.instagram.com/glass.rpg/" target="_blank" rel="noopener" class="btn btn-primary instagram-btn">
             <span>Follow Us</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-2">
               <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -922,7 +959,7 @@
         
         <div style="max-width: 600px; margin: 0 auto;">
           <div class="card shadcn-card">
-            <form class="form shadcn-form" onsubmit="event.preventDefault(); window.location.href='mailto:erika@glassrpg.com?subject=Coaching%20Inquiry&body=' + encodeURIComponent('Name: ' + this.name.value + '\nParent/Student: ' + this.role.value + '\nCity/School: ' + this.school.value + '\nFocus: ' + this.focus.value + '\nMessage: ' + this.message.value);">
+            <form id="contact-form" class="form shadcn-form">
               <div class="form-group">
                 <label for="name" class="form-label shadcn-label">Name</label>
                 <input id="name" name="name" class="form-input shadcn-input" required />
@@ -937,24 +974,46 @@
             </div>
               
               <div class="form-group">
-                <label for="school" class="form-label shadcn-label">City / School</label>
-                <input id="school" name="school" class="form-input shadcn-input" />
+                <label for="schoolName" class="form-label shadcn-label">School</label>
+                <input id="schoolName" name="schoolName" class="form-input shadcn-input" required />
             </div>
               
               <div class="form-group">
-                <label for="focus" class="form-label shadcn-label">What do you want to improve?</label>
-                <select id="focus" name="focus" class="form-select shadcn-input">
-                <option>Roleplay Structure</option>
-                <option>Delivery &amp; Voice</option>
-                <option>Judge Q&amp;A</option>
-                <option>Written Event</option>
-                <option>Mock Competition</option>
-              </select>
+                <label for="stateProvince" class="form-label shadcn-label">State / Province</label>
+                <input id="stateProvince" name="stateProvince" class="form-input shadcn-input" required />
             </div>
               
               <div class="form-group">
-                <label for="message" class="form-label shadcn-label">Message</label>
-                <textarea id="message" name="message" rows="4" class="form-textarea shadcn-input"></textarea>
+                <label for="email" class="form-label shadcn-label">Email</label>
+                <input id="email" name="email" type="email" class="form-input shadcn-input" inputmode="email" autocomplete="email" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" placeholder="you@example.com" required />
+              </div>
+              
+              <div class="form-group">
+                <label for="phone" class="form-label shadcn-label">Phone Number (10 digits)</label>
+                <input id="phone" name="phone" type="tel" class="form-input shadcn-input" inputmode="numeric" pattern="\d{10}" maxlength="10" placeholder="5551234567" required />
+              </div>
+              
+              <div class="form-group">
+                <label for="grade" class="form-label shadcn-label">What grade are you in?</label>
+                <select id="grade" name="grade" class="form-select shadcn-input" required>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="eventType" class="form-label shadcn-label">What type of event are you doing?</label>
+                <select id="eventType" name="eventType" class="form-select shadcn-input" required>
+                  <option value="Written event">Written event</option>
+                  <option value="Oral event">Oral event</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="timePerWeek" class="form-label shadcn-label">How much time do you think you’ll need to put in per week to succeed?</label>
+                <textarea id="timePerWeek" name="timePerWeek" rows="3" class="form-textarea shadcn-input" required></textarea>
             </div>
               
               <button type="submit" class="shadcn-btn shadcn-btn-primary shadcn-btn-lg">Send</button>
@@ -1268,10 +1327,24 @@
     function initMobileMenu() {
       const menuToggle = document.querySelector('.mobile-menu-toggle');
       const mobileNav = document.querySelector('.mobile-nav');
+      const root = document.documentElement;
+      const body = document.body;
       
       if (menuToggle && mobileNav) {
+        const setOpen = (open) => {
+          mobileNav.classList.toggle('open', open);
+          root.style.overflow = open ? 'hidden' : '';
+          body.style.overflow = open ? 'hidden' : '';
+        };
+        
         menuToggle.addEventListener('click', () => {
-          mobileNav.classList.toggle('open');
+          const willOpen = !mobileNav.classList.contains('open');
+          setOpen(willOpen);
+        });
+        
+        // Close menu when a link is tapped
+        mobileNav.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => setOpen(false));
         });
       }
     }
@@ -1351,6 +1424,73 @@
         faqItems[0].classList.add('active');
       }
     }
+
+    // Smooth-scroll and focus contact form
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href^="#contact-form"]');
+      if (!link) return;
+      const target = document.getElementById('contact-form');
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Focus first input after scroll finishes
+      setTimeout(() => {
+        const first = target.querySelector('input, select, textarea');
+        if (first) first.focus({ preventScroll: true });
+      }, 500);
+    });
+
+    // Contact form: validate, send email, then redirect to Calendly
+    document.addEventListener('submit', (e) => {
+      const form = e.target.closest('#contact-form');
+      if (!form) return;
+      e.preventDefault();
+      const fields = ['name','role','schoolName','stateProvince','email','phone','grade','eventType','timePerWeek'];
+      for (const id of fields) {
+        const el = form.querySelector(`#${id}`);
+        if (!el || !el.value || !String(el.value).trim()) {
+          el && el.focus();
+          return;
+        }
+      }
+      const name = form.name.value.trim();
+      const role = form.role.value.trim();
+      const school = form.schoolName.value.trim();
+      const stateProvince = form.stateProvince.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const grade = form.grade.value.trim();
+      const eventType = form.eventType.value.trim();
+      const timePerWeek = form.timePerWeek.value.trim();
+
+      // Extra validation (pattern checks) before sending
+      const emailOk = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
+      if (!emailOk) { form.email.focus(); return; }
+      const phoneDigits = phone.replace(/\D/g, '');
+      if (phoneDigits.length !== 10) { form.phone.focus(); return; }
+
+      const calendlyUrl = 'https://calendly.com/erikawu47/30min';
+
+      // Send through serverless Gmail (uses gmail_user/gmail_pass on Vercel)
+      fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          role,
+          email,
+          phone: phoneDigits,
+          grade,
+          school,
+          stateProvince,
+          eventType,
+          timePerWeek,
+        }),
+      }).catch(() => {}).finally(() => {
+        // After attempting to send, open Calendly
+        try { window.open(calendlyUrl, '_blank', 'noopener'); } catch (e) {}
+      });
+    });
 
     // Event icon slideshow
     function initEventSlideshow() {

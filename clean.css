@@ -6,9 +6,9 @@
   --foreground: #e2e8f0;
   
   /* Accent colors */
-  --primary: #60a5fa;
-  --primary-foreground: #ffffff;
-  --primary-glow: rgba(96, 165, 250, 0.25);
+  --primary: #22d3ee; /* electric cyan */
+  --primary-foreground: #001018;
+  --primary-glow: rgba(34, 211, 238, 0.28);
   
   /* Secondary colors */
   --secondary: #7dd3fc;
@@ -25,12 +25,12 @@
   --card-hover: rgba(35, 35, 35, 0.95);
   
   /* Accent gradients */
-  --gradient-text: linear-gradient(90deg, #7dd3fc, #60a5fa, #818cf8);
+  --gradient-text: linear-gradient(90deg, #67e8f9, #22d3ee, #60a5fa);
   --gradient-bg: linear-gradient(180deg, rgba(20, 20, 20, 0.9), rgba(0, 0, 0, 1));
-  --gradient-btn: linear-gradient(180deg, #60a5fa, #3b82f6);
+  --gradient-btn: linear-gradient(180deg, #22d3ee, #06b6d4 70%, #0284c7);
   
   /* Aurora gradients */
-  --aurora-1: linear-gradient(to right, #7dd3fc, #60a5fa, #818cf8, #c084fc, #e879f9);
+  --aurora-1: linear-gradient(to right, #67e8f9, #22d3ee, #60a5fa, #818cf8, #c084fc);
   
   /* Sizing and spacing */
   --radius-sm: 0.5rem;
@@ -1423,6 +1423,11 @@ p {
   .nav {
     display: none;
   }
+  .hero-cta { flex-direction: column; align-items: stretch; }
+  .hero-cta .btn, .hero-cta .shadcn-btn { width: 100%; }
+  .instagram-card { flex-direction: column; align-items: stretch; text-align: left; gap: 1.25rem; padding: 2rem; }
+  .instagram-icon { width: 56px; height: 56px; }
+  .image-scroller-track img { height: 200px; }
   
   .card-grid {
     grid-template-columns: 1fr;
@@ -1660,6 +1665,15 @@ p {
 @media (max-width: 900px) {
   .written-marquee { grid-template-columns: 1fr; }
   .wm-column { height: 520px; }
+}
+
+/* Small phones */
+@media (max-width: 600px) {
+  .event-item { min-width: 180px; padding: 1rem 1.1rem; }
+  .event-icon { width: 3rem; height: 3rem; }
+  .vm-item { width: clamp(200px, 80vw, 320px); }
+  .vm-video { height: clamp(140px, 45vw, 200px); }
+  .reel-track { grid-auto-columns: 88%; }
 }
 
 /* Fullscreen video modal */
