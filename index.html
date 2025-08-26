@@ -399,7 +399,6 @@
         <span>glassRPG</span>
       </a>
       <nav class="nav">
-        <a href="#programs" class="nav-link">Programs</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#results" class="nav-link">Results</a>
         <a href="#faq" class="nav-link">FAQ</a>
@@ -416,7 +415,6 @@
   </header>
 
   <div class="mobile-nav">
-          <a href="#programs">Programs</a>
           <a href="#about">About</a>
           <a href="#results">Results</a>
           <a href="#faq">FAQ</a>
@@ -973,25 +971,7 @@
               </select>
             </div>
               
-              <div class="form-group">
-                <label for="schoolName" class="form-label shadcn-label">School</label>
-                <input id="schoolName" name="schoolName" class="form-input shadcn-input" required />
-            </div>
               
-              <div class="form-group">
-                <label for="stateProvince" class="form-label shadcn-label">State / Province</label>
-                <input id="stateProvince" name="stateProvince" class="form-input shadcn-input" required />
-            </div>
-              
-              <div class="form-group">
-                <label for="email" class="form-label shadcn-label">Email</label>
-                <input id="email" name="email" type="email" class="form-input shadcn-input" inputmode="email" autocomplete="email" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" placeholder="you@example.com" required />
-              </div>
-              
-              <div class="form-group">
-                <label for="phone" class="form-label shadcn-label">Phone Number (10 digits)</label>
-                <input id="phone" name="phone" type="tel" class="form-input shadcn-input" inputmode="numeric" pattern="\d{10}" maxlength="10" placeholder="5551234567" required />
-              </div>
               
               <div class="form-group">
                 <label for="grade" class="form-label shadcn-label">What grade are you in?</label>
@@ -1004,11 +984,8 @@
               </div>
               
               <div class="form-group">
-                <label for="eventType" class="form-label shadcn-label">What type of event are you doing?</label>
-                <select id="eventType" name="eventType" class="form-select shadcn-input" required>
-                  <option value="Written event">Written event</option>
-                  <option value="Oral event">Oral event</option>
-                </select>
+                <label for="eventCode" class="form-label shadcn-label">What event are you doing? <span class="text-muted">(Enter event code, e.g., PFN)</span></label>
+                <input id="eventCode" name="eventCode" class="form-input shadcn-input" placeholder="e.g., PFN" required />
               </div>
               
               <div class="form-group">
@@ -1445,7 +1422,7 @@
       const form = e.target.closest('#contact-form');
       if (!form) return;
       e.preventDefault();
-      const fields = ['name','role','schoolName','stateProvince','email','phone','grade','eventType','timePerWeek'];
+      const fields = ['name','role','grade','eventCode','timePerWeek'];
       for (const id of fields) {
         const el = form.querySelector(`#${id}`);
         if (!el || !el.value || !String(el.value).trim()) {
@@ -1455,19 +1432,16 @@
       }
       const name = form.name.value.trim();
       const role = form.role.value.trim();
-      const school = form.schoolName.value.trim();
-      const stateProvince = form.stateProvince.value.trim();
-      const email = form.email.value.trim();
-      const phone = form.phone.value.trim();
+      const email = '';
+      const phone = '';
+      const school = '';
+      const stateProvince = '';
       const grade = form.grade.value.trim();
-      const eventType = form.eventType.value.trim();
+      const eventCode = form.eventCode.value.trim();
       const timePerWeek = form.timePerWeek.value.trim();
 
       // Extra validation (pattern checks) before sending
-      const emailOk = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
-      if (!emailOk) { form.email.focus(); return; }
-      const phoneDigits = phone.replace(/\D/g, '');
-      if (phoneDigits.length !== 10) { form.phone.focus(); return; }
+      const phoneDigits = '';
 
       const calendlyUrl = 'https://calendly.com/erikawu47/30min';
 
@@ -1480,12 +1454,8 @@
           body: JSON.stringify({
             name,
             role,
-            email,
-            phone: phoneDigits,
             grade,
-            school,
-            stateProvince,
-            eventType,
+            eventCode,
             timePerWeek,
           }),
         });

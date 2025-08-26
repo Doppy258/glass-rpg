@@ -47,29 +47,14 @@ export default async function handler(req, res) {
     const {
       name,
       role,
-      email,
-      phone,
       grade,
-      school,
-      stateProvince,
-      eventType,
+      eventCode,
       timePerWeek,
     } = body;
 
     const bad = (v) => !v || !String(v).trim();
-    if ([name, role, email, phone, grade, school, stateProvince, eventType, timePerWeek].some(bad)) {
+    if ([name, role, grade, eventCode, timePerWeek].some(bad)) {
       res.status(400).json({ error: 'Missing required fields' });
-      return;
-    }
-
-    const emailOk = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email);
-    if (!emailOk) {
-      res.status(400).json({ error: 'Invalid email' });
-      return;
-    }
-    const phoneDigits = String(phone).replace(/\D/g, '');
-    if (phoneDigits.length !== 10) {
-      res.status(400).json({ error: 'Invalid phone' });
       return;
     }
 
@@ -77,12 +62,8 @@ export default async function handler(req, res) {
     const text = [
       `Name: ${name}`,
       `Parent/Student: ${role}`,
-      `Email: ${email}`,
-      `Phone: ${phoneDigits}`,
       `Grade: ${grade}`,
-      `School: ${school}`,
-      `State/Province: ${stateProvince}`,
-      `Event Type: ${eventType}`,
+      `Event Code: ${eventCode}`,
       `Time per week: ${timePerWeek}`,
     ].join('\n');
 
@@ -116,7 +97,6 @@ export default async function handler(req, res) {
       to: EMAIL_TO,
       subject,
       text,
-      replyTo: email,
     });
 
     res.status(200).json({ ok: true, id: info && info.messageId });
