@@ -3,16 +3,47 @@
 
 const nodemailer = require('nodemailer');
 
+async function readBody(req) {
+  const contentType = (req.headers['content-type'] || '').toLowerCase();
+  // If already parsed by Vercel
+  if (req.body && typeof req.body === 'object' && !Buffer.isBuffer(req.body)) {
+    return req.body;
+  }
+  const chunks = [];
+  for await (const chunk of req) chunks.push(chunk);
+  const raw = Buffer.concat(chunks).toString('utf8') || '';
+  if (contentType.includes('application/json')) {
+    try { return JSON.parse(raw || '{}'); } catch { return {}; }
+  }
+  if (contentType.includes('application/x-www-form-urlencoded')) {
+    const params = new URLSearchParams(raw);
+    const obj = {};
+    for (const [k, v] of params.entries()) obj[k] = v;
+    return obj;
+  }
+  return {};
+}
+
 const EMAIL_TO = 'lucaszhao09@gmail.com';
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
+  // Basic CORS/same-origin safety
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    res.status(204).end();
+    return;
+  }
+
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method not allowed' });
     return;
   }
 
   try {
-    const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body || {};
+    const body = await readBody(req);
     const {
       name,
       role,
@@ -69,7 +100,10 @@ module.exports = async (req, res) => {
       auth: { user, pass },
     });
 
-    await transporter.sendMail({
+    // Verify connection/auth first to surface clear errors
+    await transporter.verify();
+
+    const info = await transporter.sendMail({
       from: user, // must match authenticated Gmail account
       to: EMAIL_TO,
       subject,
@@ -77,10 +111,11 @@ module.exports = async (req, res) => {
       replyTo: email,
     });
 
-    res.status(200).json({ ok: true });
+    res.status(200).json({ ok: true, id: info && info.messageId });
   } catch (err) {
-    res.status(500).json({ error: 'Server error', details: String(err && err.message || err) });
+    console.error('send-email error:', err);
+    res.status(500).json({ error: 'Server error', details: String((err && err.message) || err) });
   }
-};
+}
 
 

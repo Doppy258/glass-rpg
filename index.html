@@ -1441,7 +1441,7 @@
     });
 
     // Contact form: validate, send email, then redirect to Calendly
-    document.addEventListener('submit', (e) => {
+    document.addEventListener('submit', async (e) => {
       const form = e.target.closest('#contact-form');
       if (!form) return;
       e.preventDefault();
@@ -1472,24 +1472,43 @@
       const calendlyUrl = 'https://calendly.com/erikawu47/30min';
 
       // Send through serverless Gmail (uses gmail_user/gmail_pass on Vercel)
-      fetch('/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name,
-          role,
-          email,
-          phone: phoneDigits,
-          grade,
-          school,
-          stateProvince,
-          eventType,
-          timePerWeek,
-        }),
-      }).catch(() => {}).finally(() => {
-        // After attempting to send, open Calendly
-        try { window.open(calendlyUrl, '_blank', 'noopener'); } catch (e) {}
-      });
+      try {
+        const base = window.location.origin.replace(/\/$/, '');
+        const resp = await fetch(`${base}/api/send-email`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name,
+            role,
+            email,
+            phone: phoneDigits,
+            grade,
+            school,
+            stateProvince,
+            eventType,
+            timePerWeek,
+          }),
+        });
+        if (!resp.ok) {
+          let errText = '';
+          try {
+            const j = await resp.json();
+            errText = j && (j.details || j.error) || '';
+          } catch (_) {
+            errText = await resp.text().catch(() => '');
+          }
+          console.error('Email send failed', resp.status, errText);
+          alert(`Sorry, we could not send your message right now. (HTTP ${resp.status})\n${errText || ''}`);
+          return;
+        }
+        // Clear fields to mirror your other site behavior
+        form.reset();
+        // Redirect to Calendly in same tab to avoid popup blockers
+        window.location.href = calendlyUrl;
+      } catch (err) {
+        console.error('Email send error', err);
+        alert('Sorry, we could not send your message right now. Please try again.');
+      }
     });
 
     // Event icon slideshow
