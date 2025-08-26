@@ -86,8 +86,8 @@ export default async function handler(req, res) {
       `Time per week: ${timePerWeek}`,
     ].join('\n');
 
-    const user = process.env.gmail_user;
-    const pass = process.env.gmail_pass;
+    const user = (process.env.gmail_user || process.env.GMAIL_USER || process.env.SMTP_USER || process.env.EMAIL_USER || '').trim();
+    const pass = (process.env.gmail_pass || process.env.GMAIL_PASS || process.env.SMTP_PASS || process.env.EMAIL_PASS || '').trim();
     if (!user || !pass) {
       res.status(500).json({ error: 'Missing gmail_user/gmail_pass env vars' });
       return;
