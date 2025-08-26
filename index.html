@@ -1785,12 +1785,59 @@
       const prevOverflow = root.style.overflow;
       root.style.overflow = 'hidden';
 
+      // smoother progress: buffered target with rAF tween
+      let target = 0;
+      let rafId = null;
+      const tick = () => {
+        const diff = target - progress;
+        if (Math.abs(diff) > 0.02) {
+          progress += diff * 0.15; // easing
+          fill.style.transform = `scaleX(${Math.max(0, Math.min(1, progress/100))})`;
+          label.textContent = Math.round(progress) + '%';
+          rafId = requestAnimationFrame(tick);
+        } else {
+          progress = target;
+          fill.style.transform = `scaleX(${Math.max(0, Math.min(1, progress/100))})`;
+          label.textContent = Math.round(progress) + '%';
+          rafId = null;
+          if (progress >= 100 && !completed) onComplete();
+        }
+      };
+      const setTarget = (next) => {
+        if (completed) return;
+        target = Math.max(0, Math.min(100, next));
+        if (!rafId) rafId = requestAnimationFrame(tick);
+      };
+
+      const onComplete = () => {
+        completed = true;
+        const bar = overlay.querySelector('.intro-bar');
+        const txt = overlay.querySelector('.intro-text');
+        if (bar) bar.classList.add('intro-bounce');
+        if (txt) txt.classList.add('intro-bounce');
+        setTimeout(() => {
+          overlay.style.opacity = '0';
+          overlay.style.transition = 'opacity 360ms ease';
+        }, 700);
+        setTimeout(() => {
+          overlay.remove();
+          root.style.overflow = prevOverflow || '';
+        }, 1100);
+      };
+
       const step = (delta) => {
         if (completed) return;
-        progress = Math.max(0, Math.min(100, progress + delta));
-        fill.style.width = progress + '%';
-        label.textContent = Math.round(progress) + '%';
-        if (progress >= 100 && !completed) {
+        setTarget(target + delta);
+        if (target >= 100 && !completed && !rafId) onComplete();
+      };
+
+      // initialize transform
+      fill.style.transform = 'scaleX(0)';
+      label.textContent = '0%';
+
+      if (!rafId) rafId = requestAnimationFrame(tick);
+
+      if (progress >= 100 && !completed) {
           completed = true;
           // Bounce bar and label twice
           const bar = overlay.querySelector('.intro-bar');
