@@ -28,7 +28,7 @@ const EMAIL_TO = 'lucaszhao09@gmail.com';
 
 export default async function handler(req, res) {
   // Basic CORS/same-origin safety
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
