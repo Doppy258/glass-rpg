@@ -43,6 +43,21 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Simple in-memory IP sliding window limiter (per serverless instance)
+    globalThis.__rate = globalThis.__rate || { map: new Map() };
+    const ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress || '').split(',')[0].trim();
+    const now = Date.now();
+    const windowMs = 5 * 60 * 1000; // 5 minutes
+    const maxRequests = 5; // max 5 submissions per 5 minutes per IP
+    const rec = globalThis.__rate.map.get(ip) || [];
+    const recent = rec.filter(ts => now - ts < windowMs);
+    if (recent.length >= maxRequests) {
+      res.status(429).json({ error: 'Too many requests. Please try again later.' });
+      return;
+    }
+    recent.push(now);
+    globalThis.__rate.map.set(ip, recent);
+
     const body = await readBody(req);
     const {
       name,
@@ -52,11 +67,17 @@ export default async function handler(req, res) {
       region,
       eventCode,
       timePerWeek,
+      company,
     } = body;
 
     const bad = (v) => !v || !String(v).trim();
     if ([name, role, email, grade, region, eventCode, timePerWeek].some(bad)) {
       res.status(400).json({ error: 'Missing required fields' });
+      return;
+    }
+    // Honeypot trap: if filled, treat as spam
+    if (company && String(company).trim().length > 0) {
+      res.status(200).json({ ok: true });
       return;
     }
     // Minimal email format validation (must contain @ and extension)
