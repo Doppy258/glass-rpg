@@ -47,14 +47,21 @@ export default async function handler(req, res) {
     const {
       name,
       role,
+      email,
       grade,
+      region,
       eventCode,
       timePerWeek,
     } = body;
 
     const bad = (v) => !v || !String(v).trim();
-    if ([name, role, grade, eventCode, timePerWeek].some(bad)) {
+    if ([name, role, email, grade, region, eventCode, timePerWeek].some(bad)) {
       res.status(400).json({ error: 'Missing required fields' });
+      return;
+    }
+    // Minimal email format validation (must contain @ and extension)
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(String(email))) {
+      res.status(400).json({ error: 'Invalid email address' });
       return;
     }
 
@@ -62,7 +69,9 @@ export default async function handler(req, res) {
     const text = [
       `Name: ${name}`,
       `Parent/Student: ${role}`,
+      `Email: ${email}`,
       `Grade: ${grade}`,
+      `Region: ${region}`,
       `Event Code: ${eventCode}`,
       `Time per week: ${timePerWeek}`,
     ].join('\n');

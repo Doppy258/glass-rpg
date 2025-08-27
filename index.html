@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>glassRPG — DECA Mentorship by Erika Wu (ICDC GLASS, NYU Stern)</title>
-    <meta name="description" content="One‑on‑one DECA roleplay and written coaching powered by Erika Wu — ICDC GLASS winner and current NYU Stern student. Become judge‑ready with drills, frameworks, and mock competition." />
+    <title>glassRPG — DECA Mentorship by Erika Wu (ICDC top‑4, NYU Stern)</title>
+    <meta name="description" content="One‑on‑one DECA roleplay and written coaching powered by Erika Wu — ICDC 4th place and current NYU Stern student. Become judge‑ready with drills, frameworks, and mock competition." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -446,7 +446,7 @@
           </h1>
           
           <div class="typing-container">
-            <p class="hero-subtitle typing-text">One‑on‑one mentorship with Erika Wu — ICDC GLASS winner and current NYU Stern student. Master the meta, stack the right moves, and win on the scorecard.</p>
+            <p class="hero-subtitle typing-text">One‑on‑one mentorship with Erika Wu — ICDC 4th place and current NYU Stern student. Master the meta, stack the right moves, and win on the scorecard.</p>
           </div>
           
           <div class="hero-cta">
@@ -972,6 +972,11 @@
                 <label for="name" class="form-label shadcn-label">Name</label>
                 <input id="name" name="name" class="form-input shadcn-input" required />
             </div>
+
+              <div class="form-group">
+                <label for="email" class="form-label shadcn-label">Email</label>
+                <input id="email" name="email" type="email" class="form-input shadcn-input" placeholder="you@example.com" required />
+              </div>
               
               <div class="form-group">
                 <label for="role" class="form-label shadcn-label">Are you a parent or student?</label>
@@ -991,6 +996,11 @@
                   <option value="11">11</option>
                   <option value="12">12</option>
                 </select>
+              </div>
+
+              <div class="form-group">
+                <label for="region" class="form-label shadcn-label">Region (State/Province/Country)</label>
+                <input id="region" name="region" class="form-input shadcn-input" placeholder="e.g., CA, Ontario, Singapore" required />
               </div>
               
               <div class="form-group">
@@ -1439,7 +1449,7 @@
       const form = e.target.closest('#contact-form');
       if (!form) return;
       e.preventDefault();
-      const fields = ['name','role','grade','eventCode','timePerWeek'];
+      const fields = ['name','email','role','grade','region','eventCode','timePerWeek'];
       for (const id of fields) {
         const el = form.querySelector(`#${id}`);
         if (!el || !el.value || !String(el.value).trim()) {
@@ -1449,16 +1459,22 @@
       }
       const name = form.name.value.trim();
       const role = form.role.value.trim();
-      const email = '';
+      const email = form.email.value.trim();
       const phone = '';
       const school = '';
-      const stateProvince = '';
+      const region = form.region.value.trim();
       const grade = form.grade.value.trim();
       const eventCode = form.eventCode.value.trim();
       const timePerWeek = form.timePerWeek.value.trim();
 
       // Extra validation (pattern checks) before sending
-      const phoneDigits = '';
+      // Simple email pattern: must include @ and a dot extension
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+      if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        form.email.focus();
+        return;
+      }
 
       const calendlyUrl = 'https://calendly.com/erikawu47/30min';
 
@@ -1471,7 +1487,9 @@
           body: JSON.stringify({
             name,
             role,
+            email,
             grade,
+            region,
             eventCode,
             timePerWeek,
           }),
