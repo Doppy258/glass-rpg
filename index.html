@@ -364,6 +364,8 @@
       .hero-content { grid-template-columns: 1fr; gap: 1.5rem; }
       .hero .carousel { grid-column: 1; }
       .hero h1 { text-align: left; font-size: clamp(2.25rem, 8vw, 3.25rem); }
+      /* Ensure adequate spacing below hero on mobile to avoid overlap with next section */
+      .hero { padding-bottom: 4.5rem; }
     }
 
     /* Mobile refinements */
@@ -1698,6 +1700,10 @@
 
     // Lightweight parallax using data attributes
     function initParallax() {
+      // Disable hero parallax on small screens to prevent overlap/cutoff
+      if (window.innerWidth <= 900) {
+        return;
+      }
       // Apply defaults if author didn't mark elements (avoid transform-animated tracks)
       const defaults = document.querySelectorAll('.hero .container, .instagram-card');
       defaults.forEach(el => { if (el && !el.hasAttribute('data-parallax')) el.setAttribute('data-parallax', '0.12'); });

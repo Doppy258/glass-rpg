@@ -1748,8 +1748,10 @@ p {
 @keyframes wm-up { 0% { transform: translateY(-50%); } 100% { transform: translateY(0); } }
 
 @media (max-width: 900px) {
-  .written-marquee { grid-template-columns: 1fr; }
+  .written-marquee { grid-template-columns: 1fr; gap: 1.5rem; }
   .wm-column { height: 520px; }
+  /* Align both columns to scroll downward on mobile to avoid opposing motion when stacked */
+  .wm-column.up .wm-stack { animation: wm-down 45s linear infinite; }
 }
 
 /* Small phones */
