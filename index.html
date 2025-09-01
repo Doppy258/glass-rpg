@@ -158,7 +158,7 @@
     }
     
     /* Subtle tooltip hint next to submit */
-    .submit-row { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.25rem; }
+    .submit-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-top: 0.25rem; flex-wrap: wrap; }
     .hint { position: relative; display: inline-flex; align-items: center; color: hsl(var(--muted-foreground)); }
     .hint svg { width: 14px; height: 14px; opacity: 0.8; }
     .hint-bubble {
@@ -193,6 +193,24 @@
       transform-origin: center;
     }
     .submit-row:hover .hint-bubble, .submit-row:focus-within .hint-bubble { opacity: 1; transform: translateX(-50%) translateY(-2px); }
+
+    /* Prominent inline notice under submit */
+    .calendly-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      background: hsl(var(--secondary));
+      color: hsl(var(--accent-foreground));
+      border: 1px solid hsl(var(--border));
+      border-radius: 10px;
+      padding: 0.6rem 0.75rem;
+      font-size: 0.9rem;
+      line-height: 1.35;
+      flex: 1 1 100%;
+      margin-top: 0.25rem;
+    }
+    .calendly-notice svg { width: 16px; height: 16px; flex: 0 0 auto; opacity: 0.9; margin-top: 2px; }
+    .calendly-notice span { display: inline; white-space: normal; }
 
     /* Carousel styling - portrait orientation */
     .carousel {
@@ -1058,10 +1076,10 @@
               
               <div class="submit-row">
                 <button type="submit" class="shadcn-btn shadcn-btn-primary shadcn-btn-lg" aria-describedby="calendly-note">Send</button>
-                <span class="hint" aria-hidden="false">
+                <div id="calendly-note" class="calendly-notice" role="note" aria-live="polite">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 10h2v6h-2zM11 7h2v2h-2z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/></svg>
-                  <span id="calendly-note" class="hint-bubble" role="note">Redirects to Calendly to book your free consultation.</span>
-                </span>
+                  <span>Once you submit, you will be taken to a Calendly. Please book a time during which both you and a parent are available.</span>
+                </div>
               </div>
           </form>
           </div>
