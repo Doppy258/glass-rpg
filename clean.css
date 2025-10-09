@@ -1384,6 +1384,7 @@ p {
   border-radius: 50%;
   opacity: 0.1;
   filter: blur(60px);
+  pointer-events: none;
 }
 .shape1 {
   width: 200px;
