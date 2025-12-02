@@ -1049,6 +1049,61 @@
               </div>
               
               <div class="form-group">
+                <label for="phone" class="form-label shadcn-label">Phone Number</label>
+                <div style="display: flex; gap: 0.5rem;">
+                  <select id="countryCode" name="countryCode" class="form-select shadcn-input" style="flex: 0 0 auto; width: 120px;" required>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+1">🇨🇦 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+86">🇨🇳 +86</option>
+                    <option value="+91">🇮🇳 +91</option>
+                    <option value="+81">🇯🇵 +81</option>
+                    <option value="+82">🇰🇷 +82</option>
+                    <option value="+65">🇸🇬 +65</option>
+                    <option value="+852">🇭🇰 +852</option>
+                    <option value="+61">🇦🇺 +61</option>
+                    <option value="+64">🇳🇿 +64</option>
+                    <option value="+33">🇫🇷 +33</option>
+                    <option value="+49">🇩🇪 +49</option>
+                    <option value="+39">🇮🇹 +39</option>
+                    <option value="+34">🇪🇸 +34</option>
+                    <option value="+31">🇳🇱 +31</option>
+                    <option value="+46">🇸🇪 +46</option>
+                    <option value="+47">🇳🇴 +47</option>
+                    <option value="+45">🇩🇰 +45</option>
+                    <option value="+41">🇨🇭 +41</option>
+                    <option value="+43">🇦🇹 +43</option>
+                    <option value="+32">🇧🇪 +32</option>
+                    <option value="+351">🇵🇹 +351</option>
+                    <option value="+353">🇮🇪 +353</option>
+                    <option value="+358">🇫🇮 +358</option>
+                    <option value="+48">🇵🇱 +48</option>
+                    <option value="+7">🇷🇺 +7</option>
+                    <option value="+55">🇧🇷 +55</option>
+                    <option value="+52">🇲🇽 +52</option>
+                    <option value="+54">🇦🇷 +54</option>
+                    <option value="+56">🇨🇱 +56</option>
+                    <option value="+57">🇨🇴 +57</option>
+                    <option value="+27">🇿🇦 +27</option>
+                    <option value="+234">🇳🇬 +234</option>
+                    <option value="+20">🇪🇬 +20</option>
+                    <option value="+971">🇦🇪 +971</option>
+                    <option value="+966">🇸🇦 +966</option>
+                    <option value="+972">🇮🇱 +972</option>
+                    <option value="+90">🇹🇷 +90</option>
+                    <option value="+62">🇮🇩 +62</option>
+                    <option value="+63">🇵🇭 +63</option>
+                    <option value="+66">🇹🇭 +66</option>
+                    <option value="+60">🇲🇾 +60</option>
+                    <option value="+84">🇻🇳 +84</option>
+                    <option value="+92">🇵🇰 +92</option>
+                    <option value="+880">🇧🇩 +880</option>
+                  </select>
+                  <input id="phone" name="phone" type="tel" class="form-input shadcn-input" placeholder="Enter phone number" style="flex: 1;" required />
+                </div>
+              </div>
+              
+              <div class="form-group">
                 <label for="role" class="form-label shadcn-label">Are you a parent or student?</label>
                 <select id="role" name="role" class="form-select shadcn-input" required>
                 <option value="Student">Student</option>
@@ -1179,6 +1234,55 @@
       initRevealUtilities();
       initParallax();
       initScrollProgress();
+      
+      // Phone number auto-formatting (international-friendly)
+      const phoneInput = document.getElementById('phone');
+      const countryCodeSelect = document.getElementById('countryCode');
+      if (phoneInput && countryCodeSelect) {
+        phoneInput.addEventListener('input', (e) => {
+          let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
+          const countryCode = countryCodeSelect.value;
+          
+          // Limit to 15 digits (international standard max)
+          if (value.length > 15) {
+            value = value.slice(0, 15);
+          }
+          
+          // Format based on country code
+          let formatted = '';
+          if (countryCode === '+1' && value.length > 0) {
+            // US/Canada format: (XXX) XXX-XXXX
+            if (value.length > 10) {
+              value = value.slice(0, 10);
+            }
+            formatted = '(' + value.substring(0, 3);
+            if (value.length >= 3) {
+              formatted += ') ' + value.substring(3, 6);
+            }
+            if (value.length >= 6) {
+              formatted += '-' + value.substring(6, 10);
+            }
+          } else {
+            // International format: XXX XXX XXXX (space-separated groups)
+            if (value.length > 0) {
+              const parts = [];
+              for (let i = 0; i < value.length; i += 3) {
+                parts.push(value.substring(i, i + 3));
+              }
+              formatted = parts.join(' ');
+            }
+          }
+          
+          e.target.value = formatted;
+        });
+        
+        // Re-format when country code changes
+        countryCodeSelect.addEventListener('change', () => {
+          if (phoneInput.value) {
+            phoneInput.dispatchEvent(new Event('input'));
+          }
+        });
+      }
       });
 
     // Text reveal animation
@@ -1525,7 +1629,7 @@
       const form = e.target.closest('#contact-form');
       if (!form) return;
       e.preventDefault();
-      const fields = ['name','email','role','grade','region','eventCode','timePerWeek'];
+      const fields = ['name','email','countryCode','phone','role','grade','region','eventCode','timePerWeek'];
       for (const id of fields) {
         const el = form.querySelector(`#${id}`);
         if (!el || !el.value || !String(el.value).trim()) {
@@ -1537,7 +1641,8 @@
       const role = form.role.value.trim();
       const email = form.email.value.trim();
       const company = (form.company && form.company.value || '').trim();
-      const phone = '';
+      const countryCode = form.countryCode.value.trim();
+      const phone = form.phone.value.trim();
       const school = '';
       const region = form.region.value.trim();
       const grade = form.grade.value.trim();
@@ -1553,6 +1658,24 @@
         return;
       }
 
+      // Phone number validation: international-friendly
+      const phoneDigits = phone.replace(/\D/g, '');
+      if (countryCode === '+1') {
+        // US/Canada: must be exactly 10 digits
+        if (phoneDigits.length !== 10) {
+          alert('Please enter a valid 10-digit phone number for US/Canada.');
+          form.phone.focus();
+          return;
+        }
+      } else {
+        // International: must be between 6 and 15 digits
+        if (phoneDigits.length < 6 || phoneDigits.length > 15) {
+          alert('Please enter a valid phone number (6-15 digits).');
+          form.phone.focus();
+          return;
+        }
+      }
+
       const calendlyUrl = 'https://calendly.com/erikawu47/30min';
 
       // Send through serverless Gmail (uses gmail_user/gmail_pass on Vercel)
@@ -1565,6 +1688,8 @@
             name,
             role,
             email,
+            countryCode,
+            phone,
             grade,
             region,
             eventCode,

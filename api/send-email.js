@@ -63,6 +63,8 @@ export default async function handler(req, res) {
       name,
       role,
       email,
+      countryCode,
+      phone,
       grade,
       region,
       eventCode,
@@ -71,7 +73,7 @@ export default async function handler(req, res) {
     } = body;
 
     const bad = (v) => !v || !String(v).trim();
-    if ([name, role, email, grade, region, eventCode, timePerWeek].some(bad)) {
+    if ([name, role, email, countryCode, phone, grade, region, eventCode, timePerWeek].some(bad)) {
       res.status(400).json({ error: 'Missing required fields' });
       return;
     }
@@ -91,6 +93,7 @@ export default async function handler(req, res) {
       `Name: ${name}`,
       `Parent/Student: ${role}`,
       `Email: ${email}`,
+      `Phone: ${countryCode} ${phone}`,
       `Grade: ${grade}`,
       `Region: ${region}`,
       `Event Code: ${eventCode}`,
