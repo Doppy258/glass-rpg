@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>glassRPG — DECA Mentorship by Erika Wu (ICDC top‑4, NYU Stern)</title>
-    <meta name="description" content="One‑on‑one DECA roleplay and written coaching powered by Erika Wu — ICDC 4th place and current NYU Stern student. Become judge‑ready with drills, frameworks, and mock competition." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>glassRPG — DECA Mentorship by Erika Wu (ICDC top‑4, NYU Stern)</title>
+  <meta name="description"
+    content="One‑on‑one DECA roleplay and written coaching powered by Erika Wu — ICDC 4th place and current NYU Stern student. Become judge‑ready with drills, frameworks, and mock competition." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="./clean.css" />
   <style>
     /* Shadcn-inspired styles */
@@ -30,7 +33,7 @@
       --ring: 221.2 83.2% 53.3%;
       --radius: 0.5rem;
     }
-    
+
     /* Shadcn Button Styles */
     .shadcn-btn {
       display: inline-flex;
@@ -44,7 +47,7 @@
       isolation: isolate;
       will-change: transform;
     }
-    
+
     /* Shimmer sweep */
     .shadcn-btn::after {
       content: '';
@@ -53,21 +56,23 @@
       left: -140%;
       height: 100%;
       width: 120%;
-      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.18) 35%, rgba(255,255,255,0.35) 55%, transparent 75%);
+      background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.18) 35%, rgba(255, 255, 255, 0.35) 55%, transparent 75%);
       transform: skewX(-20deg);
       opacity: 0;
       transition: transform 0.6s ease, opacity 0.3s ease;
       pointer-events: none;
       z-index: 1;
     }
-    
+
     .shadcn-btn:hover::after {
       transform: translateX(180%) skewX(-20deg);
       opacity: 0.9;
     }
-    
-    .shadcn-btn:active { transform: translateY(0); }
-    
+
+    .shadcn-btn:active {
+      transform: translateY(0);
+    }
+
     .shadcn-btn-primary {
       background: linear-gradient(180deg, #22d3ee, #06b6d4 70%, #0284c7);
       color: #001018;
@@ -76,9 +81,9 @@
       height: 48px;
       border-radius: 12px;
       border: 1px solid rgba(103, 232, 249, 0.55);
-      box-shadow: 0 10px 30px rgba(6,182,212,0.35), 0 0 24px rgba(34,211,238,0.35);
+      box-shadow: 0 10px 30px rgba(6, 182, 212, 0.35), 0 0 24px rgba(34, 211, 238, 0.35);
     }
-    
+
     /* Animated gradient border beam using masking */
     .shadcn-btn-primary::before {
       content: '';
@@ -86,7 +91,7 @@
       inset: 0;
       border-radius: inherit;
       padding: 2px;
-      background: linear-gradient(var(--btn-beam-angle, 0deg), rgba(255,255,255,0.7), rgba(125,211,252,0.9), rgba(59,130,246,1), rgba(79,70,229,0.85));
+      background: linear-gradient(var(--btn-beam-angle, 0deg), rgba(255, 255, 255, 0.7), rgba(125, 211, 252, 0.9), rgba(59, 130, 246, 1), rgba(79, 70, 229, 0.85));
       -webkit-mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
       mask: linear-gradient(#000, #000) content-box, linear-gradient(#000, #000);
       -webkit-mask-composite: xor;
@@ -95,29 +100,39 @@
       opacity: 0.85;
       z-index: 0;
     }
-    
+
     .shadcn-btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(6,182,212,0.45), 0 0 36px rgba(34,211,238,0.55);
+      box-shadow: 0 18px 40px rgba(6, 182, 212, 0.45), 0 0 36px rgba(34, 211, 238, 0.55);
     }
-    
-    .shadcn-btn-primary:hover::before { animation: btn-beam 2.2s linear infinite; }
-    
+
+    .shadcn-btn-primary:hover::before {
+      animation: btn-beam 2.2s linear infinite;
+    }
+
     .shadcn-btn-primary:focus-visible {
       outline: none;
-      box-shadow: 0 0 0 3px rgba(34,211,238,0.35), 0 10px 30px rgba(6,182,212,0.5), 0 0 24px rgba(34,211,238,0.45);
+      box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.35), 0 10px 30px rgba(6, 182, 212, 0.5), 0 0 24px rgba(34, 211, 238, 0.45);
     }
-    
-    .shadcn-btn-lg { font-size: 1.1rem; padding: 1rem 2rem; height: 56px; }
-    
-    @keyframes btn-beam { to { --btn-beam-angle: 360deg; } }
-    
+
+    .shadcn-btn-lg {
+      font-size: 1.1rem;
+      padding: 1rem 2rem;
+      height: 56px;
+    }
+
+    @keyframes btn-beam {
+      to {
+        --btn-beam-angle: 360deg;
+      }
+    }
+
     .shadcn-btn-lg {
       font-size: 1.1rem;
       padding: 1rem 2rem;
       height: 52px;
     }
-    
+
     /* Form Elements */
     .shadcn-input {
       border-radius: var(--radius);
@@ -129,20 +144,20 @@
       outline: none;
       width: 100%;
     }
-    
+
     .shadcn-input:focus {
       outline: none;
       border-color: hsl(var(--ring));
       box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.15);
     }
-    
+
     .shadcn-label {
       font-size: 0.95rem;
       font-weight: 500;
       margin-bottom: 0.5rem;
       display: block;
     }
-    
+
     .shadcn-card {
       border-radius: 12px;
       background-color: hsl(var(--card));
@@ -151,16 +166,34 @@
       overflow: hidden;
       transition: all 0.2s ease;
     }
-    
+
     .shadcn-card:hover {
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.08);
       transform: translateY(-2px);
     }
-    
+
     /* Subtle tooltip hint next to submit */
-    .submit-row { display: flex; align-items: flex-start; gap: 0.6rem; margin-top: 0.25rem; flex-wrap: wrap; }
-    .hint { position: relative; display: inline-flex; align-items: center; color: hsl(var(--muted-foreground)); }
-    .hint svg { width: 14px; height: 14px; opacity: 0.8; }
+    .submit-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-top: 0.25rem;
+      flex-wrap: wrap;
+    }
+
+    .hint {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      color: hsl(var(--muted-foreground));
+    }
+
+    .hint svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.8;
+    }
+
     .hint-bubble {
       position: absolute;
       bottom: 130%;
@@ -173,12 +206,13 @@
       font-size: 0.8rem;
       line-height: 1.25;
       white-space: nowrap;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 2px 6px rgba(0,0,0,0.25);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.25);
       border: 1px solid hsl(var(--border));
       opacity: 0;
       pointer-events: none;
       transition: opacity .18s ease, transform .18s ease;
     }
+
     .hint-bubble::after {
       content: '';
       position: absolute;
@@ -192,7 +226,12 @@
       transform: translateX(-50%) rotate(45deg);
       transform-origin: center;
     }
-    .submit-row:hover .hint-bubble, .submit-row:focus-within .hint-bubble { opacity: 1; transform: translateX(-50%) translateY(-2px); }
+
+    .submit-row:hover .hint-bubble,
+    .submit-row:focus-within .hint-bubble {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-2px);
+    }
 
     /* Prominent inline notice under submit */
     .calendly-notice {
@@ -209,8 +248,19 @@
       flex: 1 1 100%;
       margin-top: 0.25rem;
     }
-    .calendly-notice svg { width: 16px; height: 16px; flex: 0 0 auto; opacity: 0.9; margin-top: 2px; }
-    .calendly-notice span { display: inline; white-space: normal; }
+
+    .calendly-notice svg {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+      opacity: 0.9;
+      margin-top: 2px;
+    }
+
+    .calendly-notice span {
+      display: inline;
+      white-space: normal;
+    }
 
     /* Carousel styling - portrait orientation */
     .carousel {
@@ -219,7 +269,7 @@
       position: relative;
       margin: 1.5rem 0;
     }
-    
+
     .carousel-container {
       display: flex;
       justify-content: center;
@@ -228,7 +278,7 @@
       position: relative;
       perspective: 1000px;
     }
-    
+
     .carousel-slide {
       position: absolute;
       width: 280px;
@@ -241,28 +291,28 @@
       box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
       transform: scale(0.85);
     }
-    
+
     .carousel-slide.active {
       opacity: 1;
       z-index: 5;
       transform: translateX(0) scale(1);
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     }
-    
+
     .carousel-slide.prev {
       opacity: 0.7;
       transform: translateX(-75%) scale(0.85);
       z-index: 4;
       filter: brightness(0.8) saturate(0.9);
     }
-    
+
     .carousel-slide.next {
       opacity: 0.7;
       transform: translateX(75%) scale(0.85);
       z-index: 4;
       filter: brightness(0.8) saturate(0.9);
     }
-    
+
     .carousel-slide img {
       width: 100%;
       height: 100%;
@@ -270,7 +320,7 @@
       object-position: center;
       border-radius: 16px;
     }
-    
+
     /* Enhanced Magic UI Border Beam Effect */
     .beam-container {
       position: relative;
@@ -279,7 +329,7 @@
       border-radius: 16px;
       overflow: hidden;
     }
-    
+
     .beam-border {
       position: absolute;
       inset: 0px;
@@ -287,56 +337,57 @@
       border-radius: inherit;
       pointer-events: none;
     }
-    
+
     .beam-border::before {
       content: "";
       position: absolute;
       inset: 0px;
       border-radius: inherit;
       padding: 2.5px;
-      background: linear-gradient(
-        var(--beam-angle, 0deg),
-        rgba(255, 255, 255, 0.5),
-        rgba(125, 211, 252, 0.7),
-        rgba(96, 165, 250, 0.9),
-        rgba(79, 70, 229, 0.7)
-      );
+      background: linear-gradient(var(--beam-angle, 0deg),
+          rgba(255, 255, 255, 0.5),
+          rgba(125, 211, 252, 0.7),
+          rgba(96, 165, 250, 0.9),
+          rgba(79, 70, 229, 0.7));
       -webkit-mask: linear-gradient(black, black) content-box,
-                   linear-gradient(black, black);
+        linear-gradient(black, black);
       mask: linear-gradient(black, black) content-box,
-            linear-gradient(black, black);
+        linear-gradient(black, black);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
     }
-    
+
     .carousel-slide.active .beam-border::before {
       animation: beam-rotation 3s linear infinite;
     }
-    
+
     .carousel-slide:hover .beam-border::before {
       padding: 3px;
-      background: linear-gradient(
-        var(--beam-angle, 0deg),
-        rgba(255, 255, 255, 0.7),
-        rgba(125, 211, 252, 0.9),
-        rgba(96, 165, 250, 1),
-        rgba(79, 70, 229, 0.9)
-      );
+      background: linear-gradient(var(--beam-angle, 0deg),
+          rgba(255, 255, 255, 0.7),
+          rgba(125, 211, 252, 0.9),
+          rgba(96, 165, 250, 1),
+          rgba(79, 70, 229, 0.9));
       animation: beam-rotation 2s linear infinite;
     }
-    
+
     @keyframes beam-rotation {
-      0% { --beam-angle: 0deg; }
-      100% { --beam-angle: 360deg; }
+      0% {
+        --beam-angle: 0deg;
+      }
+
+      100% {
+        --beam-angle: 360deg;
+      }
     }
-    
+
     /* Hero section improvements */
     .hero {
       padding: 5rem 0 3rem;
       position: relative;
       overflow: hidden;
     }
-    
+
     .hero-content {
       display: grid;
       grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
@@ -344,21 +395,24 @@
       align-items: start;
       justify-items: start;
       gap: 4rem;
-      max-width: none; /* remove narrow cap so columns fit */
+      max-width: none;
+      /* remove narrow cap so columns fit */
       text-align: left;
     }
-    
+
     .hero h1 {
       margin-bottom: 0.5rem;
       line-height: 1.05;
       font-size: clamp(3.2rem, 6vw, 5.5rem);
       word-break: normal;
     }
-    
-    .hero-tagline { margin-top: 0.5rem; }
-    
-    
-    
+
+    .hero-tagline {
+      margin-top: 0.5rem;
+    }
+
+
+
     .glow-text {
       text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
       display: inline-block;
@@ -370,23 +424,23 @@
       color: transparent;
       font-weight: 800;
     }
-    
+
     .hero-cta {
       margin-top: 0.5rem;
     }
-    
+
     /* Fix for text reveal overlapping */
     .text-reveal {
       overflow: visible;
       margin-bottom: 0.5rem;
     }
-    
+
     /* Typing animation styles */
     .typing-text {
       opacity: 1;
       position: relative;
     }
-    
+
     .typing-cursor {
       display: inline-block;
       width: 2px;
@@ -394,56 +448,143 @@
       animation: cursor-blink 1s infinite;
       color: hsl(var(--primary));
     }
-    
+
     @keyframes cursor-blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
     }
-    
+
     /* Shadcn helper classes */
     .ml-2 {
       margin-left: 0.5rem;
     }
+
     /* Left-right hero layout without changing carousel markup */
-    .hero h1, .hero .hero-tagline, .hero .typing-container, .hero .hero-cta { grid-column: 1; text-align: left; }
-    .hero .carousel { grid-column: 2; grid-row: 1 / span 5; align-self: start; margin: 0; width: 100%; }
-    .hero .carousel-container { height: 540px; }
-    .hero .container { width: min(1600px, 96vw); padding-left: min(3vw, 32px); padding-right: min(4vw, 48px); display: grid; align-items: center; min-height: calc(100vh - var(--header-height)); }
-    .hero .hero-tagline { font-size: clamp(3.5rem, 7vw, 5.5rem); }
+    .hero h1,
+    .hero .hero-tagline,
+    .hero .typing-container,
+    .hero .hero-cta {
+      grid-column: 1;
+      text-align: left;
+    }
+
+    .hero .carousel {
+      grid-column: 2;
+      grid-row: 1 / span 5;
+      align-self: start;
+      margin: 0;
+      width: 100%;
+    }
+
+    .hero .carousel-container {
+      height: 540px;
+    }
+
+    .hero .container {
+      width: min(1600px, 96vw);
+      padding-left: min(3vw, 32px);
+      padding-right: min(4vw, 48px);
+      display: grid;
+      align-items: center;
+      min-height: calc(100vh - var(--header-height));
+    }
+
+    .hero .hero-tagline {
+      font-size: clamp(3.5rem, 7vw, 5.5rem);
+    }
 
     /* Frosted "GLASS" gradient */
-    .hero .aurora-text { background: linear-gradient(90deg, #7dd3fc, #60a5fa, #93c5fd); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: none; }
+    .hero .aurora-text {
+      background: linear-gradient(90deg, #7dd3fc, #60a5fa, #93c5fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: none;
+    }
 
     /* Responsive stack */
     @media (max-width: 900px) {
-      .hero-content { grid-template-columns: 1fr; gap: 1.5rem; }
-      .hero .carousel { grid-column: 1; }
-      .hero h1 { text-align: left; font-size: clamp(2.25rem, 8vw, 3.25rem); }
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .hero .carousel {
+        grid-column: 1;
+      }
+
+      .hero h1 {
+        text-align: left;
+        font-size: clamp(2.25rem, 8vw, 3.25rem);
+      }
+
       /* Ensure adequate spacing below hero on mobile to avoid overlap with next section */
-      .hero { padding-bottom: 4.5rem; }
+      .hero {
+        padding-bottom: 4.5rem;
+      }
     }
 
     /* Mobile refinements */
     @media (max-width: 600px) {
-      .hero .container { padding-left: 16px; padding-right: 16px; }
-      .hero .hero-tagline { font-size: clamp(2rem, 8vw, 2.5rem); }
-      .carousel-container { height: 380px; }
-      .carousel-slide { width: 220px; height: 320px; }
-      .carousel-slide.prev { transform: translateX(-55%) scale(0.85); }
-      .carousel-slide.next { transform: translateX(55%) scale(0.85); }
+      .hero .container {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .hero .hero-tagline {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+      }
+
+      .carousel-container {
+        height: 380px;
+      }
+
+      .carousel-slide {
+        width: 220px;
+        height: 320px;
+      }
+
+      .carousel-slide.prev {
+        transform: translateX(-55%) scale(0.85);
+      }
+
+      .carousel-slide.next {
+        transform: translateX(55%) scale(0.85);
+      }
     }
 
     /* Force full dark theme and remove accidental light backgrounds */
-    body { background-color: #000 !important; color: #fff !important; }
-    .section, .header, .footer { background: transparent; }
-    #vanta-bg { background: #000; opacity: 1; }
+    body {
+      background-color: #000 !important;
+      color: #fff !important;
+    }
+
+    .section,
+    .header,
+    .footer {
+      background: transparent;
+    }
+
+    #vanta-bg {
+      background: #000;
+      opacity: 1;
+    }
   </style>
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%237dd3fc'/%3E%3Cstop offset='1' stop-color='%2360a5fa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='14' ry='14' width='64' height='64' fill='url(%23g)'/%3E%3Cpath d='M18 34c6-8 22-8 28 0' stroke='white' stroke-opacity='.8' stroke-width='4' fill='none'/%3E%3Ccircle cx='32' cy='28' r='6' fill='white' fill-opacity='.9'/%3E%3C/svg%3E" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
-  </head>
-  <body>
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%237dd3fc'/%3E%3Cstop offset='1' stop-color='%2360a5fa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='14' ry='14' width='64' height='64' fill='url(%23g)'/%3E%3Cpath d='M18 34c6-8 22-8 28 0' stroke='white' stroke-opacity='.8' stroke-width='4' fill='none'/%3E%3Ccircle cx='32' cy='28' r='6' fill='white' fill-opacity='.9'/%3E%3C/svg%3E" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
+</head>
+
+<body>
   <div class="scroll-progress" aria-hidden="true"></div>
   <!-- Animated background elements -->
   <div class="animated-bg"></div>
@@ -452,7 +593,7 @@
   <div class="noise-overlay"></div>
 
   <header class="header">
-      <div class="container header-inner">
+    <div class="container header-inner">
       <a href="#" class="logo">
         <div class="logo-icon"></div>
         <span>glassRPG</span>
@@ -464,24 +605,25 @@
         <a href="#contact" class="btn btn-primary">Book a call</a>
       </nav>
       <button class="mobile-menu-toggle" aria-label="Toggle menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
           <line x1="4" y1="12" x2="20" y2="12"></line>
           <line x1="4" y1="6" x2="20" y2="6"></line>
           <line x1="4" y1="18" x2="20" y2="18"></line>
         </svg>
       </button>
-        </div>
+    </div>
   </header>
 
   <div class="mobile-nav">
-          <a href="#about">About</a>
-          <a href="#results">Results</a>
-          <a href="#faq">FAQ</a>
+    <a href="#about">About</a>
+    <a href="#results">Results</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact" class="btn btn-primary">Book a call</a>
-      </div>
+  </div>
 
-    <main>
-      <section class="hero">
+  <main>
+    <section class="hero">
       <div id="vanta-bg" aria-hidden="true"></div>
       <!-- Particle Background -->
       <div class="particle-bg">
@@ -494,7 +636,7 @@
         <div class="particle particle-large" style="left: 60%; animation-delay: 3s;"></div>
         <div class="particle particle-medium" style="left: 80%; animation-delay: 5s;"></div>
       </div>
-        <div class="container">
+      <div class="container">
         <div class="hero-content">
           <h1>
             <div class="text-reveal">
@@ -507,24 +649,29 @@
               <span class="text-reveal-content aurora-text">GLASS.</span>
             </div>
             <div class="text-reveal hero-tagline" style="margin: 0.25rem 0 1rem;">
-              <span class="text-reveal-content glow-text" style="font-size: clamp(3rem, 6.5vw, 5rem); font-weight: 800;">Learn how to play the game.</span>
+              <span class="text-reveal-content glow-text"
+                style="font-size: clamp(3rem, 6.5vw, 5rem); font-weight: 800;">Learn how to play the game.</span>
             </div>
           </h1>
-          
+
           <div class="typing-container">
-            <p class="hero-subtitle typing-text">One‑on‑one mentorship with Erika Wu — ICDC winner and current NYU Stern student. Master the meta, stack the right moves, and win on the scorecard.</p>
+            <p class="hero-subtitle typing-text">One‑on‑one mentorship with Erika Wu — ICDC winner and current NYU Stern
+              student. Master the meta, stack the right moves, and win on the scorecard.</p>
           </div>
-          
+
           <div class="hero-cta">
             <a href="#contact-form" class="shadcn-btn shadcn-btn-primary shadcn-btn-lg magnetic-btn shimmer glow-pulse">
               <span>Book a free intro call</span>
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-2">
-                <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="ml-2">
+                <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </a>
           </div>
-          
+
           <div class="carousel">
             <div class="carousel-container">
               <div class="carousel-slide">
@@ -571,161 +718,161 @@
               </div>
             </div>
           </div>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-        <!-- DECA Events Scroller -->
+    <!-- DECA Events Scroller -->
     <section class="section" style="padding: 4rem 0 2rem;">
-        <div class="container">
-          <h2 class="section-title aurora-text">What We Cover</h2>
-          <p class="section-subtitle">Specialized coaching across all DECA event categories</p>
+      <div class="container">
+        <h2 class="section-title aurora-text">What We Cover</h2>
+        <p class="section-subtitle">Specialized coaching across all DECA event categories</p>
         <div class="event-scroller">
           <div class="event-track">
             <!-- First set -->
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/>
+                  <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
                 </svg>
               </div>
               <div class="event-name">Business Management</div>
             </div>
-            
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 3l3 6 6 .9-4.5 4.4 1.1 6.3L12 17l-5.6 3.6L7.6 14 3 9.9 9 9l3-6z"/>
+                  <path d="M12 3l3 6 6 .9-4.5 4.4 1.1 6.3L12 17l-5.6 3.6L7.6 14 3 9.9 9 9l3-6z" />
                 </svg>
-          </div>
+              </div>
               <div class="event-name">Entrepreneurship</div>
-        </div>
-            
+            </div>
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 15l6-6 4 4 6-6" stroke-linecap="round"/>
-                  <path d="M3 20h18" stroke-linecap="round"/>
+                  <path d="M4 15l6-6 4 4 6-6" stroke-linecap="round" />
+                  <path d="M3 20h18" stroke-linecap="round" />
                 </svg>
-          </div>
+              </div>
               <div class="event-name">Finance</div>
-        </div>
-            
+            </div>
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 6h16v12H4z"/>
-                  <path d="M8 10h8M8 14h5"/>
+                  <path d="M4 6h16v12H4z" />
+                  <path d="M8 10h8M8 14h5" />
                 </svg>
               </div>
               <div class="event-name">Hospitality</div>
             </div>
-            
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14"/>
-                  <circle cx="12" cy="12" r="8"/>
+                  <path d="M5 12h14" />
+                  <circle cx="12" cy="12" r="8" />
                 </svg>
               </div>
               <div class="event-name">Marketing</div>
             </div>
-            
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 7h-9l-2-3H4a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1z"/>
+                  <path d="M20 7h-9l-2-3H4a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1z" />
                 </svg>
-          </div>
+              </div>
               <div class="event-name">Business Services</div>
-        </div>
-            
+            </div>
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
-                  <path d="M15 2H9a1 1 0 00-1 1v2a1 1 0 001 1h6a1 1 0 001-1V3a1 1 0 00-1-1z"/>
+                  <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2" />
+                  <path d="M15 2H9a1 1 0 00-1 1v2a1 1 0 001 1h6a1 1 0 001-1V3a1 1 0 00-1-1z" />
                 </svg>
               </div>
               <div class="event-name">Professional Selling</div>
             </div>
-            
+
             <!-- Duplicate set for infinite scroll -->
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/>
+                  <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
                 </svg>
               </div>
               <div class="event-name">Business Management</div>
             </div>
-            
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 3l3 6 6 .9-4.5 4.4 1.1 6.3L12 17l-5.6 3.6L7.6 14 3 9.9 9 9l3-6z"/>
+                  <path d="M12 3l3 6 6 .9-4.5 4.4 1.1 6.3L12 17l-5.6 3.6L7.6 14 3 9.9 9 9l3-6z" />
                 </svg>
               </div>
               <div class="event-name">Entrepreneurship</div>
             </div>
-            
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 15l6-6 4 4 6-6" stroke-linecap="round"/>
-                  <path d="M3 20h18" stroke-linecap="round"/>
+                  <path d="M4 15l6-6 4 4 6-6" stroke-linecap="round" />
+                  <path d="M3 20h18" stroke-linecap="round" />
                 </svg>
               </div>
               <div class="event-name">Finance</div>
             </div>
-            
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 6h16v12H4z"/>
-                  <path d="M8 10h8M8 14h5"/>
+                  <path d="M4 6h16v12H4z" />
+                  <path d="M8 10h8M8 14h5" />
                 </svg>
               </div>
               <div class="event-name">Hospitality</div>
             </div>
-            
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14"/>
-                  <circle cx="12" cy="12" r="8"/>
+                  <path d="M5 12h14" />
+                  <circle cx="12" cy="12" r="8" />
                 </svg>
               </div>
               <div class="event-name">Marketing</div>
             </div>
-            
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 7h-9l-2-3H4a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1z"/>
+                  <path d="M20 7h-9l-2-3H4a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1z" />
                 </svg>
               </div>
               <div class="event-name">Business Services</div>
             </div>
-            
+
             <div class="event-item hover-lift hover-scale card-glow">
               <div class="event-icon shimmer">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/>
-                  <path d="M15 2H9a1 1 0 00-1 1v2a1 1 0 001 1h6a1 1 0 001-1V3a1 1 0 00-1-1z"/>
+                  <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2" />
+                  <path d="M15 2H9a1 1 0 00-1 1v2a1 1 0 001 1h6a1 1 0 001-1V3a1 1 0 00-1-1z" />
                 </svg>
               </div>
               <div class="event-name">Professional Selling</div>
             </div>
           </div>
         </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
     <!-- Centered "About Me" Section -->
     <section id="about" class="section" style="background: var(--gradient-bg);">
       <div class="container" style="text-align: center;">
-        
+
         <!-- Image Scroller -->
         <div class="image-scroller">
           <div class="image-scroller-track">
@@ -747,46 +894,57 @@
           <h2 class="text-reveal" style="font-size: 2.8rem; margin-bottom: 1rem;">
             <span class="text-reveal-content aurora-text">Meet Erika Wu</span>
           </h2>
-          
+
           <div class="flex" style="gap: 1.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem;">
-            <div style="background: rgba(96, 165, 250, 0.1); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; font-size: 1.2rem;">
+            <div
+              style="background: rgba(96, 165, 250, 0.1); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; font-size: 1.2rem;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
               </svg>
               <span class="aurora-text" style="font-weight: 600;">NYU Stern</span>
             </div>
-            
-            <div style="background: rgba(96, 165, 250, 0.1); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; font-size: 1.2rem;">
+
+            <div
+              style="background: rgba(96, 165, 250, 0.1); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; font-size: 1.2rem;">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="8" r="7"></circle>
                 <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
               </svg>
               <span class="aurora-text" style="font-weight: 600;">3× International Winner</span>
             </div>
-            <div style="background: rgba(96, 165, 250, 0.1); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; font-size: 1.2rem;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-                    <path d="M4 22h16"/>
-                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
-                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
-                </svg>
+            <div
+              style="background: rgba(96, 165, 250, 0.1); padding: 0.75rem 1.5rem; border-radius: var(--radius-md); display: flex; align-items: center; gap: 0.75rem; font-size: 1.2rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                <path d="M4 22h16" />
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+              </svg>
               <span class="aurora-text" style="font-weight: 600;">#1 Test & Roleplay of 200+</span>
             </div>
           </div>
-          
+
           <p class="text-muted" style="font-size: 1.25rem; line-height: 1.6;">
-            Erika Wu is a 3x DECA ICDC international award winner, placing 4th in the world and sweeping all preliminary awards—proof of her consistent top-tier performance on the global stage. As Vice President of her 200+ member chapter, she not only excelled herself but also trained and mentored one of the largest teams in her state—all while graduating valedictorian, AP Scholar with Distinction, and a top-percentile Stanford researcher.
+            Erika Wu is a 3x DECA ICDC international award winner, placing 4th in the world and sweeping all preliminary
+            awards—proof of her consistent top-tier performance on the global stage. As Vice President of her 200+
+            member chapter, she not only excelled herself but also trained and mentored one of the largest teams in her
+            state—all while graduating valedictorian, AP Scholar with Distinction, and a top-percentile Stanford
+            researcher.
           </p>
           <p class="text-muted" style="font-size: 1.25rem; line-height: 1.6;">
-            Now at the NYU Stern School of Business, Erika has turned her experience into coaching. In the past year alone, she's sent 25+ students to ICDC, with over 80% winning top awards. Her edge? Exclusive resources (no, not DECA+) powerful enough to take students from zero to 95+ scores in under two months.
+            Now at the NYU Stern School of Business, Erika has turned her experience into coaching. In the past year
+            alone, she's sent 25+ students to ICDC, with over 80% winning top awards. Her edge? Exclusive resources (no,
+            not DECA+) powerful enough to take students from zero to 95+ scores in under two months.
           </p>
           <p class="text-muted" style="font-size: 1.25rem; line-height: 1.6;">
-            What sets Erika apart isn't just her accolades, but her proven ability to transform students from average to exceptional—a skill even champions rarely replicate.
+            What sets Erika apart isn't just her accolades, but her proven ability to transform students from average to
+            exceptional—a skill even champions rarely replicate.
           </p>
-          
+
           <div class="mt-8">
             <a href="#contact" class="btn btn-primary btn-lg magnetic-btn shimmer">Apply for coaching</a>
           </div>
@@ -808,45 +966,63 @@
               <!-- Set A -->
               <article class="vm-item" data-video-src="IMG_1936.mov">
                 <div class="vm-media">
-                  <video class="vm-video" src="IMG_1936.mov" preload="metadata" playsinline muted loop poster="IMG_7198.jpeg"></video>
+                  <video class="vm-video" src="IMG_1936.mov" preload="metadata" playsinline muted loop
+                    poster="IMG_7198.jpeg"></video>
                   <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </button>
                 </div>
-                <div class="vm-caption"><span class="vm-name">Devin</span><span class="vm-meta">ICDC 2nd & Chapter VP</span></div>
+                <div class="vm-caption"><span class="vm-name">Devin</span><span class="vm-meta">ICDC 2nd & Chapter
+                    VP</span></div>
               </article>
               <article class="vm-item" data-video-src="IMG_7342.mov">
                 <div class="vm-media">
-                  <video class="vm-video" src="IMG_7342.mov" preload="metadata" playsinline muted loop poster="IMG_1041.jpeg"></video>
+                  <video class="vm-video" src="IMG_7342.mov" preload="metadata" playsinline muted loop
+                    poster="IMG_1041.jpeg"></video>
                   <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </button>
-                  </div>
-                <div class="vm-caption"><span class="vm-name">Narain Bala</span><span class="vm-meta">ICDC 2nd & Chapter Director</span></div>
+                </div>
+                <div class="vm-caption"><span class="vm-name">Narain Bala</span><span class="vm-meta">ICDC 2nd & Chapter
+                    Director</span></div>
               </article>
               <article class="vm-item" data-video-src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov">
                 <div class="vm-media">
-                  <video class="vm-video" src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov" preload="metadata" playsinline muted loop poster="deca_venue.jpeg"></video>
+                  <video class="vm-video" src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov" preload="metadata"
+                    playsinline muted loop poster="deca_venue.jpeg"></video>
                   <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </button>
                 </div>
-                <div class="vm-caption"><span class="vm-name">California State Officer</span><span class="vm-meta">CA State Officer & ICDC 3rd Place</span></div>
+                <div class="vm-caption"><span class="vm-name">California State Officer</span><span class="vm-meta">CA
+                    State Officer & ICDC 3rd Place</span></div>
               </article>
               <article class="vm-item" data-video-src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov">
                 <div class="vm-media">
-                  <video class="vm-video" src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov" preload="metadata" playsinline muted loop poster="IMG_0827.jpg"></video>
+                  <video class="vm-video" src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov" preload="metadata" playsinline
+                    muted loop poster="IMG_0827.jpg"></video>
                   <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </button>
-              </div>
+                </div>
                 <div class="vm-caption"><span class="vm-name">Jessica</span></div>
               </article>
               <article class="vm-item" data-video-src="Testimonial.mov">
                 <div class="vm-media">
-                  <video class="vm-video" src="Testimonial.mov" preload="metadata" playsinline muted loop poster="IMG_1535.jpeg"></video>
+                  <video class="vm-video" src="Testimonial.mov" preload="metadata" playsinline muted loop
+                    poster="IMG_1535.jpeg"></video>
                   <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </button>
                 </div>
                 <div class="vm-caption"><span class="vm-name">Dhanya</span></div>
@@ -855,54 +1031,72 @@
               <!-- Duplicate Set B for seamless loop -->
               <article class="vm-item" data-video-src="IMG_1936.mov">
                 <div class="vm-media">
-                  <video class="vm-video" src="IMG_1936.mov" preload="metadata" playsinline muted loop poster="IMG_7198.jpeg"></video>
+                  <video class="vm-video" src="IMG_1936.mov" preload="metadata" playsinline muted loop
+                    poster="IMG_7198.jpeg"></video>
                   <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </button>
-                  </div>
-                <div class="vm-caption"><span class="vm-name">Devin</span><span class="vm-meta">ICDC 2nd & Chapter VP</span></div>
+                </div>
+                <div class="vm-caption"><span class="vm-name">Devin</span><span class="vm-meta">ICDC 2nd & Chapter
+                    VP</span></div>
               </article>
               <article class="vm-item" data-video-src="IMG_7342.mov">
                 <div class="vm-media">
-                  <video class="vm-video" src="IMG_7342.mov" preload="metadata" playsinline muted loop poster="IMG_1041.jpeg"></video>
+                  <video class="vm-video" src="IMG_7342.mov" preload="metadata" playsinline muted loop
+                    poster="IMG_1041.jpeg"></video>
                   <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </button>
                 </div>
-                <div class="vm-caption"><span class="vm-name">Narain Bala</span><span class="vm-meta">ICDC 2nd & Chapter Director</span></div>
+                <div class="vm-caption"><span class="vm-name">Narain Bala</span><span class="vm-meta">ICDC 2nd & Chapter
+                    Director</span></div>
               </article>
               <article class="vm-item" data-video-src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov">
                 <div class="vm-media">
-                  <video class="vm-video" src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov" preload="metadata" playsinline muted loop poster="deca_venue.jpeg"></video>
+                  <video class="vm-video" src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov" preload="metadata"
+                    playsinline muted loop poster="deca_venue.jpeg"></video>
                   <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </button>
-              </div>
-                <div class="vm-caption"><span class="vm-name">California State Officer</span><span class="vm-meta">CA State Officer & ICDC 3rd Place</span></div>
+                </div>
+                <div class="vm-caption"><span class="vm-name">California State Officer</span><span class="vm-meta">CA
+                    State Officer & ICDC 3rd Place</span></div>
               </article>
               <article class="vm-item" data-video-src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov">
                 <div class="vm-media">
-                  <video class="vm-video" src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov" preload="metadata" playsinline muted loop poster="IMG_0827.jpg"></video>
+                  <video class="vm-video" src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov" preload="metadata" playsinline
+                    muted loop poster="IMG_0827.jpg"></video>
                   <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </button>
                 </div>
                 <div class="vm-caption"><span class="vm-name">Jessica</span></div>
               </article>
               <article class="vm-item" data-video-src="Testimonial.mov">
                 <div class="vm-media">
-                  <video class="vm-video" src="Testimonial.mov" preload="metadata" playsinline muted loop poster="IMG_1535.jpeg"></video>
+                  <video class="vm-video" src="Testimonial.mov" preload="metadata" playsinline muted loop
+                    poster="IMG_1535.jpeg"></video>
                   <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </button>
-                  </div>
+                </div>
                 <div class="vm-caption"><span class="vm-name">Dhanya</span></div>
               </article>
-                </div>
+            </div>
             <div class="vm-fade left"></div>
             <div class="vm-fade right"></div>
-              </div>
-            </div>
+          </div>
+        </div>
 
         <!-- Written only (2 columns, opposing scroll, infinite) -->
         <div class="testimonials-group">
@@ -912,16 +1106,84 @@
             <div class="wm-column down">
               <div class="wm-stack">
                 <!-- Set A -->
-                <article class="wm-card"><h4 class="t-name">Devin</h4><p class="t-meta">ICDC 2nd & Chapter VP</p><p class="t-quote">Erika is extremely adept at both teaching and encouraging students, including myself. Even though I struggled early on in my journey, she never gave up on me. With Erika as a mentor, I was able to build off of personalized advice that I simply wouldn't have been able to find otherwise. Whether you are seeking help in DECA or public speaking in general, know that Erika will always deliver.</p></article>
-                <article class="wm-card"><h4 class="t-name">Saahithi</h4><p class="t-meta">CA 2nd Place & ICDC Qualifier</p><p class="t-quote">Even though we primarily only practiced for our roleplay event, I think your help with my public speaking is ultimately what helped me win 2nd place in CA and qualify for ICDC with my written! Thank you so much Erika, I'm super grateful :)</p></article>
-                <article class="wm-card"><h4 class="t-name">Brandon</h4><p class="t-meta">From Brandon's mom • ICDC Qualifier</p><p class="t-quote">Erika is one of the most effective and resourceful teachers I have ever seen. She not only is extremely proficient in coaching public speaking skills, she is also extraordinary in her ability to tailor her teaching to different students with different needs and weaknesses. I know that because both I and my son have taken classes with Erica and we both benefitted tremendously with completely unique advice that Erica was able to develop for each of us.</p></article>
-                <article class="wm-card"><h4 class="t-name">Fiza</h4><p class="t-meta">Ontario Provincial Finalist</p><p class="t-quote">Erika spent hours reviewing videos of my DECA roleplays and providing detailed feedback in addition to our tutoring sessions. Although she was only my tutor for a short period of time, in that time she significantly improved my skills. She personalized her feedback to my specific strengths and weaknesses so I could get the best results. She also provided unique feedback that I didn't get from anyone else, which was necessary to help me succeed. Her dedication and expertise made a noticeable difference in my performance, helping me refine my presentation, enhance my business terminology, and build confidence in my case studies. She goes beyond just offering general advice—her coaching is tailored, insightful, and practical. I highly recommend Erika's tutoring to anyone looking to take their DECA skills to the next level.</p></article>
+                <article class="wm-card">
+                  <h4 class="t-name">Devin</h4>
+                  <p class="t-meta">ICDC 2nd & Chapter VP</p>
+                  <p class="t-quote">Erika is extremely adept at both teaching and encouraging students, including
+                    myself. Even though I struggled early on in my journey, she never gave up on me. With Erika as a
+                    mentor, I was able to build off of personalized advice that I simply wouldn't have been able to find
+                    otherwise. Whether you are seeking help in DECA or public speaking in general, know that Erika will
+                    always deliver.</p>
+                </article>
+                <article class="wm-card">
+                  <h4 class="t-name">Saahithi</h4>
+                  <p class="t-meta">CA 2nd Place & ICDC Qualifier</p>
+                  <p class="t-quote">Even though we primarily only practiced for our roleplay event, I think your help
+                    with my public speaking is ultimately what helped me win 2nd place in CA and qualify for ICDC with
+                    my written! Thank you so much Erika, I'm super grateful :)</p>
+                </article>
+                <article class="wm-card">
+                  <h4 class="t-name">Brandon</h4>
+                  <p class="t-meta">From Brandon's mom • ICDC Qualifier</p>
+                  <p class="t-quote">Erika is one of the most effective and resourceful teachers I have ever seen. She
+                    not only is extremely proficient in coaching public speaking skills, she is also extraordinary in
+                    her ability to tailor her teaching to different students with different needs and weaknesses. I know
+                    that because both I and my son have taken classes with Erica and we both benefitted tremendously
+                    with completely unique advice that Erica was able to develop for each of us.</p>
+                </article>
+                <article class="wm-card">
+                  <h4 class="t-name">Fiza</h4>
+                  <p class="t-meta">Ontario Provincial Finalist</p>
+                  <p class="t-quote">Erika spent hours reviewing videos of my DECA roleplays and providing detailed
+                    feedback in addition to our tutoring sessions. Although she was only my tutor for a short period of
+                    time, in that time she significantly improved my skills. She personalized her feedback to my
+                    specific strengths and weaknesses so I could get the best results. She also provided unique feedback
+                    that I didn't get from anyone else, which was necessary to help me succeed. Her dedication and
+                    expertise made a noticeable difference in my performance, helping me refine my presentation, enhance
+                    my business terminology, and build confidence in my case studies. She goes beyond just offering
+                    general advice—her coaching is tailored, insightful, and practical. I highly recommend Erika's
+                    tutoring to anyone looking to take their DECA skills to the next level.</p>
+                </article>
 
                 <!-- Duplicate Set B -->
-                <article class="wm-card"><h4 class="t-name">Devin</h4><p class="t-meta">ICDC 2nd & Chapter VP</p><p class="t-quote">Erika is extremely adept at both teaching and encouraging students, including myself. Even though I struggled early on in my journey, she never gave up on me. With Erika as a mentor, I was able to build off of personalized advice that I simply wouldn't have been able to find otherwise. Whether you are seeking help in DECA or public speaking in general, know that Erika will always deliver.</p></article>
-                <article class="wm-card"><h4 class="t-name">Saahithi</h4><p class="t-meta">CA 2nd Place & ICDC Qualifier</p><p class="t-quote">Even though we primarily only practiced for our roleplay event, I think your help with my public speaking is ultimately what helped me win 2nd place in CA and qualify for ICDC with my written! Thank you so much Erika, I'm super grateful :)</p></article>
-                <article class="wm-card"><h4 class="t-name">Brandon</h4><p class="t-meta">From Brandon's mom • ICDC Qualifier</p><p class="t-quote">Erika is one of the most effective and resourceful teachers I have ever seen. She not only is extremely proficient in coaching public speaking skills, she is also extraordinary in her ability to tailor her teaching to different students with different needs and weaknesses. I know that because both I and my son have taken classes with Erica and we both benefitted tremendously with completely unique advice that Erica was able to develop for each of us.</p></article>
-                <article class="wm-card"><h4 class="t-name">Fiza</h4><p class="t-meta">Ontario Provincial Finalist</p><p class="t-quote">Erika spent hours reviewing videos of my DECA roleplays and providing detailed feedback in addition to our tutoring sessions. Although she was only my tutor for a short period of time, in that time she significantly improved my skills. She personalized her feedback to my specific strengths and weaknesses so I could get the best results. She also provided unique feedback that I didn't get from anyone else, which was necessary to help me succeed. Her dedication and expertise made a noticeable difference in my performance, helping me refine my presentation, enhance my business terminology, and build confidence in my case studies. She goes beyond just offering general advice—her coaching is tailored, insightful, and practical. I highly recommend Erika's tutoring to anyone looking to take their DECA skills to the next level.</p></article>
+                <article class="wm-card">
+                  <h4 class="t-name">Devin</h4>
+                  <p class="t-meta">ICDC 2nd & Chapter VP</p>
+                  <p class="t-quote">Erika is extremely adept at both teaching and encouraging students, including
+                    myself. Even though I struggled early on in my journey, she never gave up on me. With Erika as a
+                    mentor, I was able to build off of personalized advice that I simply wouldn't have been able to find
+                    otherwise. Whether you are seeking help in DECA or public speaking in general, know that Erika will
+                    always deliver.</p>
+                </article>
+                <article class="wm-card">
+                  <h4 class="t-name">Saahithi</h4>
+                  <p class="t-meta">CA 2nd Place & ICDC Qualifier</p>
+                  <p class="t-quote">Even though we primarily only practiced for our roleplay event, I think your help
+                    with my public speaking is ultimately what helped me win 2nd place in CA and qualify for ICDC with
+                    my written! Thank you so much Erika, I'm super grateful :)</p>
+                </article>
+                <article class="wm-card">
+                  <h4 class="t-name">Brandon</h4>
+                  <p class="t-meta">From Brandon's mom • ICDC Qualifier</p>
+                  <p class="t-quote">Erika is one of the most effective and resourceful teachers I have ever seen. She
+                    not only is extremely proficient in coaching public speaking skills, she is also extraordinary in
+                    her ability to tailor her teaching to different students with different needs and weaknesses. I know
+                    that because both I and my son have taken classes with Erica and we both benefitted tremendously
+                    with completely unique advice that Erica was able to develop for each of us.</p>
+                </article>
+                <article class="wm-card">
+                  <h4 class="t-name">Fiza</h4>
+                  <p class="t-meta">Ontario Provincial Finalist</p>
+                  <p class="t-quote">Erika spent hours reviewing videos of my DECA roleplays and providing detailed
+                    feedback in addition to our tutoring sessions. Although she was only my tutor for a short period of
+                    time, in that time she significantly improved my skills. She personalized her feedback to my
+                    specific strengths and weaknesses so I could get the best results. She also provided unique feedback
+                    that I didn't get from anyone else, which was necessary to help me succeed. Her dedication and
+                    expertise made a noticeable difference in my performance, helping me refine my presentation, enhance
+                    my business terminology, and build confidence in my case studies. She goes beyond just offering
+                    general advice—her coaching is tailored, insightful, and practical. I highly recommend Erika's
+                    tutoring to anyone looking to take their DECA skills to the next level.</p>
+                </article>
               </div>
             </div>
 
@@ -929,15 +1191,57 @@
             <div class="wm-column up">
               <div class="wm-stack">
                 <!-- Set A -->
-                <article class="wm-card"><h4 class="t-name">Steven</h4><p class="t-meta">CA State Finalist</p><p class="t-quote">Proactive about ensuring student learning, realistic (won't sugarcoat unproductive behavior), has many resources to help with studying deca. More casual student/mentor relationship while still maintaining productivity to a good extent.</p></article>
-                <article class="wm-card"><h4 class="t-name">Deetya</h4><p class="t-meta">From Deetya's mom • VA States Finalist, 3rd Regionals</p><p class="t-quote">Erika has an exceptional ability to inspire, mentor, and guide students towards excellence in debate and public speaking. She is very knowledgeable with debating techniques and helps the kids to refine their skills. Erika helped my daughter with role plays and helped her to get placed at the Regionals. I am very happy with all the guidance she has provided my daughter.</p></article>
-                <article class="wm-card"><h4 class="t-name">Dhanya</h4><p class="t-meta">From Dhanya's mom</p><p class="t-quote">Erika has helped my daughter improve her speaking skills by constantly identifying areas for improvement and giving thorough feedback on how to improve them. Every session, she brings in new insights on skills, business-related topics, or just competition prep that have helped my daughter a lot for DECA. Erika also gives thorough feedback outside of class through recorded videos, so it gives my daughter multiple opportunities to improve her skills.</p></article>
+                <article class="wm-card">
+                  <h4 class="t-name">Steven</h4>
+                  <p class="t-meta">CA State Finalist</p>
+                  <p class="t-quote">Proactive about ensuring student learning, realistic (won't sugarcoat unproductive
+                    behavior), has many resources to help with studying deca. More casual student/mentor relationship
+                    while still maintaining productivity to a good extent.</p>
+                </article>
+                <article class="wm-card">
+                  <h4 class="t-name">Deetya</h4>
+                  <p class="t-meta">From Deetya's mom • VA States Finalist, 3rd Regionals</p>
+                  <p class="t-quote">Erika has an exceptional ability to inspire, mentor, and guide students towards
+                    excellence in debate and public speaking. She is very knowledgeable with debating techniques and
+                    helps the kids to refine their skills. Erika helped my daughter with role plays and helped her to
+                    get placed at the Regionals. I am very happy with all the guidance she has provided my daughter.</p>
+                </article>
+                <article class="wm-card">
+                  <h4 class="t-name">Dhanya</h4>
+                  <p class="t-meta">From Dhanya's mom</p>
+                  <p class="t-quote">Erika has helped my daughter improve her speaking skills by constantly identifying
+                    areas for improvement and giving thorough feedback on how to improve them. Every session, she brings
+                    in new insights on skills, business-related topics, or just competition prep that have helped my
+                    daughter a lot for DECA. Erika also gives thorough feedback outside of class through recorded
+                    videos, so it gives my daughter multiple opportunities to improve her skills.</p>
+                </article>
 
                 <!-- Duplicate Set B -->
-                <article class="wm-card"><h4 class="t-name">Steven</h4><p class="t-meta">CA State Finalist</p><p class="t-quote">Proactive about ensuring student learning, realistic (won't sugarcoat unproductive behavior), has many resources to help with studying deca. More casual student/mentor relationship while still maintaining productivity to a good extent.</p></article>
-                <article class="wm-card"><h4 class="t-name">Deetya</h4><p class="t-meta">From Deetya's mom • VA States Finalist, 3rd Regionals</p><p class="t-quote">Erika has an exceptional ability to inspire, mentor, and guide students towards excellence in debate and public speaking. She is very knowledgeable with debating techniques and helps the kids to refine their skills. Erika helped my daughter with role plays and helped her to get placed at the Regionals. I am very happy with all the guidance she has provided my daughter.</p></article>
-                <article class="wm-card"><h4 class="t-name">Dhanya</h4><p class="t-meta">From Dhanya's mom</p><p class="t-quote">Erika has helped my daughter improve her speaking skills by constantly identifying areas for improvement and giving thorough feedback on how to improve them. Every session, she brings in new insights on skills, business-related topics, or just competition prep that have helped my daughter a lot for DECA. Erika also gives thorough feedback outside of class through recorded videos, so it gives my daughter multiple opportunities to improve her skills.</p></article>
-                </div>
+                <article class="wm-card">
+                  <h4 class="t-name">Steven</h4>
+                  <p class="t-meta">CA State Finalist</p>
+                  <p class="t-quote">Proactive about ensuring student learning, realistic (won't sugarcoat unproductive
+                    behavior), has many resources to help with studying deca. More casual student/mentor relationship
+                    while still maintaining productivity to a good extent.</p>
+                </article>
+                <article class="wm-card">
+                  <h4 class="t-name">Deetya</h4>
+                  <p class="t-meta">From Deetya's mom • VA States Finalist, 3rd Regionals</p>
+                  <p class="t-quote">Erika has an exceptional ability to inspire, mentor, and guide students towards
+                    excellence in debate and public speaking. She is very knowledgeable with debating techniques and
+                    helps the kids to refine their skills. Erika helped my daughter with role plays and helped her to
+                    get placed at the Regionals. I am very happy with all the guidance she has provided my daughter.</p>
+                </article>
+                <article class="wm-card">
+                  <h4 class="t-name">Dhanya</h4>
+                  <p class="t-meta">From Dhanya's mom</p>
+                  <p class="t-quote">Erika has helped my daughter improve her speaking skills by constantly identifying
+                    areas for improvement and giving thorough feedback on how to improve them. Every session, she brings
+                    in new insights on skills, business-related topics, or just competition prep that have helped my
+                    daughter a lot for DECA. Erika also gives thorough feedback outside of class through recorded
+                    videos, so it gives my daughter multiple opportunities to improve her skills.</p>
+                </article>
+              </div>
             </div>
           </div>
         </div>
@@ -949,47 +1253,56 @@
         <h2 class="section-title text-reveal">
           <span class="text-reveal-content">Frequently Asked Questions</span>
         </h2>
-        
+
         <div class="faq-container">
           <div class="faq-item">
             <div class="faq-question">Who is this for?</div>
             <div class="faq-answer">
-              <p>High-school students competing in DECA roleplay events who want structured, competitive preparation. We work with students at all levels, from first-time competitors to international finalists looking to win GLASS.</p>
+              <p>High-school students competing in DECA roleplay events who want structured, competitive preparation. We
+                work with students at all levels, from first-time competitors to international finalists looking to win
+                GLASS.</p>
             </div>
           </div>
-          
+
           <div class="faq-item">
             <div class="faq-question">Do you coach beginners?</div>
             <div class="faq-answer">
-              <p>Absolutely! We build fundamentals first — structure, voice, pacing — then layer advanced frameworks. Every student starts at their own level and follows a personalized improvement path.</p>
+              <p>Absolutely! We build fundamentals first — structure, voice, pacing — then layer advanced frameworks.
+                Every student starts at their own level and follows a personalized improvement path.</p>
             </div>
           </div>
-          
+
           <div class="faq-item">
             <div class="faq-question">Is coaching virtual?</div>
             <div class="faq-answer">
-              <p>Yes. All sessions run via Zoom with shared timers, prompts, and live feedback. This allows for efficient practice time, screen sharing for visual aids, and real-time recording for self-review.</p>
+              <p>Yes. All sessions run via Zoom with shared timers, prompts, and live feedback. This allows for
+                efficient practice time, screen sharing for visual aids, and real-time recording for self-review.</p>
             </div>
-            </div>
-          
+          </div>
+
           <div class="faq-item">
             <div class="faq-question">How does pricing work?</div>
             <div class="faq-answer">
-              <p>Pricing depends on the program intensity and schedule. We offer packages ranging from one-time competition prep to ongoing weekly sessions. Book a free intro call to discuss your specific needs and get detailed pricing options.</p>
+              <p>Pricing depends on the program intensity and schedule. We offer packages ranging from one-time
+                competition prep to ongoing weekly sessions. Book a free intro call to discuss your specific needs and
+                get detailed pricing options.</p>
             </div>
           </div>
-          
+
           <div class="faq-item">
             <div class="faq-question">How long are sessions?</div>
             <div class="faq-answer">
-              <p>Standard sessions are 60 minutes, with extended 90-minute options available for advanced practice. Each session includes multiple roleplay repetitions, structured feedback, and targeted skill development.</p>
+              <p>Standard sessions are 60 minutes, with extended 90-minute options available for advanced practice. Each
+                session includes multiple roleplay repetitions, structured feedback, and targeted skill development.</p>
             </div>
           </div>
-          
+
           <div class="faq-item">
             <div class="faq-question">What events do you cover?</div>
             <div class="faq-answer">
-              <p>We specialize in all DECA roleplay categories including Principles, Series, and Team Decision Making events. Our frameworks are adaptable across business management, marketing, finance, hospitality, and entrepreneurship.</p>
+              <p>We specialize in all DECA roleplay categories including Principles, Series, and Team Decision Making
+                events. Our frameworks are adaptable across business management, marketing, finance, hospitality, and
+                entrepreneurship.</p>
             </div>
           </div>
         </div>
@@ -1001,7 +1314,8 @@
       <div class="container">
         <div class="instagram-card">
           <div class="instagram-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -1011,11 +1325,14 @@
             <h3 class="instagram-title">Join the Community</h3>
             <p class="instagram-subtitle">Follow @glass.rpg on Instagram for tips, updates, and success stories.</p>
           </div>
-          <a href="https://www.instagram.com/glass.rpg/" target="_blank" rel="noopener" class="btn btn-primary instagram-btn">
+          <a href="https://www.instagram.com/glass.rpg/" target="_blank" rel="noopener"
+            class="btn btn-primary instagram-btn">
             <span>Follow Us</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-2">
-              <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3.33337 8H12.6667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M8 3.33331L12.6667 7.99998L8 12.6666" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </a>
           <div class="instagram-bg-shape shape1"></div>
@@ -1028,30 +1345,37 @@
       <div class="container">
         <h2 class="section-title aurora-text">Ready to train like it's ICDC?</h2>
         <p class="section-subtitle">Apply for coaching and get a free consultation.</p>
-        
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem; font-size: 1rem; opacity: 0.9;">
+          Please only fill out if you are serious about mentorship. We will not answer event specific questions - those
+          are available on our Instagram page.
+        </p>
+
         <div style="max-width: 600px; margin: 0 auto;">
           <div class="card shadcn-card">
             <form id="contact-form" class="form shadcn-form">
               <div class="form-group">
                 <label for="name" class="form-label shadcn-label">Name</label>
                 <input id="name" name="name" class="form-input shadcn-input" required />
-            </div>
+              </div>
 
               <!-- Honeypot: hidden field for bots; humans won't see/fill -->
-              <div class="form-group" style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">
+              <div class="form-group"
+                style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;">
                 <label for="company" class="form-label shadcn-label">Company</label>
                 <input id="company" name="company" class="form-input shadcn-input" autocomplete="off" tabindex="-1" />
               </div>
 
               <div class="form-group">
                 <label for="email" class="form-label shadcn-label">Email</label>
-                <input id="email" name="email" type="email" class="form-input shadcn-input" placeholder="you@example.com" required />
+                <input id="email" name="email" type="email" class="form-input shadcn-input"
+                  placeholder="you@example.com" required />
               </div>
-              
+
               <div class="form-group">
                 <label for="phone" class="form-label shadcn-label">Phone Number</label>
                 <div style="display: flex; gap: 0.5rem;">
-                  <select id="countryCode" name="countryCode" class="form-select shadcn-input" style="flex: 0 0 auto; width: 120px;" required>
+                  <select id="countryCode" name="countryCode" class="form-select shadcn-input"
+                    style="flex: 0 0 auto; width: 120px;" required>
                     <option value="+1">🇺🇸 +1</option>
                     <option value="+1">🇨🇦 +1</option>
                     <option value="+44">🇬🇧 +44</option>
@@ -1099,20 +1423,21 @@
                     <option value="+92">🇵🇰 +92</option>
                     <option value="+880">🇧🇩 +880</option>
                   </select>
-                  <input id="phone" name="phone" type="tel" class="form-input shadcn-input" placeholder="Enter phone number" style="flex: 1;" required />
+                  <input id="phone" name="phone" type="tel" class="form-input shadcn-input"
+                    placeholder="Enter phone number" style="flex: 1;" required />
                 </div>
               </div>
-              
+
               <div class="form-group">
                 <label for="role" class="form-label shadcn-label">Are you a parent or student?</label>
                 <select id="role" name="role" class="form-select shadcn-input" required>
-                <option value="Student">Student</option>
-                <option value="Parent">Parent</option>
-              </select>
-            </div>
-              
-              
-              
+                  <option value="Student">Student</option>
+                  <option value="Parent">Parent</option>
+                </select>
+              </div>
+
+
+
               <div class="form-group">
                 <label for="grade" class="form-label shadcn-label">What grade are you in?</label>
                 <select id="grade" name="grade" class="form-select shadcn-input" required>
@@ -1125,32 +1450,43 @@
 
               <div class="form-group">
                 <label for="region" class="form-label shadcn-label">Region (State/Province/Country)</label>
-                <input id="region" name="region" class="form-input shadcn-input" placeholder="e.g., CA, Ontario, Singapore" required />
+                <input id="region" name="region" class="form-input shadcn-input"
+                  placeholder="e.g., CA, Ontario, Singapore" required />
               </div>
-              
+
               <div class="form-group">
-                <label for="eventCode" class="form-label shadcn-label">What event are you doing? <span class="text-muted">(Enter event code, e.g., PFN)</span></label>
-                <input id="eventCode" name="eventCode" class="form-input shadcn-input" placeholder="e.g., PFN" required />
+                <label for="eventCode" class="form-label shadcn-label">What event are you doing? <span
+                    class="text-muted">(Enter event code, e.g., PFN)</span></label>
+                <input id="eventCode" name="eventCode" class="form-input shadcn-input" placeholder="e.g., PFN"
+                  required />
               </div>
-              
+
               <div class="form-group">
-                <label for="timePerWeek" class="form-label shadcn-label">How much time do you think you'll need to put in per week to succeed?</label>
-                <textarea id="timePerWeek" name="timePerWeek" rows="3" class="form-textarea shadcn-input" required></textarea>
-            </div>
-              
+                <label for="timePerWeek" class="form-label shadcn-label">How much time do you think you'll need to put
+                  in per week to succeed?</label>
+                <textarea id="timePerWeek" name="timePerWeek" rows="3" class="form-textarea shadcn-input"
+                  required></textarea>
+              </div>
+
               <div class="submit-row">
-                <button type="submit" class="shadcn-btn shadcn-btn-primary shadcn-btn-lg" aria-describedby="calendly-note">Send</button>
+                <button type="submit" class="shadcn-btn shadcn-btn-primary shadcn-btn-lg"
+                  aria-describedby="calendly-note">Send</button>
                 <div id="calendly-note" class="calendly-notice" role="note" aria-live="polite">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11 10h2v6h-2zM11 7h2v2h-2z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/></svg>
-                  <span>Once you submit, you will be taken to a Calendly. Please book a time during which you are available.</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M11 10h2v6h-2zM11 7h2v2h-2z" />
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" />
+                  </svg>
+                  <span>Once you submit, you will be taken to a Calendly. Please book a time during which both you and
+                    parent are available.</span>
                 </div>
               </div>
-          </form>
+            </form>
           </div>
         </div>
-        </div>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="container">
@@ -1159,7 +1495,7 @@
           <div class="logo-icon"></div>
           <span>glassRPG</span>
         </div>
-        
+
         <nav class="footer-nav">
           <a href="#programs">Programs</a>
           <a href="#about">About</a>
@@ -1168,73 +1504,73 @@
           <a href="#contact">Contact</a>
         </nav>
       </div>
-      
+
       <div class="footer-bottom">
         <span>© <span id="year"></span> glassRPG</span>
         <a href="mailto:erika@glassrpg.com">erika@glassrpg.com</a>
       </div>
-      </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
       // Set current year
       document.getElementById('year').textContent = new Date().getFullYear();
-      
+
       // Initialize text reveal animations
       initTextReveal();
-      
+
       // Initialize typing animation
       initTypingAnimation();
-      
+
       // Initialize slideshow
       initSlideshow();
-      
+
       // About section no longer uses slideshow
-      
+
       // Initialize video testimonials
-      
+
       // Initialize mobile menu
       initMobileMenu();
-      
+
       // Initialize diamond background
       initDiamondBackground();
-      
+
       // Initialize FAQ accordion
       initFaqAccordion();
-      
+
       // Initialize Vanta.js background
-        if (window.VANTA && window.VANTA.NET) {
-          // Tune NET to look like connected diamonds/triangles
-          window.VANTA.NET({
-            el: '#vanta-bg',
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.0,
-            scaleMobile: 1.0,
-            color: 0x60a5fa,
-            backgroundColor: 0x000000,
-            points: 7.5,
-            maxDistance: 28.0,
-            spacing: 14.0,
-            showDots: false
-          });
-        }
-        
+      if (window.VANTA && window.VANTA.NET) {
+        // Tune NET to look like connected diamonds/triangles
+        window.VANTA.NET({
+          el: '#vanta-bg',
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          color: 0x60a5fa,
+          backgroundColor: 0x000000,
+          points: 7.5,
+          maxDistance: 28.0,
+          spacing: 14.0,
+          showDots: false
+        });
+      }
+
       // Initialize event icon slideshow
       initEventSlideshow();
       initVideoModal();
       initVideoPosters();
-      
+
       // Smooth scrolling and scroll-based animations
       initLenis();
       initRevealUtilities();
       initParallax();
       initScrollProgress();
-      
+
       // Phone number auto-formatting (international-friendly)
       const phoneInput = document.getElementById('phone');
       const countryCodeSelect = document.getElementById('countryCode');
@@ -1242,12 +1578,12 @@
         phoneInput.addEventListener('input', (e) => {
           let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
           const countryCode = countryCodeSelect.value;
-          
+
           // Limit to 15 digits (international standard max)
           if (value.length > 15) {
             value = value.slice(0, 15);
           }
-          
+
           // Format based on country code
           let formatted = '';
           if (countryCode === '+1' && value.length > 0) {
@@ -1272,10 +1608,10 @@
               formatted = parts.join(' ');
             }
           }
-          
+
           e.target.value = formatted;
         });
-        
+
         // Re-format when country code changes
         countryCodeSelect.addEventListener('change', () => {
           if (phoneInput.value) {
@@ -1283,12 +1619,12 @@
           }
         });
       }
-      });
+    });
 
     // Text reveal animation
     function initTextReveal() {
       const textReveals = document.querySelectorAll('.text-reveal');
-      
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -1296,29 +1632,29 @@
           }
         });
       }, { threshold: 0.1 });
-      
+
       textReveals.forEach(element => {
         observer.observe(element);
       });
     }
-    
+
     // Proper typing animation implementation
     function initTypingAnimation() {
       const typingElement = document.querySelector('.typing-text');
       if (!typingElement) return;
-      
+
       const text = typingElement.textContent;
       typingElement.innerHTML = '';
       typingElement.classList.add('typing');
-      
+
       // Create a temporary div to parse HTML
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = text;
       const plainText = tempDiv.textContent;
-      
+
       let charIndex = 0;
       const typingSpeed = 30; // milliseconds per character
-      
+
       function typeChar() {
         if (charIndex < plainText.length) {
           // Create text node to avoid HTML parsing
@@ -1335,47 +1671,47 @@
           typingElement.appendChild(cursor);
         }
       }
-      
+
       // Start typing with a small delay
       setTimeout(typeChar, 200);
     }
-    
+
     // Three-image carousel with side-by-side display
     function initSlideshow() {
       const slides = document.querySelectorAll('.carousel-slide');
       if (!slides.length) return;
-      
+
       let currentSlide = 0;
       const totalSlides = slides.length;
-      
+
       // Initialize carousel
       function updateCarousel() {
         // Remove all classes first
         slides.forEach(slide => {
           slide.classList.remove('active', 'prev', 'next');
         });
-        
+
         // Set current slide as active
         slides[currentSlide].classList.add('active');
-        
+
         // Set previous slide
         const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
         slides[prevIndex].classList.add('prev');
-        
+
         // Set next slide
         const nextIndex = (currentSlide + 1) % totalSlides;
         slides[nextIndex].classList.add('next');
       }
-      
+
       // Initialize
       updateCarousel();
-      
+
       // Change slide every 3 seconds
       setInterval(() => {
         currentSlide = (currentSlide + 1) % totalSlides;
         updateCarousel();
       }, 3000);
-      
+
       // Add click event to slides
       slides.forEach((slide, index) => {
         slide.addEventListener('click', () => {
@@ -1384,9 +1720,9 @@
         });
       });
     }
-    
+
     // About section no longer uses slideshow animation
-    
+
     // Video testimonials
     function initVideoTestimonials() {
       const videos = document.querySelectorAll('.testimonial-video');
@@ -1394,10 +1730,10 @@
       const pauseButton = document.getElementById('pauseVideos');
       const playButton = document.getElementById('playVideos');
       const videoRows = document.querySelectorAll('.video-row');
-      
+
       // Animation control
       let animationsPaused = false;
-      
+
       if (pauseButton) {
         pauseButton.addEventListener('click', () => {
           videoRows.forEach(row => {
@@ -1406,7 +1742,7 @@
           animationsPaused = true;
         });
       }
-      
+
       if (playButton) {
         playButton.addEventListener('click', () => {
           videoRows.forEach(row => {
@@ -1415,22 +1751,22 @@
           animationsPaused = false;
         });
       }
-      
+
       // Handle videos
       videoCards.forEach(card => {
         const video = card.querySelector('.testimonial-video');
         const playButton = card.querySelector('.video-play-button');
-        
+
         if (!video) return;
-        
+
         // Hover to preview (muted)
         card.addEventListener('mouseenter', () => {
           if (!video.hasAttribute('data-playing')) {
-          video.muted = true;
-          video.play().catch(() => {});
+            video.muted = true;
+            video.play().catch(() => { });
           }
         });
-        
+
         // Leave to pause preview
         card.addEventListener('mouseleave', () => {
           if (!video.hasAttribute('data-playing')) {
@@ -1438,7 +1774,7 @@
             video.currentTime = 0;
           }
         });
-        
+
         // Click to play with audio
         card.addEventListener('click', () => {
           // If already playing, pause it
@@ -1450,7 +1786,7 @@
             playButton.style.display = 'flex';
             return;
           }
-          
+
           // Pause any other playing videos
           videos.forEach(v => {
             if (v !== video && v.hasAttribute('data-playing')) {
@@ -1459,7 +1795,7 @@
               v.currentTime = 0;
               v.removeAttribute('data-playing');
               v.controls = false;
-              
+
               // Show play button again for other videos
               const otherCard = v.closest('.video-card');
               if (otherCard) {
@@ -1470,7 +1806,7 @@
               }
             }
           });
-          
+
           // Pause animations when playing a video
           if (!animationsPaused) {
             videoRows.forEach(row => {
@@ -1478,22 +1814,22 @@
             });
             animationsPaused = true;
           }
-          
+
           // Play this video
           video.muted = false;
           video.controls = true;
-          video.play().catch(() => {});
+          video.play().catch(() => { });
           video.setAttribute('data-playing', 'true');
-          
+
           // Hide play button
           playButton.style.display = 'none';
-          
+
           // Reset animation when video ends
           video.addEventListener('ended', () => {
             video.removeAttribute('data-playing');
             video.controls = false;
             playButton.style.display = 'flex';
-            
+
             // Resume animations if no other videos are playing
             const anyPlaying = Array.from(videos).some(v => v.hasAttribute('data-playing'));
             if (!anyPlaying) {
@@ -1506,61 +1842,61 @@
         });
       });
     }
-    
+
     // Mobile menu toggle
     function initMobileMenu() {
       const menuToggle = document.querySelector('.mobile-menu-toggle');
       const mobileNav = document.querySelector('.mobile-nav');
       const root = document.documentElement;
       const body = document.body;
-      
+
       if (menuToggle && mobileNav) {
         const setOpen = (open) => {
           mobileNav.classList.toggle('open', open);
           root.style.overflow = open ? 'hidden' : '';
           body.style.overflow = open ? 'hidden' : '';
         };
-        
+
         menuToggle.addEventListener('click', () => {
           const willOpen = !mobileNav.classList.contains('open');
           setOpen(willOpen);
         });
-        
+
         // Close menu when a link is tapped
         mobileNav.querySelectorAll('a').forEach((link) => {
           link.addEventListener('click', () => setOpen(false));
         });
       }
     }
-    
+
     // Diamond background effect on scroll
     function initDiamondBackground() {
       const diamondBg = document.querySelector('.diamond-bg');
       const diamondFill = document.querySelector('.diamond-fill');
-      
+
       if (!diamondBg || !diamondFill) return;
-      
+
       let lastScrollY = window.scrollY;
       const scrollThreshold = 100;
-      
+
       // Check initial scroll position
       if (window.scrollY > scrollThreshold) {
         diamondBg.classList.add('visible');
-        
+
         // Add a slight delay for the diamond fill
         setTimeout(() => {
           diamondFill.classList.add('visible');
         }, 200);
       }
-      
+
       // Listen for scroll events
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
-        
+
         if (currentScrollY > scrollThreshold && lastScrollY <= scrollThreshold) {
           // Scrolled down past threshold
           diamondBg.classList.add('visible');
-          
+
           // Add a slight delay for the diamond fill
           setTimeout(() => {
             diamondFill.classList.add('visible');
@@ -1568,41 +1904,41 @@
         } else if (currentScrollY <= scrollThreshold && lastScrollY > scrollThreshold) {
           // Scrolled up past threshold
           diamondFill.classList.remove('visible');
-          
+
           // Add a slight delay for the diamond background
           setTimeout(() => {
             diamondBg.classList.remove('visible');
           }, 200);
         }
-        
+
         lastScrollY = currentScrollY;
       });
     }
-    
+
     // FAQ Accordion functionality
     function initFaqAccordion() {
       const faqItems = document.querySelectorAll('.faq-item');
-      
+
       faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        
+
         if (!question) return;
-        
+
         question.addEventListener('click', () => {
           const isActive = item.classList.contains('active');
-          
+
           // Close all FAQ items
           faqItems.forEach(faq => {
             faq.classList.remove('active');
           });
-          
+
           // If the clicked item wasn't active, make it active
           if (!isActive) {
             item.classList.add('active');
           }
         });
       });
-      
+
       // Open the first FAQ item by default
       if (faqItems.length > 0) {
         faqItems[0].classList.add('active');
@@ -1629,7 +1965,7 @@
       const form = e.target.closest('#contact-form');
       if (!form) return;
       e.preventDefault();
-      const fields = ['name','email','countryCode','phone','role','grade','region','eventCode','timePerWeek'];
+      const fields = ['name', 'email', 'countryCode', 'phone', 'role', 'grade', 'region', 'eventCode', 'timePerWeek'];
       for (const id of fields) {
         const el = form.querySelector(`#${id}`);
         if (!el || !el.value || !String(el.value).trim()) {
@@ -1769,7 +2105,7 @@
         player.currentTime = 0;
         modal.classList.remove('hidden');
         document.documentElement.style.overflow = 'hidden';
-        setTimeout(() => player.play().catch(() => {}), 50);
+        setTimeout(() => player.play().catch(() => { }), 50);
       };
       const close = () => {
         player.pause();
@@ -1823,7 +2159,7 @@
             if (dataUrl && dataUrl.startsWith('data:image')) {
               video.setAttribute('poster', dataUrl);
               video.setAttribute('data-poster-ready', 'true');
-              try { video.currentTime = 0; } catch (_) {}
+              try { video.currentTime = 0; } catch (_) { }
             }
           } catch (_) {
             // ignore draw errors
@@ -1878,7 +2214,7 @@
 
       // Ensure complex animated containers remain visible (no masking on these)
       document.querySelectorAll('.carousel, .carousel-container, .event-scroller, .event-track, .image-scroller, .image-scroller-track, .written-marquee, .wm-stack, .vm-track, .vm-item, .wm-card').forEach(el => {
-        el.classList.remove('reveal','reveal-mask','reveal-blur','reveal-zoom','reveal-tilt','reveal-glow','in');
+        el.classList.remove('reveal', 'reveal-mask', 'reveal-blur', 'reveal-zoom', 'reveal-tilt', 'reveal-glow', 'in');
         el.style.clipPath = '';
         el.style.opacity = '';
         el.style.transform = '';
@@ -2003,7 +2339,7 @@
         const positions = items.map(el => {
           const r = el.getBoundingClientRect();
           return { el, center: r.left + r.width / 2 };
-        }).sort((a,b) => a.center - b.center);
+        }).sort((a, b) => a.center - b.center);
         const currentIndex = positions.findIndex(p => p.el.classList.contains('is-active'));
         let targetIndex = currentIndex + dir;
         targetIndex = Math.max(0, Math.min(positions.length - 1, targetIndex));
@@ -2026,7 +2362,7 @@
           if (!userToggled) {
             video.muted = true;
             video.currentTime = 0;
-            video.play().catch(() => {});
+            video.play().catch(() => { });
           }
         });
         item.addEventListener('mouseleave', () => {
@@ -2043,7 +2379,7 @@
               if (v !== video) { v.pause(); }
             });
             video.muted = false;
-            video.play().catch(() => {});
+            video.play().catch(() => { });
             if (playOverlay) playOverlay.style.opacity = '0';
           } else {
             video.pause();
@@ -2055,7 +2391,7 @@
       });
     }
 
-    
+
     // Scroll progress bar
     function initScrollProgress() {
       const bar = document.querySelector('.scroll-progress');
@@ -2071,11 +2407,12 @@
       window.addEventListener('resize', update);
       update();
     }
-    </script>
-    <!-- Vercel Web Analytics -->
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-  </body>
-  </html>
+  </script>
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+
+</html>
