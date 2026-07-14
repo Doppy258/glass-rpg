@@ -8,8 +8,8 @@ const pages = [
   {
     file: 'index.html',
     url: 'https://glassrpg.com/',
-    title: 'DECA Glass Tutoring | GlassRPG',
-    description: 'Get one-on-one DECA glass tutoring from ICDC winner Erika Wu. Build stronger roleplays, sharpen written events, and compete with confidence.'
+    title: 'DECA Tutoring | GlassRPG',
+    description: 'One-on-one DECA tutoring with ICDC winner Erika Wu. Strengthen roleplays, written events, presentation skills, and confidence for competition day.'
   },
   {
     file: 'deca-glass-tutoring/index.html',
