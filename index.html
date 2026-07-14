@@ -4,14 +4,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GlassRPG - DECA Tutoring</title>
+  <title>DECA Glass Tutoring | glassRPG</title>
   <meta name="description"
-    content="Apply for DECA tutoring with Erika Wu, built from ICDC-winning DECA experience and focused competition preparation." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="./clean.css" />
+    content="Get one-on-one DECA glass tutoring from ICDC winner Erika Wu. Build stronger roleplays, sharpen written events, and compete with confidence." />
+  <link rel="canonical" href="https://glassrpg.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="glassRPG" />
+  <meta property="og:title" content="DECA Glass Tutoring | glassRPG" />
+  <meta property="og:description" content="Get one-on-one DECA glass tutoring from ICDC winner Erika Wu. Build stronger roleplays, sharpen written events, and compete with confidence." />
+  <meta property="og:url" content="https://glassrpg.com/" />
+  <meta property="og:image" content="https://glassrpg.com/assets/images/erika-wu-deca-first-place.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DECA Glass Tutoring | glassRPG" />
+  <meta name="twitter:description" content="One-on-one DECA competition tutoring with ICDC winner Erika Wu." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/images/deca-icdc-second-place-winner.webp" as="image" type="image/webp" fetchpriority="high" />
+  <link rel="stylesheet" href="/assets/site.min.css" />
   <style>
     /* Shadcn-inspired styles */
     :root {
@@ -283,7 +292,7 @@
       position: absolute;
       width: 280px;
       height: 400px;
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      transition: none;
       opacity: 0;
       border-radius: 16px;
       overflow: hidden;
@@ -358,7 +367,7 @@
     }
 
     .carousel-slide.active .beam-border::before {
-      animation: beam-rotation 3s linear infinite;
+      animation: none;
     }
 
     .carousel-slide:hover .beam-border::before {
@@ -642,20 +651,49 @@
       background: transparent;
     }
 
-    #vanta-bg {
-      background: #000;
-      opacity: 0.6;
-    }
-
     .hero .particle-bg {
       opacity: 0.42;
     }
   </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://glassrpg.com/#organization",
+          "name": "glassRPG",
+          "description": "Online competition tutoring led by ICDC award winner Erika Wu, with DECA as the primary program and FBLA and NSDA coaching also available.",
+          "url": "https://glassrpg.com/",
+          "email": "erika@glassrpg.com",
+          "areaServed": [
+            { "@type": "Country", "name": "United States" },
+            { "@type": "Country", "name": "Canada" }
+          ]
+        },
+        {
+          "@type": "Service",
+          "@id": "https://glassrpg.com/deca-glass-tutoring/#service",
+          "name": "DECA Glass Tutoring",
+          "description": "One-on-one online DECA competition tutoring for roleplays, written events, exams, and presentations.",
+          "url": "https://glassrpg.com/deca-glass-tutoring/",
+          "serviceType": "Online DECA competition tutoring",
+          "provider": { "@id": "https://glassrpg.com/#organization" },
+          "areaServed": [
+            { "@type": "Country", "name": "United States" },
+            { "@type": "Country", "name": "Canada" }
+          ]
+        }
+      ]
+    }
+  </script>
+  <!-- Optional schema fields to add only when they are public and accurate:
+       "telephone": "+1-REPLACE-WITH-PUBLIC-NUMBER",
+       "address": { "@type": "PostalAddress", "streetAddress": "REPLACE", "addressLocality": "REPLACE", "addressRegion": "REPLACE", "postalCode": "REPLACE", "addressCountry": "US or CA" },
+       "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday"], "opens": "09:00", "closes": "17:00" }]
+  -->
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%237dd3fc'/%3E%3Cstop offset='1' stop-color='%2360a5fa'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='14' ry='14' width='64' height='64' fill='url(%23g)'/%3E%3Cpath d='M18 34c6-8 22-8 28 0' stroke='white' stroke-opacity='.8' stroke-width='4' fill='none'/%3E%3Ccircle cx='32' cy='28' r='6' fill='white' fill-opacity='.9'/%3E%3C/svg%3E" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
 </head>
 
 <body>
@@ -668,17 +706,18 @@
 
   <header class="header">
     <div class="container header-inner">
-      <a href="#" class="logo">
+      <a href="/" class="logo" aria-label="glassRPG home">
         <div class="logo-icon"></div>
-        <span>GlassRPG</span>
+        <span>glassRPG</span>
       </a>
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/deca-glass-tutoring/" class="nav-link">DECA Tutoring</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#results" class="nav-link">Results</a>
         <a href="#faq" class="nav-link">FAQ</a>
         <a href="#contact-form" class="btn btn-primary">Apply for coaching</a>
       </nav>
-      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+      <button class="mobile-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <line x1="4" y1="12" x2="20" y2="12"></line>
@@ -689,16 +728,16 @@
     </div>
   </header>
 
-  <div class="mobile-nav">
-    <a href="#about">About</a>
-    <a href="#results">Results</a>
-    <a href="#faq">FAQ</a>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="/deca-glass-tutoring/">DECA Tutoring</a>
+    <a href="/#about">About</a>
+    <a href="/#results">Results</a>
+    <a href="/#faq">FAQ</a>
     <a href="#contact-form" class="btn btn-primary">Apply for coaching</a>
-  </div>
+  </nav>
 
-  <main>
+  <main id="main-content">
     <section class="hero">
-      <div id="vanta-bg" aria-hidden="true"></div>
       <!-- Particle Background -->
       <div class="particle-bg">
         <div class="particle particle-small" style="left: 10%; animation-delay: 0s;"></div>
@@ -714,12 +753,12 @@
         <div class="hero-content">
           <p class="program-label">DECA Tutoring</p>
           <h1>
-            <div class="text-reveal">
-              <span class="text-reveal-content">Train for the stage.</span>
-            </div>
-            <div class="text-reveal">
-              <span class="text-reveal-content aurora-text">Compete with confidence.</span>
-            </div>
+            <span class="text-reveal">
+              <span class="text-reveal-content">DECA Glass Tutoring</span>
+            </span>
+            <span class="text-reveal">
+              <span class="text-reveal-content aurora-text">for Competition Confidence</span>
+            </span>
           </h1>
 
           <div class="typing-container">
@@ -743,46 +782,46 @@
 
           <div class="carousel">
             <div class="carousel-container">
-              <div class="carousel-slide">
+              <div class="carousel-slide active">
                 <div class="beam-container">
                   <div class="beam-border"></div>
-                  <img src="IMG_1041.jpeg" alt="Coaching session — presentation practice" loading="eager" />
+                  <img src="/assets/images/deca-icdc-second-place-winner.webp" alt="DECA ICDC second-place winner holding his glass trophy at the conference venue" width="900" height="1200" loading="eager" fetchpriority="high" />
+                </div>
+              </div>
+              <div class="carousel-slide next">
+                <div class="beam-container">
+                  <div class="beam-border"></div>
+                  <img src="/assets/images/erika-wu-deca-medals.webp" alt="Erika Wu holding her DECA medals" width="478" height="538" loading="lazy" fetchpriority="low" />
                 </div>
               </div>
               <div class="carousel-slide">
                 <div class="beam-container">
                   <div class="beam-border"></div>
-                  <img src="deca_venue.jpeg" alt="Competition day — venue" loading="lazy" />
+                  <img src="/assets/images/deca-icdc-third-place-winner.webp" alt="DECA ICDC third-place winner holding her glass trophy" width="1200" height="800" loading="lazy" fetchpriority="low" />
                 </div>
               </div>
               <div class="carousel-slide">
                 <div class="beam-container">
                   <div class="beam-border"></div>
-                  <img src="DSC00932.JPEG" alt="Coaching — session" loading="lazy" />
+                  <img src="/assets/images/erika-wu-deca-conference.webp" alt="Erika Wu wearing a DECA medal in the ICDC auditorium" width="1049" height="736" loading="lazy" fetchpriority="low" />
                 </div>
               </div>
               <div class="carousel-slide">
                 <div class="beam-container">
                   <div class="beam-border"></div>
-                  <img src="IMG_7198.jpeg" alt="Student testimonial" loading="lazy" />
+                  <img src="/assets/images/deca-competitors-medals.webp" alt="Two DECA competitors showing their medals after the awards ceremony" width="818" height="1200" loading="lazy" fetchpriority="low" />
                 </div>
               </div>
               <div class="carousel-slide">
                 <div class="beam-container">
                   <div class="beam-border"></div>
-                  <img src="IMG_0827.jpg" alt="DECA competition" loading="lazy" />
+                  <img src="/assets/images/deca-award-winner-stage.webp" alt="DECA award winner holding her trophy on stage" width="510" height="842" loading="lazy" fetchpriority="low" />
                 </div>
               </div>
-              <div class="carousel-slide">
+              <div class="carousel-slide prev">
                 <div class="beam-container">
                   <div class="beam-border"></div>
-                  <img src="IMG_0857.JPG" alt="DECA event" loading="lazy" />
-                </div>
-              </div>
-              <div class="carousel-slide">
-                <div class="beam-container">
-                  <div class="beam-border"></div>
-                  <img src="IMG_1535.jpeg" alt="DECA group photo" loading="lazy" />
+                  <img src="/assets/images/deca-icdc-second-place-stage.webp" alt="DECA ICDC second-place winner holding his glass trophy on stage" width="1179" height="658" loading="lazy" fetchpriority="low" />
                 </div>
               </div>
             </div>
@@ -856,63 +895,6 @@
               <div class="event-name">Live Feedback</div>
             </div>
 
-            <!-- Duplicate set for infinite scroll -->
-            <div class="event-item hover-lift hover-scale card-glow">
-              <div class="event-icon shimmer">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
-                </svg>
-              </div>
-              <div class="event-name">DECA Roleplays</div>
-            </div>
-
-            <div class="event-item hover-lift hover-scale card-glow">
-              <div class="event-icon shimmer">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 3l3 6 6 .9-4.5 4.4 1.1 6.3L12 17l-5.6 3.6L7.6 14 3 9.9 9 9l3-6z" />
-                </svg>
-              </div>
-              <div class="event-name">DECA Presentations</div>
-            </div>
-
-            <div class="event-item hover-lift hover-scale card-glow">
-              <div class="event-icon shimmer">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 15l6-6 4 4 6-6" stroke-linecap="round" />
-                  <path d="M3 20h18" stroke-linecap="round" />
-                </svg>
-              </div>
-              <div class="event-name">Case Practice</div>
-            </div>
-
-            <div class="event-item hover-lift hover-scale card-glow">
-              <div class="event-icon shimmer">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M4 6h16v12H4z" />
-                  <path d="M8 10h8M8 14h5" />
-                </svg>
-              </div>
-              <div class="event-name">Written Events</div>
-            </div>
-
-            <div class="event-item hover-lift hover-scale card-glow">
-              <div class="event-icon shimmer">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M5 12h14" />
-                  <circle cx="12" cy="12" r="8" />
-                </svg>
-              </div>
-              <div class="event-name">Mock Rounds</div>
-            </div>
-
-            <div class="event-item hover-lift hover-scale card-glow">
-              <div class="event-icon shimmer">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 7h-9l-2-3H4a1 1 0 00-1 1v14a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1z" />
-                </svg>
-              </div>
-              <div class="event-name">Live Feedback</div>
-            </div>
 
           </div>
         </div>
@@ -926,17 +908,11 @@
         <!-- Image Scroller -->
         <div class="image-scroller">
           <div class="image-scroller-track">
-            <img src="erika_wu_profile.jpeg" alt="Erika Wu" loading="eager" decoding="async">
-            <img src="IMG_7198.jpeg" alt="Erika Wu" loading="lazy" decoding="async">
-            <img src="IMG_4730.jpeg" alt="Erika Wu" loading="lazy" decoding="async">
-            <img src="deca_venue.jpeg" alt="Erika Wu" loading="lazy" decoding="async">
-            <img src="IMG_0828.jpeg" alt="Erika Wu" loading="lazy" decoding="async">
-            <!-- Duplicates for seamless scrolling -->
-            <img src="erika_wu_profile.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-            <img src="IMG_7198.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-            <img src="IMG_4730.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-            <img src="deca_venue.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async">
-            <img src="IMG_0828.jpeg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img src="/assets/images/erika-wu-deca-first-place.webp" alt="Erika Wu with her first-place DECA district trophy" width="534" height="768" loading="lazy" decoding="async">
+            <img src="/assets/images/erika-wu-deca-conference.webp" alt="Erika Wu wearing a DECA medal in the ICDC auditorium" width="1049" height="736" loading="lazy" decoding="async">
+            <img src="/assets/images/erika-wu-with-deca-competitor.webp" alt="Erika Wu with a DECA competitor after the awards ceremony" width="1200" height="900" loading="lazy" decoding="async">
+            <img src="/assets/images/erika-wu-deca-medals.webp" alt="Erika Wu holding her DECA medals" width="478" height="538" loading="lazy" decoding="async">
+            <img src="/assets/images/erika-wu-with-deca-attendee.webp" alt="Erika Wu with a DECA event attendee" width="371" height="504" loading="lazy" decoding="async">
           </div>
         </div>
 
@@ -1014,10 +990,9 @@
           <div class="video-marquee">
             <div class="vm-track">
               <!-- Set A -->
-              <article class="vm-item" data-video-src="IMG_1936.mov">
+              <article class="vm-item" data-video-src="/assets/videos/devin-deca-testimonial.mp4">
                 <div class="vm-media">
-                  <video class="vm-video" src="IMG_1936.mov" preload="metadata" playsinline muted loop
-                    poster="IMG_7198.jpeg"></video>
+                  <img class="vm-video" src="/assets/images/erika-wu-deca-conference.webp" alt="Devin DECA testimonial video" width="1049" height="736" loading="lazy" decoding="async">
                   <button class="vm-play" aria-label="Play video">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M8 5v14l11-7z" />
@@ -1027,10 +1002,9 @@
                 <div class="vm-caption"><span class="vm-name">Devin</span><span class="vm-meta">ICDC 2nd & Chapter
                     VP</span></div>
               </article>
-              <article class="vm-item" data-video-src="IMG_7342.mov">
+              <article class="vm-item" data-video-src="/assets/videos/narain-bala-deca-testimonial.mp4">
                 <div class="vm-media">
-                  <video class="vm-video" src="IMG_7342.mov" preload="metadata" playsinline muted loop
-                    poster="IMG_1041.jpeg"></video>
+                  <img class="vm-video" src="/assets/images/deca-icdc-second-place-winner.webp" alt="Narain Bala DECA testimonial video" width="900" height="1200" loading="lazy" decoding="async">
                   <button class="vm-play" aria-label="Play video">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M8 5v14l11-7z" />
@@ -1040,10 +1014,9 @@
                 <div class="vm-caption"><span class="vm-name">Narain Bala</span><span class="vm-meta">ICDC 2nd & Chapter
                     Director</span></div>
               </article>
-              <article class="vm-item" data-video-src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov">
+              <article class="vm-item" data-video-src="/assets/videos/california-state-officer-testimonial.mp4">
                 <div class="vm-media">
-                  <video class="vm-video" src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov" preload="metadata"
-                    playsinline muted loop poster="deca_venue.jpeg"></video>
+                  <img class="vm-video" src="/assets/images/erika-wu-deca-medals.webp" alt="California State Officer DECA testimonial video" width="478" height="538" loading="lazy" decoding="async">
                   <button class="vm-play" aria-label="Play video">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M8 5v14l11-7z" />
@@ -1053,22 +1026,9 @@
                 <div class="vm-caption"><span class="vm-name">California State Officer</span><span class="vm-meta">CA
                     State Officer & ICDC 3rd Place</span></div>
               </article>
-              <article class="vm-item" data-video-src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov">
+              <article class="vm-item" data-video-src="/assets/videos/dhanya-deca-testimonial.mp4">
                 <div class="vm-media">
-                  <video class="vm-video" src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov" preload="metadata" playsinline
-                    muted loop poster="IMG_0827.jpg"></video>
-                  <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </button>
-                </div>
-                <div class="vm-caption"><span class="vm-name">Jessica</span></div>
-              </article>
-              <article class="vm-item" data-video-src="Testimonial.mov">
-                <div class="vm-media">
-                  <video class="vm-video" src="Testimonial.mov" preload="metadata" playsinline muted loop
-                    poster="IMG_1535.jpeg"></video>
+                  <img class="vm-video" src="/assets/images/deca-icdc-second-place-stage.webp" alt="Dhanya DECA testimonial video" width="1179" height="658" loading="lazy" decoding="async">
                   <button class="vm-play" aria-label="Play video">
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M8 5v14l11-7z" />
@@ -1078,70 +1038,6 @@
                 <div class="vm-caption"><span class="vm-name">Dhanya</span></div>
               </article>
 
-              <!-- Duplicate Set B for seamless loop -->
-              <article class="vm-item" data-video-src="IMG_1936.mov">
-                <div class="vm-media">
-                  <video class="vm-video" src="IMG_1936.mov" preload="metadata" playsinline muted loop
-                    poster="IMG_7198.jpeg"></video>
-                  <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </button>
-                </div>
-                <div class="vm-caption"><span class="vm-name">Devin</span><span class="vm-meta">ICDC 2nd & Chapter
-                    VP</span></div>
-              </article>
-              <article class="vm-item" data-video-src="IMG_7342.mov">
-                <div class="vm-media">
-                  <video class="vm-video" src="IMG_7342.mov" preload="metadata" playsinline muted loop
-                    poster="IMG_1041.jpeg"></video>
-                  <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </button>
-                </div>
-                <div class="vm-caption"><span class="vm-name">Narain Bala</span><span class="vm-meta">ICDC 2nd & Chapter
-                    Director</span></div>
-              </article>
-              <article class="vm-item" data-video-src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov">
-                <div class="vm-media">
-                  <video class="vm-video" src="copy_459B0AD1-EBF1-4F2A-A192-8104E2D84ED8.mov" preload="metadata"
-                    playsinline muted loop poster="deca_venue.jpeg"></video>
-                  <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </button>
-                </div>
-                <div class="vm-caption"><span class="vm-name">California State Officer</span><span class="vm-meta">CA
-                    State Officer & ICDC 3rd Place</span></div>
-              </article>
-              <article class="vm-item" data-video-src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov">
-                <div class="vm-media">
-                  <video class="vm-video" src="2FF50E33-08FD-4BFF-8462-9171BBC12FE5.mov" preload="metadata" playsinline
-                    muted loop poster="IMG_0827.jpg"></video>
-                  <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </button>
-                </div>
-                <div class="vm-caption"><span class="vm-name">Jessica</span></div>
-              </article>
-              <article class="vm-item" data-video-src="Testimonial.mov">
-                <div class="vm-media">
-                  <video class="vm-video" src="Testimonial.mov" preload="metadata" playsinline muted loop
-                    poster="IMG_1535.jpeg"></video>
-                  <button class="vm-play" aria-label="Play video">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </button>
-                </div>
-                <div class="vm-caption"><span class="vm-name">Dhanya</span></div>
-              </article>
             </div>
             <div class="vm-fade left"></div>
             <div class="vm-fade right"></div>
@@ -1195,45 +1091,6 @@
                     tutoring to anyone looking to take their DECA skills to the next level.</p>
                 </article>
 
-                <!-- Duplicate Set B -->
-                <article class="wm-card">
-                  <h4 class="t-name">Devin</h4>
-                  <p class="t-meta">ICDC 2nd & Chapter VP</p>
-                  <p class="t-quote">Erika is extremely adept at both teaching and encouraging students, including
-                    myself. Even though I struggled early on in my journey, she never gave up on me. With Erika as a
-                    mentor, I was able to build off of personalized advice that I simply wouldn't have been able to find
-                    otherwise. Whether you are seeking help in DECA or public speaking in general, know that Erika will
-                    always deliver.</p>
-                </article>
-                <article class="wm-card">
-                  <h4 class="t-name">Saahithi</h4>
-                  <p class="t-meta">CA 2nd Place & ICDC Qualifier</p>
-                  <p class="t-quote">Even though we primarily only practiced for our roleplay event, I think your help
-                    with my public speaking is ultimately what helped me win 2nd place in CA and qualify for ICDC with
-                    my written! Thank you so much Erika, I'm super grateful :)</p>
-                </article>
-                <article class="wm-card">
-                  <h4 class="t-name">Brandon</h4>
-                  <p class="t-meta">From Brandon's mom • ICDC Qualifier</p>
-                  <p class="t-quote">Erika is one of the most effective and resourceful teachers I have ever seen. She
-                    not only is extremely proficient in coaching public speaking skills, she is also extraordinary in
-                    her ability to tailor her teaching to different students with different needs and weaknesses. I know
-                    that because both I and my son have taken classes with Erica and we both benefitted tremendously
-                    with completely unique advice that Erica was able to develop for each of us.</p>
-                </article>
-                <article class="wm-card">
-                  <h4 class="t-name">Fiza</h4>
-                  <p class="t-meta">Ontario Provincial Finalist</p>
-                  <p class="t-quote">Erika spent hours reviewing videos of my DECA roleplays and providing detailed
-                    feedback in addition to our tutoring sessions. Although she was only my tutor for a short period of
-                    time, in that time she significantly improved my skills. She personalized her feedback to my
-                    specific strengths and weaknesses so I could get the best results. She also provided unique feedback
-                    that I didn't get from anyone else, which was necessary to help me succeed. Her dedication and
-                    expertise made a noticeable difference in my performance, helping me refine my presentation, enhance
-                    my business terminology, and build confidence in my case studies. She goes beyond just offering
-                    general advice—her coaching is tailored, insightful, and practical. I highly recommend Erika's
-                    tutoring to anyone looking to take their DECA skills to the next level.</p>
-                </article>
               </div>
             </div>
 
@@ -1266,31 +1123,6 @@
                     videos, so it gives my daughter multiple opportunities to improve her skills.</p>
                 </article>
 
-                <!-- Duplicate Set B -->
-                <article class="wm-card">
-                  <h4 class="t-name">Steven</h4>
-                  <p class="t-meta">CA State Finalist</p>
-                  <p class="t-quote">Proactive about ensuring student learning, realistic (won't sugarcoat unproductive
-                    behavior), has many resources to help with studying deca. More casual student/mentor relationship
-                    while still maintaining productivity to a good extent.</p>
-                </article>
-                <article class="wm-card">
-                  <h4 class="t-name">Deetya</h4>
-                  <p class="t-meta">From Deetya's mom • VA States Finalist, 3rd Regionals</p>
-                  <p class="t-quote">Erika has an exceptional ability to inspire, mentor, and guide students towards
-                    excellence in debate and public speaking. She is very knowledgeable with debating techniques and
-                    helps the kids to refine their skills. Erika helped my daughter with role plays and helped her to
-                    get placed at the Regionals. I am very happy with all the guidance she has provided my daughter.</p>
-                </article>
-                <article class="wm-card">
-                  <h4 class="t-name">Dhanya</h4>
-                  <p class="t-meta">From Dhanya's mom</p>
-                  <p class="t-quote">Erika has helped my daughter improve her speaking skills by constantly identifying
-                    areas for improvement and giving thorough feedback on how to improve them. Every session, she brings
-                    in new insights on skills, business-related topics, or just competition prep that have helped my
-                    daughter a lot for DECA. Erika also gives thorough feedback outside of class through recorded
-                    videos, so it gives my daughter multiple opportunities to improve her skills.</p>
-                </article>
               </div>
             </div>
           </div>
@@ -1306,32 +1138,32 @@
 
         <div class="faq-container">
           <div class="faq-item">
-            <div class="faq-question">Who is this for?</div>
-            <div class="faq-answer">
+            <h3 class="faq-heading"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-1">Who is this for?</button></h3>
+            <div id="faq-answer-1" class="faq-answer">
               <p>High-school students preparing for DECA competition who want structured, competitive preparation.
                 Our current student results come from DECA coaching, and we are accepting inquiries for next season.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">Do you coach beginners?</div>
-            <div class="faq-answer">
+            <h3 class="faq-heading"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-2">Do you coach beginners?</button></h3>
+            <div id="faq-answer-2" class="faq-answer">
               <p>Absolutely! We build fundamentals first — structure, voice, pacing — then layer advanced frameworks.
                 Every student starts at their own level and follows a personalized improvement path.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">Is coaching virtual?</div>
-            <div class="faq-answer">
+            <h3 class="faq-heading"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-3">Is coaching virtual?</button></h3>
+            <div id="faq-answer-3" class="faq-answer">
               <p>Yes. All sessions run via Zoom with shared timers, prompts, and live feedback. This allows for
                 efficient practice time, screen sharing for visual aids, and real-time recording for self-review.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">How does pricing work?</div>
-            <div class="faq-answer">
+            <h3 class="faq-heading"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-4">How does pricing work?</button></h3>
+            <div id="faq-answer-4" class="faq-answer">
               <p>Pricing depends on the program intensity and schedule. We offer packages ranging from one-time
                 competition prep to ongoing weekly sessions. Book a free intro call to discuss your specific needs and
                 get detailed pricing options.</p>
@@ -1339,8 +1171,8 @@
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">How long are sessions?</div>
-            <div class="faq-answer">
+            <h3 class="faq-heading"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-5">How long are sessions?</button></h3>
+            <div id="faq-answer-5" class="faq-answer">
               <p>Standard sessions are 60 minutes, with extended 90-minute options available for advanced practice. Each
                 session includes practice rounds, structured feedback, and targeted skill development tailored to the
                 student's event format.</p>
@@ -1348,8 +1180,8 @@
           </div>
 
           <div class="faq-item">
-            <div class="faq-question">What events do you cover?</div>
-            <div class="faq-answer">
+            <h3 class="faq-heading"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-6">What events do you cover?</button></h3>
+            <div id="faq-answer-6" class="faq-answer">
               <p>We accept DECA roleplay and written-event inquiries. Include your event name or code so we can
                 confirm fit during your intro call.</p>
             </div>
@@ -1371,7 +1203,7 @@
             </svg>
           </div>
           <div class="instagram-content">
-            <h3 class="instagram-title">Join the Community</h3>
+            <h2 class="instagram-title">Join the Community</h2>
             <p class="instagram-subtitle">Follow @glass.rpg on Instagram for tips, updates, and success stories.</p>
           </div>
           <a href="https://www.instagram.com/glass.rpg/" target="_blank" rel="noopener"
@@ -1422,8 +1254,8 @@
 
               <div class="form-group">
                 <label for="phone" class="form-label shadcn-label">Phone Number</label>
-                <div style="display: flex; gap: 0.5rem;">
-                  <select id="countryCode" name="countryCode" class="form-select shadcn-input"
+                <div class="phone-row">
+                  <select id="countryCode" name="countryCode" class="form-select shadcn-input" aria-label="Country calling code"
                     style="flex: 0 0 auto; width: 120px;" required>
                     <option value="+1">🇺🇸 +1</option>
                     <option value="+1">🇨🇦 +1</option>
@@ -1547,930 +1379,29 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-logo">
+        <a href="/" class="footer-logo" aria-label="glassRPG home">
           <div class="logo-icon"></div>
-          <span>GlassRPG</span>
-        </div>
+          <span>glassRPG</span>
+        </a>
 
-        <nav class="footer-nav">
-          <a href="#programs">Programs</a>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/deca-glass-tutoring/">DECA Tutoring</a>
           <a href="#about">About</a>
           <a href="#results">Results</a>
           <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
+          <a href="/#contact">Contact</a>
         </nav>
       </div>
 
       <div class="footer-bottom">
-        <span>© <span id="year"></span> GlassRPG</span>
+        <span>© <span id="year"></span> glassRPG</span>
         <a href="mailto:erika@glassrpg.com">erika@glassrpg.com</a>
       </div>
     </div>
   </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Set current year
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Initialize text reveal animations
-      initTextReveal();
-
-      // Initialize typing animation
-      initTypingAnimation();
-
-      // Initialize slideshow
-      initSlideshow();
-
-      // About section no longer uses slideshow
-
-      // Initialize video testimonials
-
-      // Initialize mobile menu
-      initMobileMenu();
-
-      // Initialize diamond background
-      initDiamondBackground();
-
-      // Initialize FAQ accordion
-      initFaqAccordion();
-
-      // Initialize Vanta.js background
-      if (window.VANTA && window.VANTA.NET) {
-        // Tune NET to look like connected diamonds/triangles
-        window.VANTA.NET({
-          el: '#vanta-bg',
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          color: 0x60a5fa,
-          backgroundColor: 0x000000,
-          points: 7.5,
-          maxDistance: 28.0,
-          spacing: 14.0,
-          showDots: false
-        });
-      }
-
-      // Initialize event icon slideshow
-      initEventSlideshow();
-      initVideoModal();
-      initVideoPosters();
-
-      // Smooth scrolling and scroll-based animations
-      initLenis();
-      initRevealUtilities();
-      initParallax();
-      initScrollProgress();
-
-      // Phone number auto-formatting (international-friendly)
-      const phoneInput = document.getElementById('phone');
-      const countryCodeSelect = document.getElementById('countryCode');
-      if (phoneInput && countryCodeSelect) {
-        phoneInput.addEventListener('input', (e) => {
-          let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
-          const countryCode = countryCodeSelect.value;
-
-          // Limit to 15 digits (international standard max)
-          if (value.length > 15) {
-            value = value.slice(0, 15);
-          }
-
-          // Format based on country code
-          let formatted = '';
-          if (countryCode === '+1' && value.length > 0) {
-            // US/Canada format: (XXX) XXX-XXXX
-            if (value.length > 10) {
-              value = value.slice(0, 10);
-            }
-            formatted = '(' + value.substring(0, 3);
-            if (value.length >= 3) {
-              formatted += ') ' + value.substring(3, 6);
-            }
-            if (value.length >= 6) {
-              formatted += '-' + value.substring(6, 10);
-            }
-          } else {
-            // International format: XXX XXX XXXX (space-separated groups)
-            if (value.length > 0) {
-              const parts = [];
-              for (let i = 0; i < value.length; i += 3) {
-                parts.push(value.substring(i, i + 3));
-              }
-              formatted = parts.join(' ');
-            }
-          }
-
-          e.target.value = formatted;
-        });
-
-        // Re-format when country code changes
-        countryCodeSelect.addEventListener('change', () => {
-          if (phoneInput.value) {
-            phoneInput.dispatchEvent(new Event('input'));
-          }
-        });
-      }
-    });
-
-    // Text reveal animation
-    function initTextReveal() {
-      const textReveals = document.querySelectorAll('.text-reveal');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1 });
-
-      textReveals.forEach(element => {
-        observer.observe(element);
-      });
-    }
-
-    // Proper typing animation implementation
-    function initTypingAnimation() {
-      const typingElement = document.querySelector('.typing-text');
-      if (!typingElement) return;
-
-      const text = typingElement.textContent;
-      typingElement.innerHTML = '';
-      typingElement.classList.add('typing');
-
-      // Create a temporary div to parse HTML
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = text;
-      const plainText = tempDiv.textContent;
-
-      let charIndex = 0;
-      const typingSpeed = 30; // milliseconds per character
-
-      function typeChar() {
-        if (charIndex < plainText.length) {
-          // Create text node to avoid HTML parsing
-          const char = document.createTextNode(plainText.charAt(charIndex));
-          typingElement.appendChild(char);
-          charIndex++;
-          setTimeout(typeChar, typingSpeed);
-        } else {
-          typingElement.classList.add('typing-done');
-          // Add cursor blink after typing is complete
-          const cursor = document.createElement('span');
-          cursor.className = 'typing-cursor';
-          cursor.textContent = '|';
-          typingElement.appendChild(cursor);
-        }
-      }
-
-      // Start typing with a small delay
-      setTimeout(typeChar, 200);
-    }
-
-    // Three-image carousel with side-by-side display
-    function initSlideshow() {
-      const slides = document.querySelectorAll('.carousel-slide');
-      if (!slides.length) return;
-
-      let currentSlide = 0;
-      const totalSlides = slides.length;
-
-      // Initialize carousel
-      function updateCarousel() {
-        // Remove all classes first
-        slides.forEach(slide => {
-          slide.classList.remove('active', 'prev', 'next');
-        });
-
-        // Set current slide as active
-        slides[currentSlide].classList.add('active');
-
-        // Set previous slide
-        const prevIndex = (currentSlide - 1 + totalSlides) % totalSlides;
-        slides[prevIndex].classList.add('prev');
-
-        // Set next slide
-        const nextIndex = (currentSlide + 1) % totalSlides;
-        slides[nextIndex].classList.add('next');
-      }
-
-      // Initialize
-      updateCarousel();
-
-      // Change slide every 3 seconds
-      setInterval(() => {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateCarousel();
-      }, 3000);
-
-      // Add click event to slides
-      slides.forEach((slide, index) => {
-        slide.addEventListener('click', () => {
-          currentSlide = index;
-          updateCarousel();
-        });
-      });
-    }
-
-    // About section no longer uses slideshow animation
-
-    // Video testimonials
-    function initVideoTestimonials() {
-      const videos = document.querySelectorAll('.testimonial-video');
-      const videoCards = document.querySelectorAll('.video-card');
-      const pauseButton = document.getElementById('pauseVideos');
-      const playButton = document.getElementById('playVideos');
-      const videoRows = document.querySelectorAll('.video-row');
-
-      // Animation control
-      let animationsPaused = false;
-
-      if (pauseButton) {
-        pauseButton.addEventListener('click', () => {
-          videoRows.forEach(row => {
-            row.style.animationPlayState = 'paused';
-          });
-          animationsPaused = true;
-        });
-      }
-
-      if (playButton) {
-        playButton.addEventListener('click', () => {
-          videoRows.forEach(row => {
-            row.style.animationPlayState = 'running';
-          });
-          animationsPaused = false;
-        });
-      }
-
-      // Handle videos
-      videoCards.forEach(card => {
-        const video = card.querySelector('.testimonial-video');
-        const playButton = card.querySelector('.video-play-button');
-
-        if (!video) return;
-
-        // Hover to preview (muted)
-        card.addEventListener('mouseenter', () => {
-          if (!video.hasAttribute('data-playing')) {
-            video.muted = true;
-            video.play().catch(() => { });
-          }
-        });
-
-        // Leave to pause preview
-        card.addEventListener('mouseleave', () => {
-          if (!video.hasAttribute('data-playing')) {
-            video.pause();
-            video.currentTime = 0;
-          }
-        });
-
-        // Click to play with audio
-        card.addEventListener('click', () => {
-          // If already playing, pause it
-          if (video.hasAttribute('data-playing')) {
-            video.pause();
-            video.currentTime = 0;
-            video.removeAttribute('data-playing');
-            video.controls = false;
-            playButton.style.display = 'flex';
-            return;
-          }
-
-          // Pause any other playing videos
-          videos.forEach(v => {
-            if (v !== video && v.hasAttribute('data-playing')) {
-              v.muted = true;
-              v.pause();
-              v.currentTime = 0;
-              v.removeAttribute('data-playing');
-              v.controls = false;
-
-              // Show play button again for other videos
-              const otherCard = v.closest('.video-card');
-              if (otherCard) {
-                const otherPlayButton = otherCard.querySelector('.video-play-button');
-                if (otherPlayButton) {
-                  otherPlayButton.style.display = 'flex';
-                }
-              }
-            }
-          });
-
-          // Pause animations when playing a video
-          if (!animationsPaused) {
-            videoRows.forEach(row => {
-              row.style.animationPlayState = 'paused';
-            });
-            animationsPaused = true;
-          }
-
-          // Play this video
-          video.muted = false;
-          video.controls = true;
-          video.play().catch(() => { });
-          video.setAttribute('data-playing', 'true');
-
-          // Hide play button
-          playButton.style.display = 'none';
-
-          // Reset animation when video ends
-          video.addEventListener('ended', () => {
-            video.removeAttribute('data-playing');
-            video.controls = false;
-            playButton.style.display = 'flex';
-
-            // Resume animations if no other videos are playing
-            const anyPlaying = Array.from(videos).some(v => v.hasAttribute('data-playing'));
-            if (!anyPlaying) {
-              videoRows.forEach(row => {
-                row.style.animationPlayState = 'running';
-              });
-              animationsPaused = false;
-            }
-          }, { once: true });
-        });
-      });
-    }
-
-    // Mobile menu toggle
-    function initMobileMenu() {
-      const menuToggle = document.querySelector('.mobile-menu-toggle');
-      const mobileNav = document.querySelector('.mobile-nav');
-      const root = document.documentElement;
-      const body = document.body;
-
-      if (menuToggle && mobileNav) {
-        const setOpen = (open) => {
-          mobileNav.classList.toggle('open', open);
-          root.style.overflow = open ? 'hidden' : '';
-          body.style.overflow = open ? 'hidden' : '';
-        };
-
-        menuToggle.addEventListener('click', () => {
-          const willOpen = !mobileNav.classList.contains('open');
-          setOpen(willOpen);
-        });
-
-        // Close menu when a link is tapped
-        mobileNav.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => setOpen(false));
-        });
-      }
-    }
-
-    // Diamond background effect on scroll
-    function initDiamondBackground() {
-      const diamondBg = document.querySelector('.diamond-bg');
-      const diamondFill = document.querySelector('.diamond-fill');
-
-      if (!diamondBg || !diamondFill) return;
-
-      let lastScrollY = window.scrollY;
-      const scrollThreshold = 100;
-
-      // Check initial scroll position
-      if (window.scrollY > scrollThreshold) {
-        diamondBg.classList.add('visible');
-
-        // Add a slight delay for the diamond fill
-        setTimeout(() => {
-          diamondFill.classList.add('visible');
-        }, 200);
-      }
-
-      // Listen for scroll events
-      window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-
-        if (currentScrollY > scrollThreshold && lastScrollY <= scrollThreshold) {
-          // Scrolled down past threshold
-          diamondBg.classList.add('visible');
-
-          // Add a slight delay for the diamond fill
-          setTimeout(() => {
-            diamondFill.classList.add('visible');
-          }, 200);
-        } else if (currentScrollY <= scrollThreshold && lastScrollY > scrollThreshold) {
-          // Scrolled up past threshold
-          diamondFill.classList.remove('visible');
-
-          // Add a slight delay for the diamond background
-          setTimeout(() => {
-            diamondBg.classList.remove('visible');
-          }, 200);
-        }
-
-        lastScrollY = currentScrollY;
-      });
-    }
-
-    // FAQ Accordion functionality
-    function initFaqAccordion() {
-      const faqItems = document.querySelectorAll('.faq-item');
-
-      faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-
-        if (!question) return;
-
-        question.addEventListener('click', () => {
-          const isActive = item.classList.contains('active');
-
-          // Close all FAQ items
-          faqItems.forEach(faq => {
-            faq.classList.remove('active');
-          });
-
-          // If the clicked item wasn't active, make it active
-          if (!isActive) {
-            item.classList.add('active');
-          }
-        });
-      });
-
-      // Open the first FAQ item by default
-      if (faqItems.length > 0) {
-        faqItems[0].classList.add('active');
-      }
-    }
-
-    // Smooth-scroll and focus contact form
-    document.addEventListener('click', (e) => {
-      const link = e.target.closest('a[href^="#contact-form"]');
-      if (!link) return;
-      const target = document.getElementById('contact-form');
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Focus first input after scroll finishes
-      setTimeout(() => {
-        const first = target.querySelector('input, select, textarea');
-        if (first) first.focus({ preventScroll: true });
-      }, 500);
-    });
-
-    // Contact form: validate, send email, then redirect to Calendly
-    document.addEventListener('submit', async (e) => {
-      const form = e.target.closest('#contact-form');
-      if (!form) return;
-      e.preventDefault();
-      const fields = ['name', 'email', 'countryCode', 'phone', 'role', 'grade', 'region', 'organization', 'eventCode', 'timePerWeek'];
-      for (const id of fields) {
-        const el = form.querySelector(`#${id}`);
-        if (!el || !el.value || !String(el.value).trim()) {
-          el && el.focus();
-          return;
-        }
-      }
-      const name = form.name.value.trim();
-      const role = form.role.value.trim();
-      const email = form.email.value.trim();
-      const company = (form.company && form.company.value || '').trim();
-      const countryCode = form.countryCode.value.trim();
-      const phone = form.phone.value.trim();
-      const school = '';
-      const region = form.region.value.trim();
-      const grade = form.grade.value.trim();
-      const organization = form.organization.value.trim();
-      const eventCode = form.eventCode.value.trim();
-      const timePerWeek = form.timePerWeek.value.trim();
-
-      // Extra validation (pattern checks) before sending
-      // Simple email pattern: must include @ and a dot extension
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-      if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address.');
-        form.email.focus();
-        return;
-      }
-
-      // Phone number validation: international-friendly
-      const phoneDigits = phone.replace(/\D/g, '');
-      if (countryCode === '+1') {
-        // US/Canada: must be exactly 10 digits
-        if (phoneDigits.length !== 10) {
-          alert('Please enter a valid 10-digit phone number for US/Canada.');
-          form.phone.focus();
-          return;
-        }
-      } else {
-        // International: must be between 6 and 15 digits
-        if (phoneDigits.length < 6 || phoneDigits.length > 15) {
-          alert('Please enter a valid phone number (6-15 digits).');
-          form.phone.focus();
-          return;
-        }
-      }
-
-      const calendlyUrl = 'https://calendly.com/erikawu47/30min';
-
-      // Send through serverless Gmail (uses gmail_user/gmail_pass on Vercel)
-      try {
-        const base = window.location.origin.replace(/\/$/, '');
-        const resp = await fetch(`${base}/api/send-email`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name,
-            role,
-            email,
-            countryCode,
-            phone,
-            grade,
-            region,
-            organization,
-            eventCode,
-            timePerWeek,
-            company,
-          }),
-        });
-        if (!resp.ok) {
-          let errText = '';
-          try {
-            const j = await resp.json();
-            errText = j && (j.details || j.error) || '';
-          } catch (_) {
-            errText = await resp.text().catch(() => '');
-          }
-          console.error('Email send failed', resp.status, errText);
-          alert(`Sorry, we could not send your message right now. (HTTP ${resp.status})\n${errText || ''}`);
-          return;
-        }
-        // Clear fields to mirror your other site behavior
-        form.reset();
-        // Redirect to Calendly in same tab to avoid popup blockers
-        window.location.href = calendlyUrl;
-      } catch (err) {
-        console.error('Email send error', err);
-        alert('Sorry, we could not send your message right now. Please try again.');
-      }
-    });
-
-    // Event icon slideshow
-    function initEventSlideshow() {
-      const eventItems = document.querySelectorAll('.event-item');
-      if (!eventItems.length) return;
-
-      let currentItem = 0;
-
-      function showNextItem() {
-        eventItems.forEach(item => item.classList.remove('active'));
-        eventItems[currentItem].classList.add('active');
-        currentItem = (currentItem + 1) % eventItems.length;
-      }
-
-      // Initial call
-      showNextItem();
-
-      // Change item every 3 seconds
-      setInterval(showNextItem, 3000);
-    }
-
-    // Video modal player
-    function initVideoModal() {
-      const marquee = document.querySelector('.video-marquee');
-      if (!marquee) return;
-
-      // Create modal markup once
-      let modal = document.getElementById('videoModal');
-      if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'videoModal';
-        modal.className = 'video-modal hidden';
-        modal.innerHTML = `
-          <div class="vm-backdrop" data-close></div>
-          <div class="vm-dialog">
-            <button class="vm-close" aria-label="Close" data-close>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            <video class="vm-player" controls playsinline></video>
-          </div>
-        `;
-        document.body.appendChild(modal);
-      }
-
-      const player = modal.querySelector('.vm-player');
-
-      const open = (src) => {
-        player.src = src;
-        player.currentTime = 0;
-        modal.classList.remove('hidden');
-        document.documentElement.style.overflow = 'hidden';
-        setTimeout(() => player.play().catch(() => { }), 50);
-      };
-      const close = () => {
-        player.pause();
-        player.src = '';
-        modal.classList.add('hidden');
-        document.documentElement.style.overflow = '';
-      };
-
-      modal.addEventListener('click', (e) => {
-        const target = e.target;
-        if (target && (target.hasAttribute('data-close') || target.closest('[data-close]'))) {
-          close();
-        }
-      });
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) close(); });
-
-      // Delegate click from play buttons
-      marquee.addEventListener('click', (e) => {
-        const playBtn = e.target.closest('.vm-play');
-        if (!playBtn) return;
-        const item = playBtn.closest('.vm-item');
-        if (!item) return;
-        const src = item.getAttribute('data-video-src');
-        if (src) open(src);
-      });
-    }
-
-    // Generate real posters from video frames so mobile shows correct thumbnails
-    function initVideoPosters() {
-      const items = document.querySelectorAll('.video-marquee .vm-item');
-      if (!items.length) return;
-
-      items.forEach((item) => {
-        const video = item.querySelector('video.vm-video');
-        if (!video) return;
-        if (video.hasAttribute('data-poster-ready')) return;
-
-        // Remove any placeholder poster
-        video.removeAttribute('poster');
-
-        const capture = () => {
-          if (!video.videoWidth || !video.videoHeight) return;
-          const canvas = document.createElement('canvas');
-          canvas.width = video.videoWidth;
-          canvas.height = video.videoHeight;
-          const ctx = canvas.getContext('2d');
-          if (!ctx) return;
-          try {
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
-            if (dataUrl && dataUrl.startsWith('data:image')) {
-              video.setAttribute('poster', dataUrl);
-              video.setAttribute('data-poster-ready', 'true');
-              try { video.currentTime = 0; } catch (_) { }
-            }
-          } catch (_) {
-            // ignore draw errors
-          }
-        };
-
-        const onLoadedMetadata = () => {
-          const targetTime = Math.min(0.5, Math.max(0.1, (video.duration || 1) * 0.02));
-          const handleSeeked = () => {
-            capture();
-            video.removeEventListener('seeked', handleSeeked);
-          };
-          video.addEventListener('seeked', handleSeeked, { once: true });
-          try {
-            video.currentTime = targetTime;
-          } catch (_) {
-            capture();
-          }
-        };
-
-        if (video.readyState >= 1) {
-          onLoadedMetadata();
-        } else {
-          video.addEventListener('loadedmetadata', onLoadedMetadata, { once: true });
-        }
-      });
-    }
-
-    // Smooth scrolling (Lenis)
-    function initLenis() {
-      if (!window.Lenis) return;
-      const lenis = new window.Lenis({
-        duration: 1.1,
-        smoothWheel: true,
-        smoothTouch: false
-      });
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-    }
-
-    // Reveal & stagger utilities
-    function initRevealUtilities() {
-      // Auto-apply reveals to common elements (avoid elements that animate via transform)
-      document.querySelectorAll('.section .section-title, .section .section-subtitle').forEach(el => { el.classList.add('reveal'); el.classList.add('reveal-tilt'); });
-      document.querySelectorAll('.hero-cta, .typing-container').forEach(el => { el.classList.add('reveal'); el.classList.add('reveal-zoom'); });
-      document.querySelectorAll('.faq-item, .instagram-card, .card').forEach(el => { el.classList.add('reveal'); el.classList.add('reveal-up'); el.classList.add('reveal-glow'); });
-      // Subtle fades for heavy movers (items only, not tracks)
-      document.querySelectorAll('.vm-item, .wm-card, .event-item').forEach(el => { el.classList.add('reveal-fade'); });
-
-      // Ensure complex animated containers remain visible (no masking on these)
-      document.querySelectorAll('.carousel, .carousel-container, .event-scroller, .event-track, .image-scroller, .image-scroller-track, .written-marquee, .wm-stack, .vm-track, .vm-item, .wm-card').forEach(el => {
-        el.classList.remove('reveal', 'reveal-mask', 'reveal-blur', 'reveal-zoom', 'reveal-tilt', 'reveal-glow', 'in');
-        el.style.clipPath = '';
-        el.style.opacity = '';
-        el.style.transform = '';
-        el.style.filter = '';
-      });
-
-      const singleReveals = document.querySelectorAll('[data-reveal], .reveal, .reveal-tilt, .reveal-zoom, .reveal-blur, .reveal-up, .reveal-fade');
-      const staggerGroups = document.querySelectorAll('[data-stagger], .stagger');
-
-      const singleObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-            singleObs.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
-
-      const staggerObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in');
-            staggerObs.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
-
-      singleReveals.forEach(el => singleObs.observe(el));
-      staggerGroups.forEach(el => staggerObs.observe(el));
-
-      // Section ambient glow toggle
-      const sections = document.querySelectorAll('.section');
-      const secObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          entry.target.classList.toggle('section-in', entry.isIntersecting);
-        });
-      }, { threshold: 0.2 });
-      sections.forEach(s => secObs.observe(s));
-    }
-
-    // Lightweight parallax using data attributes
-    function initParallax() {
-      // Disable hero parallax on small screens to prevent overlap/cutoff
-      if (window.innerWidth <= 900) {
-        return;
-      }
-      // Apply defaults if author didn't mark elements (avoid transform-animated tracks)
-      const defaults = document.querySelectorAll('.hero .container, .instagram-card');
-      defaults.forEach(el => { if (el && !el.hasAttribute('data-parallax')) el.setAttribute('data-parallax', '0.12'); });
-
-      const parallaxEls = document.querySelectorAll('[data-parallax]');
-      if (!parallaxEls.length) return;
-      let ticking = false;
-      const onScroll = () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          const viewH = window.innerHeight;
-          parallaxEls.forEach(el => {
-            const speed = parseFloat(el.getAttribute('data-parallax')) || 0.15;
-            const rect = el.getBoundingClientRect();
-            const center = rect.top + rect.height / 2;
-            const delta = (center - viewH / 2);
-            const translateY = -(delta * speed);
-            el.style.transform = `translateY(${translateY}px)`;
-          });
-          ticking = false;
-        });
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
-      onScroll();
-    }
-
-    // Testimonial Reel interactions
-    function initTestimonialReel() {
-      const reel = document.getElementById('testimonialReel');
-      if (!reel) return;
-
-      const track = reel.querySelector('.reel-track');
-      const items = Array.from(reel.querySelectorAll('.reel-item'));
-      const prev = reel.querySelector('.reel-nav.prev');
-      const next = reel.querySelector('.reel-nav.next');
-
-      if (!track || !items.length) return;
-
-      // Activate closest to center
-      const updateActive = () => {
-        const rect = track.getBoundingClientRect();
-        const center = rect.left + rect.width / 2;
-        let best = null;
-        let bestDist = Infinity;
-        items.forEach(item => {
-          const r = item.getBoundingClientRect();
-          const itemCenter = r.left + r.width / 2;
-          const dist = Math.abs(center - itemCenter);
-          if (dist < bestDist) { bestDist = dist; best = item; }
-        });
-        items.forEach(i => i.classList.remove('is-active'));
-        if (best) best.classList.add('is-active');
-      };
-
-      // Initial state
-      updateActive();
-
-      // Scroll handling
-      let raf = null;
-      const onScroll = () => {
-        if (raf) return;
-        raf = requestAnimationFrame(() => {
-          updateActive();
-          raf = null;
-        });
-      };
-      track.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', updateActive);
-
-      // Nav controls
-      const snap = (dir) => {
-        const rect = track.getBoundingClientRect();
-        const center = rect.left + rect.width / 2;
-        const positions = items.map(el => {
-          const r = el.getBoundingClientRect();
-          return { el, center: r.left + r.width / 2 };
-        }).sort((a, b) => a.center - b.center);
-        const currentIndex = positions.findIndex(p => p.el.classList.contains('is-active'));
-        let targetIndex = currentIndex + dir;
-        targetIndex = Math.max(0, Math.min(positions.length - 1, targetIndex));
-
-        const target = positions[targetIndex];
-        const delta = target.center - center;
-        track.scrollBy({ left: delta, behavior: 'smooth' });
-      };
-      if (prev) prev.addEventListener('click', () => snap(-1));
-      if (next) next.addEventListener('click', () => snap(1));
-
-      // Hover preview and click-to-toggle audio
-      const videos = reel.querySelectorAll('.reel-video');
-      videos.forEach(video => {
-        const item = video.closest('.reel-item');
-        const playOverlay = item.querySelector('.reel-play');
-        let userToggled = false;
-
-        item.addEventListener('mouseenter', () => {
-          if (!userToggled) {
-            video.muted = true;
-            video.currentTime = 0;
-            video.play().catch(() => { });
-          }
-        });
-        item.addEventListener('mouseleave', () => {
-          if (!userToggled) {
-            video.pause();
-            video.currentTime = 0;
-          }
-        });
-        item.addEventListener('click', () => {
-          userToggled = !userToggled;
-          if (userToggled) {
-            // Pause others
-            videos.forEach(v => {
-              if (v !== video) { v.pause(); }
-            });
-            video.muted = false;
-            video.play().catch(() => { });
-            if (playOverlay) playOverlay.style.opacity = '0';
-          } else {
-            video.pause();
-            video.currentTime = 0;
-            video.muted = true;
-            if (playOverlay) playOverlay.style.opacity = '';
-          }
-        });
-      });
-    }
-
-
-    // Scroll progress bar
-    function initScrollProgress() {
-      const bar = document.querySelector('.scroll-progress');
-      if (!bar) return;
-      const update = () => {
-        const h = document.documentElement;
-        const scrollTop = h.scrollTop || document.body.scrollTop;
-        const scrollHeight = h.scrollHeight - h.clientHeight;
-        const p = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-        bar.style.width = p + '%';
-      };
-      document.addEventListener('scroll', update, { passive: true });
-      window.addEventListener('resize', update);
-      update();
-    }
-  </script>
-  <!-- Vercel Web Analytics -->
-  <script>
-    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-  </script>
-  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/assets/site.min.js"></script>
+  <script defer src="/assets/home.min.js"></script>
 </body>
 
 </html>

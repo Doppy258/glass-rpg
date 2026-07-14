@@ -4,10 +4,18 @@
   "private": true,
   "description": "Local dev server for the Glass RPG static export",
   "scripts": {
-    "dev": "live-server --open='index.html' --port=8081 --watch='.'"
+    "build": "node scripts/build.mjs",
+    "dev": "npm run build && live-server dist --open=/ --port=8081 --watch=dist",
+    "validate": "node scripts/validate.mjs",
+    "test": "npm run build && npm run validate"
   },
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "@fontsource-variable/inter": "5.2.8",
+    "clean-css": "5.3.3",
+    "html-minifier-terser": "7.2.0",
+    "live-server": "1.2.2",
+    "sharp": "0.35.3",
+    "terser": "5.49.0"
   },
   "dependencies": {
     "nodemailer": "^6.9.13"
