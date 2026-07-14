@@ -4,23 +4,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DECA Glass Tutoring | glassRPG</title>
+  <title>DECA Glass Tutoring | GlassRPG</title>
   <meta name="description"
     content="Get one-on-one DECA glass tutoring from ICDC winner Erika Wu. Build stronger roleplays, sharpen written events, and compete with confidence." />
   <link rel="canonical" href="https://glassrpg.com/" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="glassRPG" />
-  <meta property="og:title" content="DECA Glass Tutoring | glassRPG" />
+  <meta property="og:site_name" content="GlassRPG" />
+  <meta property="og:title" content="DECA Glass Tutoring | GlassRPG" />
   <meta property="og:description" content="Get one-on-one DECA glass tutoring from ICDC winner Erika Wu. Build stronger roleplays, sharpen written events, and compete with confidence." />
   <meta property="og:url" content="https://glassrpg.com/" />
   <meta property="og:image" content="https://glassrpg.com/assets/images/erika-wu-deca-first-place.webp" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="DECA Glass Tutoring | glassRPG" />
+  <meta name="twitter:title" content="DECA Glass Tutoring | GlassRPG" />
   <meta name="twitter:description" content="One-on-one DECA competition tutoring with ICDC winner Erika Wu." />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/images/deca-icdc-second-place-winner.webp" as="image" type="image/webp" fetchpriority="high" />
   <link rel="stylesheet" href="/assets/site.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js" defer></script>
   <style>
     /* Shadcn-inspired styles */
     :root {
@@ -654,6 +656,15 @@
     .hero .particle-bg {
       opacity: 0.42;
     }
+
+    #vanta-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: #000;
+      opacity: 0.6;
+      pointer-events: none;
+    }
   </style>
   <script type="application/ld+json">
     {
@@ -662,8 +673,8 @@
         {
           "@type": "EducationalOrganization",
           "@id": "https://glassrpg.com/#organization",
-          "name": "glassRPG",
-          "description": "Online competition tutoring led by ICDC award winner Erika Wu, with DECA as the primary program and FBLA and NSDA coaching also available.",
+          "name": "GlassRPG",
+          "description": "Online DECA competition tutoring led by ICDC award winner Erika Wu for roleplays, written events, exams, and presentations.",
           "url": "https://glassrpg.com/",
           "email": "erika@glassrpg.com",
           "areaServed": [
@@ -706,9 +717,9 @@
 
   <header class="header">
     <div class="container header-inner">
-      <a href="/" class="logo" aria-label="glassRPG home">
+      <a href="/" class="logo" aria-label="GlassRPG home">
         <div class="logo-icon"></div>
-        <span>glassRPG</span>
+        <span>GlassRPG</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
         <a href="/deca-glass-tutoring/" class="nav-link">DECA Tutoring</a>
@@ -738,6 +749,7 @@
 
   <main id="main-content">
     <section class="hero">
+      <div id="vanta-bg" aria-hidden="true"></div>
       <!-- Particle Background -->
       <div class="particle-bg">
         <div class="particle particle-small" style="left: 10%; animation-delay: 0s;"></div>
@@ -754,10 +766,10 @@
           <p class="program-label">DECA Tutoring</p>
           <h1>
             <span class="text-reveal">
-              <span class="text-reveal-content">DECA Glass Tutoring</span>
+              <span class="text-reveal-content">Train for the stage.</span>
             </span>
             <span class="text-reveal">
-              <span class="text-reveal-content aurora-text">for Competition Confidence</span>
+              <span class="text-reveal-content aurora-text">Compete with confidence.</span>
             </span>
           </h1>
 
@@ -1379,9 +1391,9 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-inner">
-        <a href="/" class="footer-logo" aria-label="glassRPG home">
+        <a href="/" class="footer-logo" aria-label="GlassRPG home">
           <div class="logo-icon"></div>
-          <span>glassRPG</span>
+          <span>GlassRPG</span>
         </a>
 
         <nav class="footer-nav" aria-label="Footer navigation">
@@ -1394,7 +1406,7 @@
       </div>
 
       <div class="footer-bottom">
-        <span>© <span id="year"></span> glassRPG</span>
+        <span>© <span id="year"></span> GlassRPG</span>
         <a href="mailto:erika@glassrpg.com">erika@glassrpg.com</a>
       </div>
     </div>

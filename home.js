@@ -4,6 +4,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+      // Restore the interactive network background in the hero.
+      if (!reducedMotion && window.VANTA?.NET && document.getElementById('vanta-bg')) {
+        const vantaEffect = window.VANTA.NET({
+          el: '#vanta-bg',
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200,
+          minWidth: 200,
+          scale: 1,
+          scaleMobile: 1,
+          color: 0x60a5fa,
+          backgroundColor: 0x000000,
+          points: 7.5,
+          maxDistance: 28,
+          spacing: 14,
+          showDots: false
+        });
+        window.addEventListener('pagehide', () => vantaEffect.destroy(), { once: true });
+      }
+
       // Initialize slideshow
       initSlideshow();
 
