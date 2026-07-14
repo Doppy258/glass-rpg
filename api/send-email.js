@@ -88,7 +88,7 @@ export default async function handler(req, res) {
       res.status(400).json({ error: 'Invalid email address' });
       return;
     }
-    const organizations = new Set(['DECA', 'FBLA', 'NSDA']);
+    const organizations = new Set(['DECA']);
     const normalizedOrganization = String(organization).trim();
     if (!organizations.has(normalizedOrganization)) {
       res.status(400).json({ error: 'Invalid organization' });
