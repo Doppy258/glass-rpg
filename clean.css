@@ -349,7 +349,7 @@ p {
   color: var(--muted-foreground);
 }
 
-/* Header with glassmorphism */
+/* Solid header keeps hero lighting from bleeding through behind the logo. */
 .header {
   position: fixed;
   top: 0;
@@ -357,9 +357,7 @@ p {
   right: 0;
   height: var(--header-height);
   z-index: 50;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  background: rgba(0, 0, 0, 0.85);
+  background: #000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
