@@ -32,6 +32,8 @@ const videoFiles = [
 await fs.rm(dist, { recursive: true, force: true });
 await Promise.all([
   fs.mkdir(path.join(dist, 'assets', 'images'), { recursive: true }),
+  fs.mkdir(path.join(dist, 'assets', 'brand'), { recursive: true }),
+  fs.mkdir(path.join(dist, 'assets', 'icons'), { recursive: true }),
   fs.mkdir(path.join(dist, 'assets', 'videos'), { recursive: true }),
   fs.mkdir(path.join(dist, 'assets', 'fonts'), { recursive: true }),
   fs.mkdir(path.join(dist, 'deca-glass-tutoring'), { recursive: true })
@@ -87,7 +89,12 @@ for (const [source, output] of pages) {
 await Promise.all([
   fs.copyFile(path.join(projectRoot, 'robots.txt'), path.join(dist, 'robots.txt')),
   fs.copyFile(path.join(projectRoot, 'sitemap.xml'), path.join(dist, 'sitemap.xml')),
-  fs.copyFile(path.join(projectRoot, 'favicon.svg'), path.join(dist, 'favicon.svg'))
+  fs.copyFile(path.join(projectRoot, 'assets', 'brand', 'glassrpg-logo.png'), path.join(dist, 'assets', 'brand', 'glassrpg-logo.png')),
+  fs.copyFile(path.join(projectRoot, 'assets', 'icons', 'favicon-512.png'), path.join(dist, 'assets', 'icons', 'favicon-512.png')),
+  fs.copyFile(path.join(projectRoot, 'favicon.ico'), path.join(dist, 'favicon.ico')),
+  fs.copyFile(path.join(projectRoot, 'favicon-48x48.png'), path.join(dist, 'favicon-48x48.png')),
+  fs.copyFile(path.join(projectRoot, 'favicon-192x192.png'), path.join(dist, 'favicon-192x192.png')),
+  fs.copyFile(path.join(projectRoot, 'apple-touch-icon.png'), path.join(dist, 'apple-touch-icon.png'))
 ]);
 
 console.log('Built two static pages and optimized assets in dist/.');

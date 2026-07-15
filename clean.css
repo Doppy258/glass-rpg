@@ -374,29 +374,15 @@ p {
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-weight: 700;
-  font-size: 1.25rem;
   color: var(--foreground);
   text-decoration: none;
 }
 
-/* 3D Floating Logo */
-.logo-icon {
-  width: 2rem;
-  height: 2rem;
-  border-radius: var(--radius-sm);
-  background: var(--gradient-btn);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-glow);
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.brand-logo {
+  display: block;
+  height: 58px;
+  object-fit: contain;
+  width: auto;
 }
 
 .nav {
@@ -1482,9 +1468,12 @@ main p a {
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   color: var(--foreground);
   text-decoration: none;
+}
+
+.footer-logo .brand-logo {
+  height: 68px;
 }
 
 .footer-nav {
