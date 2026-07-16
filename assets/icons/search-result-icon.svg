@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-labelledby="title">
+  <title id="title">GlassRPG diamond</title>
+  <defs>
+    <linearGradient id="tile" x1="28" y1="18" x2="164" y2="174" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111b4d"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="gem" x1="49" y1="48" x2="137" y2="148" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8ad8ff"/>
+      <stop offset=".52" stop-color="#45aff0"/>
+      <stop offset="1" stop-color="#1986d4"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="184" height="184" rx="42" fill="url(#tile)"/>
+  <path d="M96 35 153 78 96 158 39 78Z" fill="url(#gem)" stroke="#2708a4" stroke-width="9" stroke-linejoin="round"/>
+  <path d="m96 35 25 43-25 80-25-80Z" fill="#d9f3ff" fill-opacity=".88"/>
+  <path d="M39 78h114L96 158Z" fill="#269bdc" fill-opacity=".5"/>
+  <path d="m96 35 25 43H71Z" fill="#ecf9ff" fill-opacity=".72"/>
+  <path d="m148 34 3.5 10.5L162 48l-10.5 3.5L148 62l-3.5-10.5L134 48l10.5-3.5Z" fill="white"/>
+</svg>

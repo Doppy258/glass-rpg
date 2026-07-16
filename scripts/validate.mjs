@@ -43,7 +43,11 @@ for (const page of pages) {
   for (const match of schemaBlocks) JSON.parse(match[2]);
   if (!schemaBlocks.length) fail(`${page.file}: JSON-LD missing`);
   if (!html.includes('https://glassrpg.com/assets/brand/glassrpg-logo.png')) fail(`${page.file}: organization logo missing`);
-  if (!html.includes('href=/favicon-48x48.png') && !html.includes('href="/favicon-48x48.png"')) fail(`${page.file}: 48px favicon missing`);
+  const iconTags = [...html.matchAll(/<link\b[^>]*>/gi)]
+    .filter(([tag]) => attr(tag, 'rel') === 'icon');
+  if (iconTags.length !== 1) fail(`${page.file}: expected exactly one search icon`);
+  if (attr(iconTags[0][0], 'href') !== '/glassrpg-search-icon.png') fail(`${page.file}: incorrect search icon URL`);
+  if (attr(iconTags[0][0], 'sizes') !== '192x192') fail(`${page.file}: search icon must be 192x192`);
 
   for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
     const tag = match[0];
@@ -60,7 +64,7 @@ for (const [file, html] of pageMarkup) {
     const value = match[1];
     if (/^(?:https?:|mailto:|tel:|data:)/i.test(value)) continue;
     const parsed = new URL(value, `https://glassrpg.com/${file === 'index.html' ? '' : 'deca-glass-tutoring/'}`);
-    const targetFile = parsed.pathname.startsWith('/assets/') || /^\/(?:favicon(?:-[^/]+)?\.(?:png|ico)|apple-touch-icon\.png)$/.test(parsed.pathname)
+    const targetFile = parsed.pathname.startsWith('/assets/') || /^\/(?:glassrpg-search-icon\.png|favicon(?:-[^/]+)?\.(?:png|ico)|apple-touch-icon\.png)$/.test(parsed.pathname)
       ? parsed.pathname.slice(1)
       : routeFile(parsed.pathname);
     try { await fs.access(path.join(dist, targetFile)); } catch { fail(`${file}: missing local target ${value}`); }

@@ -47,6 +47,11 @@ for (const [source, output] of imageJobs) {
     .toFile(path.join(dist, 'assets', 'images', output));
 }
 
+await sharp(path.join(projectRoot, 'assets', 'icons', 'search-result-icon.svg'))
+  .resize(192, 192)
+  .png({ compressionLevel: 9, palette: true })
+  .toFile(path.join(dist, 'glassrpg-search-icon.png'));
+
 for (const video of videoFiles) {
   await fs.copyFile(path.join(projectRoot, 'assets', 'videos', video), path.join(dist, 'assets', 'videos', video));
 }
