@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -46,7 +47,7 @@ for (const page of pages) {
   const iconTags = [...html.matchAll(/<link\b[^>]*>/gi)]
     .filter(([tag]) => attr(tag, 'rel') === 'icon');
   if (iconTags.length !== 1) fail(`${page.file}: expected exactly one search icon`);
-  if (attr(iconTags[0][0], 'href') !== '/glassrpg-search-icon.png') fail(`${page.file}: incorrect search icon URL`);
+  if (attr(iconTags[0][0], 'href') !== 'https://glassrpg.com/glassrpg-search-icon.png') fail(`${page.file}: incorrect search icon URL`);
   if (attr(iconTags[0][0], 'sizes') !== '192x192') fail(`${page.file}: search icon must be 192x192`);
 
   for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
@@ -58,13 +59,29 @@ for (const page of pages) {
 
 if (new Set(pages.map((page) => page.description)).size !== pages.length) fail('Descriptions must be unique');
 
+const expectedIconSizes = new Map([
+  ['glassrpg-search-icon.png', 192],
+  ['favicon-192x192.png', 192],
+  ['apple-touch-icon.png', 180],
+  ['favicon-48x48.png', 48],
+  ['assets/icons/favicon-512.png', 512]
+]);
+for (const [file, expectedSize] of expectedIconSizes) {
+  const metadata = await sharp(path.join(dist, file)).metadata();
+  if (metadata.width !== expectedSize || metadata.height !== expectedSize || metadata.format !== 'png') {
+    fail(`${file}: expected a ${expectedSize}x${expectedSize} PNG`);
+  }
+}
+await fs.access(path.join(dist, 'favicon.ico'));
+await fs.access(path.join(dist, 'favicon.svg'));
+
 const routeFile = (pathname) => pathname === '/' ? 'index.html' : `${pathname.replace(/^\//, '').replace(/\/$/, '')}/index.html`;
 for (const [file, html] of pageMarkup) {
   for (const match of html.matchAll(/<(?:a|link|script|img|source)[^>]+(?:href|src)=["']([^"']+)["'][^>]*>/gi)) {
     const value = match[1];
     if (/^(?:https?:|mailto:|tel:|data:)/i.test(value)) continue;
     const parsed = new URL(value, `https://glassrpg.com/${file === 'index.html' ? '' : 'deca-glass-tutoring/'}`);
-    const targetFile = parsed.pathname.startsWith('/assets/') || /^\/(?:glassrpg-search-icon\.png|favicon(?:-[^/]+)?\.(?:png|ico)|apple-touch-icon\.png)$/.test(parsed.pathname)
+    const targetFile = parsed.pathname.startsWith('/assets/') || /^\/(?:glassrpg-search-icon\.png|favicon(?:-[^/]+)?\.(?:svg|png|ico)|apple-touch-icon\.png)$/.test(parsed.pathname)
       ? parsed.pathname.slice(1)
       : routeFile(parsed.pathname);
     try { await fs.access(path.join(dist, targetFile)); } catch { fail(`${file}: missing local target ${value}`); }

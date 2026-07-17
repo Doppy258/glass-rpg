@@ -47,10 +47,19 @@ for (const [source, output] of imageJobs) {
     .toFile(path.join(dist, 'assets', 'images', output));
 }
 
-await sharp(path.join(projectRoot, 'assets', 'icons', 'search-result-icon.svg'))
-  .resize(192, 192)
+const iconSource = path.join(projectRoot, 'assets', 'icons', 'search-result-icon.svg');
+const iconJobs = [
+  [192, path.join(dist, 'glassrpg-search-icon.png')],
+  [192, path.join(dist, 'favicon-192x192.png')],
+  [180, path.join(dist, 'apple-touch-icon.png')],
+  [48, path.join(dist, 'favicon-48x48.png')],
+  [512, path.join(dist, 'assets', 'icons', 'favicon-512.png')]
+];
+
+await Promise.all(iconJobs.map(([size, output]) => sharp(iconSource)
+  .resize(size, size)
   .png({ compressionLevel: 9, palette: true })
-  .toFile(path.join(dist, 'glassrpg-search-icon.png'));
+  .toFile(output)));
 
 for (const video of videoFiles) {
   await fs.copyFile(path.join(projectRoot, 'assets', 'videos', video), path.join(dist, 'assets', 'videos', video));
@@ -95,11 +104,8 @@ await Promise.all([
   fs.copyFile(path.join(projectRoot, 'robots.txt'), path.join(dist, 'robots.txt')),
   fs.copyFile(path.join(projectRoot, 'sitemap.xml'), path.join(dist, 'sitemap.xml')),
   fs.copyFile(path.join(projectRoot, 'assets', 'brand', 'glassrpg-logo.png'), path.join(dist, 'assets', 'brand', 'glassrpg-logo.png')),
-  fs.copyFile(path.join(projectRoot, 'assets', 'icons', 'favicon-512.png'), path.join(dist, 'assets', 'icons', 'favicon-512.png')),
+  fs.copyFile(iconSource, path.join(dist, 'favicon.svg')),
   fs.copyFile(path.join(projectRoot, 'favicon.ico'), path.join(dist, 'favicon.ico')),
-  fs.copyFile(path.join(projectRoot, 'favicon-48x48.png'), path.join(dist, 'favicon-48x48.png')),
-  fs.copyFile(path.join(projectRoot, 'favicon-192x192.png'), path.join(dist, 'favicon-192x192.png')),
-  fs.copyFile(path.join(projectRoot, 'apple-touch-icon.png'), path.join(dist, 'apple-touch-icon.png'))
 ]);
 
 console.log('Built two static pages and optimized assets in dist/.');
