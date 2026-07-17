@@ -58,8 +58,35 @@ const iconJobs = [
 
 await Promise.all(iconJobs.map(([size, output]) => sharp(iconSource)
   .resize(size, size)
-  .png({ compressionLevel: 9, palette: true })
+  .png({ compressionLevel: 9, palette: false })
   .toFile(output)));
+
+const icoPngSizes = [48, 96, 192];
+const icoPngBuffers = await Promise.all(icoPngSizes.map((size) => sharp(iconSource)
+  .resize(size, size)
+  .png({ compressionLevel: 9, palette: false })
+  .toBuffer()));
+const icoHeaderSize = 6;
+const icoDirectorySize = 16 * icoPngBuffers.length;
+let icoImageOffset = icoHeaderSize + icoDirectorySize;
+const icoHeader = Buffer.alloc(icoImageOffset);
+icoHeader.writeUInt16LE(0, 0);
+icoHeader.writeUInt16LE(1, 2);
+icoHeader.writeUInt16LE(icoPngBuffers.length, 4);
+icoPngBuffers.forEach((buffer, index) => {
+  const size = icoPngSizes[index];
+  const entryOffset = icoHeaderSize + (index * 16);
+  icoHeader.writeUInt8(size === 256 ? 0 : size, entryOffset);
+  icoHeader.writeUInt8(size === 256 ? 0 : size, entryOffset + 1);
+  icoHeader.writeUInt8(0, entryOffset + 2);
+  icoHeader.writeUInt8(0, entryOffset + 3);
+  icoHeader.writeUInt16LE(1, entryOffset + 4);
+  icoHeader.writeUInt16LE(32, entryOffset + 6);
+  icoHeader.writeUInt32LE(buffer.length, entryOffset + 8);
+  icoHeader.writeUInt32LE(icoImageOffset, entryOffset + 12);
+  icoImageOffset += buffer.length;
+});
+await fs.writeFile(path.join(dist, 'favicon.ico'), Buffer.concat([icoHeader, ...icoPngBuffers]));
 
 for (const video of videoFiles) {
   await fs.copyFile(path.join(projectRoot, 'assets', 'videos', video), path.join(dist, 'assets', 'videos', video));
@@ -105,7 +132,6 @@ await Promise.all([
   fs.copyFile(path.join(projectRoot, 'sitemap.xml'), path.join(dist, 'sitemap.xml')),
   fs.copyFile(path.join(projectRoot, 'assets', 'brand', 'glassrpg-logo.png'), path.join(dist, 'assets', 'brand', 'glassrpg-logo.png')),
   fs.copyFile(iconSource, path.join(dist, 'favicon.svg')),
-  fs.copyFile(path.join(projectRoot, 'favicon.ico'), path.join(dist, 'favicon.ico')),
 ]);
 
 console.log('Built two static pages and optimized assets in dist/.');

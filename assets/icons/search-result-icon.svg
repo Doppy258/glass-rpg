@@ -1,20 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-labelledby="title">
-  <title id="title">GlassRPG diamond</title>
+  <title id="title">GlassRPG G mark</title>
   <defs>
-    <linearGradient id="tile" x1="28" y1="18" x2="164" y2="174" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#111b4d"/>
-      <stop offset="1" stop-color="#020617"/>
+    <linearGradient id="tile" x1="20" y1="18" x2="172" y2="174" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#63d8ff"/>
+      <stop offset="1" stop-color="#1678df"/>
     </linearGradient>
-    <linearGradient id="gem" x1="49" y1="48" x2="137" y2="148" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#8ad8ff"/>
-      <stop offset=".52" stop-color="#45aff0"/>
-      <stop offset="1" stop-color="#1986d4"/>
+    <linearGradient id="gem" x1="73" y1="65" x2="119" y2="122" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset=".54" stop-color="#d9f5ff"/>
+      <stop offset="1" stop-color="#8bdcff"/>
     </linearGradient>
   </defs>
-  <rect x="4" y="4" width="184" height="184" rx="42" fill="url(#tile)"/>
-  <path d="M96 35 153 78 96 158 39 78Z" fill="url(#gem)" stroke="#2708a4" stroke-width="9" stroke-linejoin="round"/>
-  <path d="m96 35 25 43-25 80-25-80Z" fill="#d9f3ff" fill-opacity=".88"/>
-  <path d="M39 78h114L96 158Z" fill="#269bdc" fill-opacity=".5"/>
-  <path d="m96 35 25 43H71Z" fill="#ecf9ff" fill-opacity=".72"/>
-  <path d="m148 34 3.5 10.5L162 48l-10.5 3.5L148 62l-3.5-10.5L134 48l10.5-3.5Z" fill="white"/>
+  <rect width="192" height="192" rx="38" fill="#071243"/>
+  <rect x="12" y="12" width="168" height="168" rx="30" fill="url(#tile)"/>
+  <path d="M141 79c-8-17-24-27-45-27-27 0-47 20-47 45 0 26 20 45 48 45 23 0 41-13 46-34h-45V83h80v17c0 42-32 75-81 75-48 0-84-33-84-78 0-44 36-78 83-78 37 0 67 19 80 49l-35 11Z" fill="#06103a"/>
+  <path d="M103 58 135 84 103 132 71 84Z" fill="url(#gem)" stroke="#06103a" stroke-width="8" stroke-linejoin="round"/>
+  <path d="m103 58 13 26-13 48-13-48Z" fill="#ffffff" fill-opacity=".72"/>
 </svg>

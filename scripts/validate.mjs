@@ -47,8 +47,13 @@ for (const page of pages) {
   const iconTags = [...html.matchAll(/<link\b[^>]*>/gi)]
     .filter(([tag]) => attr(tag, 'rel') === 'icon');
   if (iconTags.length !== 1) fail(`${page.file}: expected exactly one search icon`);
-  if (attr(iconTags[0][0], 'href') !== 'https://glassrpg.com/glassrpg-search-icon.png') fail(`${page.file}: incorrect search icon URL`);
-  if (attr(iconTags[0][0], 'sizes') !== '192x192') fail(`${page.file}: search icon must be 192x192`);
+  if (attr(iconTags[0][0], 'href') !== '/favicon.ico') fail(`${page.file}: search icon must use the stable root favicon URL`);
+  if (attr(iconTags[0][0], 'type') !== 'image/x-icon') fail(`${page.file}: search icon must be ICO`);
+  if (attr(iconTags[0][0], 'sizes') !== '48x48 96x96 192x192') fail(`${page.file}: search icon must advertise Google-safe ICO sizes`);
+  const appleIconTags = [...html.matchAll(/<link\b[^>]*>/gi)]
+    .filter(([tag]) => attr(tag, 'rel') === 'apple-touch-icon');
+  if (appleIconTags.length !== 1) fail(`${page.file}: expected exactly one apple touch icon`);
+  if (attr(appleIconTags[0][0], 'href') !== '/apple-touch-icon.png') fail(`${page.file}: incorrect apple touch icon URL`);
 
   for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
     const tag = match[0];
@@ -74,6 +79,18 @@ for (const [file, expectedSize] of expectedIconSizes) {
 }
 await fs.access(path.join(dist, 'favicon.ico'));
 await fs.access(path.join(dist, 'favicon.svg'));
+const ico = await fs.readFile(path.join(dist, 'favicon.ico'));
+if (ico.readUInt16LE(0) !== 0 || ico.readUInt16LE(2) !== 1) fail('favicon.ico is not a valid ICO');
+const icoCount = ico.readUInt16LE(4);
+const icoSizes = new Set();
+for (let index = 0; index < icoCount; index += 1) {
+  const entryOffset = 6 + (index * 16);
+  const width = ico.readUInt8(entryOffset) || 256;
+  const height = ico.readUInt8(entryOffset + 1) || 256;
+  if (width !== height) fail('favicon.ico contains a non-square image');
+  icoSizes.add(width);
+}
+for (const size of [48, 96, 192]) if (!icoSizes.has(size)) fail(`favicon.ico is missing ${size}x${size}`);
 
 const routeFile = (pathname) => pathname === '/' ? 'index.html' : `${pathname.replace(/^\//, '').replace(/\/$/, '')}/index.html`;
 for (const [file, html] of pageMarkup) {
