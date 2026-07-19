@@ -47,13 +47,13 @@ for (const page of pages) {
   const iconTags = [...html.matchAll(/<link\b[^>]*>/gi)]
     .filter(([tag]) => attr(tag, 'rel') === 'icon');
   if (iconTags.length !== 1) fail(`${page.file}: expected exactly one search icon`);
-  if (attr(iconTags[0][0], 'href') !== '/favicon-192x192.png') fail(`${page.file}: search icon must use the dedicated PNG favicon URL`);
+  if (attr(iconTags[0][0], 'href') !== 'https://glassrpg.com/favicon-192x192.png') fail(`${page.file}: search icon must use the dedicated absolute PNG favicon URL`);
   if (attr(iconTags[0][0], 'type') !== 'image/png') fail(`${page.file}: search icon must be PNG`);
   if (attr(iconTags[0][0], 'sizes') !== '192x192') fail(`${page.file}: search icon must advertise the dedicated 192x192 size`);
   const appleIconTags = [...html.matchAll(/<link\b[^>]*>/gi)]
     .filter(([tag]) => attr(tag, 'rel') === 'apple-touch-icon');
   if (appleIconTags.length !== 1) fail(`${page.file}: expected exactly one apple touch icon`);
-  if (attr(appleIconTags[0][0], 'href') !== '/apple-touch-icon.png') fail(`${page.file}: incorrect apple touch icon URL`);
+  if (attr(appleIconTags[0][0], 'href') !== 'https://glassrpg.com/apple-touch-icon.png') fail(`${page.file}: incorrect apple touch icon URL`);
 
   for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
     const tag = match[0];
