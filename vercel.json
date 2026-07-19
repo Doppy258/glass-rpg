@@ -4,6 +4,17 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.glassrpg.com"
+        }
+      ],
+      "destination": "https://glassrpg.com/:path*",
+      "permanent": true
+    },
+    {
       "source": "/NoCodeXport(.*)",
       "destination": "/",
       "permanent": true
