@@ -111,7 +111,12 @@ for (const [file, html] of pageMarkup) {
 const robots = await fs.readFile(path.join(dist, 'robots.txt'), 'utf8');
 if (robots !== 'User-agent: *\nAllow: /\nSitemap: https://glassrpg.com/sitemap.xml\n') fail('robots.txt does not match the approved content');
 const sitemap = await fs.readFile(path.join(dist, 'sitemap.xml'), 'utf8');
-for (const page of pages) if (!sitemap.includes(`<loc>${page.url}</loc>`)) fail(`sitemap.xml is missing ${page.url}`);
+for (const page of pages) {
+  if (!sitemap.includes(`<loc>${page.url}</loc>`)) fail(`sitemap.xml is missing ${page.url}`);
+  if (!sitemap.includes(`<loc>${page.url}</loc>\n    <lastmod>2026-07-19</lastmod>`)) {
+    fail(`sitemap.xml has a stale lastmod for ${page.url}`);
+  }
+}
 if (count(sitemap, /<url>/g) !== pages.length) fail('sitemap.xml contains an unexpected URL');
 
 console.log('Validated titles, descriptions, H1s, canonicals, JSON-LD, assets, links, anchors, robots.txt, and sitemap.xml.');
