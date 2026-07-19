@@ -47,9 +47,9 @@ for (const page of pages) {
   const iconTags = [...html.matchAll(/<link\b[^>]*>/gi)]
     .filter(([tag]) => attr(tag, 'rel') === 'icon');
   if (iconTags.length !== 1) fail(`${page.file}: expected exactly one search icon`);
-  if (attr(iconTags[0][0], 'href') !== '/favicon.ico') fail(`${page.file}: search icon must use the stable root favicon URL`);
-  if (attr(iconTags[0][0], 'type') !== 'image/x-icon') fail(`${page.file}: search icon must be ICO`);
-  if (attr(iconTags[0][0], 'sizes') !== '48x48 96x96 192x192') fail(`${page.file}: search icon must advertise Google-safe ICO sizes`);
+  if (attr(iconTags[0][0], 'href') !== '/favicon-192x192.png') fail(`${page.file}: search icon must use the dedicated PNG favicon URL`);
+  if (attr(iconTags[0][0], 'type') !== 'image/png') fail(`${page.file}: search icon must be PNG`);
+  if (attr(iconTags[0][0], 'sizes') !== '192x192') fail(`${page.file}: search icon must advertise the dedicated 192x192 size`);
   const appleIconTags = [...html.matchAll(/<link\b[^>]*>/gi)]
     .filter(([tag]) => attr(tag, 'rel') === 'apple-touch-icon');
   if (appleIconTags.length !== 1) fail(`${page.file}: expected exactly one apple touch icon`);
