@@ -78,7 +78,6 @@ for (const [file, expectedSize] of expectedIconSizes) {
   }
 }
 await fs.access(path.join(dist, 'favicon.ico'));
-await fs.access(path.join(dist, 'favicon.svg'));
 const ico = await fs.readFile(path.join(dist, 'favicon.ico'));
 if (ico.readUInt16LE(0) !== 0 || ico.readUInt16LE(2) !== 1) fail('favicon.ico is not a valid ICO');
 const icoCount = ico.readUInt16LE(4);
@@ -98,7 +97,7 @@ for (const [file, html] of pageMarkup) {
     const value = match[1];
     if (/^(?:https?:|mailto:|tel:|data:)/i.test(value)) continue;
     const parsed = new URL(value, `https://glassrpg.com/${file === 'index.html' ? '' : 'deca-glass-tutoring/'}`);
-    const targetFile = parsed.pathname.startsWith('/assets/') || /^\/(?:glassrpg-search-icon\.png|favicon(?:-[^/]+)?\.(?:svg|png|ico)|apple-touch-icon\.png)$/.test(parsed.pathname)
+    const targetFile = parsed.pathname.startsWith('/assets/') || /^\/(?:glassrpg-search-icon\.png|favicon(?:-[^/]+)?\.(?:png|ico)|apple-touch-icon\.png)$/.test(parsed.pathname)
       ? parsed.pathname.slice(1)
       : routeFile(parsed.pathname);
     try { await fs.access(path.join(dist, targetFile)); } catch { fail(`${file}: missing local target ${value}`); }

@@ -47,7 +47,9 @@ for (const [source, output] of imageJobs) {
     .toFile(path.join(dist, 'assets', 'images', output));
 }
 
-const iconSource = path.join(projectRoot, 'assets', 'icons', 'search-result-icon.svg');
+const iconSource = path.join(projectRoot, 'assets', 'icons', 'glassrpg-favicon-source.jpg');
+const iconCrop = { left: 83, top: 203, width: 820, height: 443 };
+const iconBackground = { r: 146, g: 204, b: 233, alpha: 1 };
 const iconJobs = [
   [192, path.join(dist, 'glassrpg-search-icon.png')],
   [192, path.join(dist, 'favicon-192x192.png')],
@@ -57,13 +59,19 @@ const iconJobs = [
 ];
 
 await Promise.all(iconJobs.map(([size, output]) => sharp(iconSource)
-  .resize(size, size)
+  .rotate()
+  .extract(iconCrop)
+  .resize(size, size, { fit: 'contain', background: iconBackground, kernel: 'lanczos3' })
+  .sharpen()
   .png({ compressionLevel: 9, palette: false })
   .toFile(output)));
 
 const icoPngSizes = [48, 96, 192];
 const icoPngBuffers = await Promise.all(icoPngSizes.map((size) => sharp(iconSource)
-  .resize(size, size)
+  .rotate()
+  .extract(iconCrop)
+  .resize(size, size, { fit: 'contain', background: iconBackground, kernel: 'lanczos3' })
+  .sharpen()
   .png({ compressionLevel: 9, palette: false })
   .toBuffer()));
 const icoHeaderSize = 6;
@@ -131,7 +139,6 @@ await Promise.all([
   fs.copyFile(path.join(projectRoot, 'robots.txt'), path.join(dist, 'robots.txt')),
   fs.copyFile(path.join(projectRoot, 'sitemap.xml'), path.join(dist, 'sitemap.xml')),
   fs.copyFile(path.join(projectRoot, 'assets', 'brand', 'glassrpg-logo.png'), path.join(dist, 'assets', 'brand', 'glassrpg-logo.png')),
-  fs.copyFile(iconSource, path.join(dist, 'favicon.svg')),
 ]);
 
 console.log('Built two static pages and optimized assets in dist/.');
