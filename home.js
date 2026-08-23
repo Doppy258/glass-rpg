@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
 
-      const calendlyUrl = 'https://calendly.com/erikawu47/30min';
+      const calendlyUrl = 'https://calendly.com/erikawu47/15min';
 
       // Send through serverless Gmail (uses gmail_user/gmail_pass on Vercel)
       try {
