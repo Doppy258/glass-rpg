@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const form = e.target.closest('#contact-form');
       if (!form) return;
       e.preventDefault();
-      const fields = ['name', 'email', 'countryCode', 'phone', 'role', 'grade', 'region', 'organization', 'eventCode', 'timePerWeek'];
+      const fields = ['name', 'email', 'countryCode', 'phone', 'role', 'grade', 'region', 'eventCode', 'timePerWeek'];
       for (const id of fields) {
         const el = form.querySelector(`#${id}`);
         if (!el || !el.value || !String(el.value).trim()) {
@@ -237,7 +237,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const school = '';
       const region = form.region.value.trim();
       const grade = form.grade.value.trim();
-      const organization = form.organization.value.trim();
       const eventCode = form.eventCode.value.trim();
       const timePerWeek = form.timePerWeek.value.trim();
 
@@ -284,7 +283,6 @@ document.addEventListener('DOMContentLoaded', function () {
             phone,
             grade,
             region,
-            organization,
             eventCode,
             timePerWeek,
             company,

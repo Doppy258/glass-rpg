@@ -67,14 +67,13 @@ export default async function handler(req, res) {
       phone,
       grade,
       region,
-      organization,
       eventCode,
       timePerWeek,
       company,
     } = body;
 
     const bad = (v) => !v || !String(v).trim();
-    if ([name, role, email, countryCode, phone, grade, region, organization, eventCode, timePerWeek].some(bad)) {
+    if ([name, role, email, countryCode, phone, grade, region, eventCode, timePerWeek].some(bad)) {
       res.status(400).json({ error: 'Missing required fields' });
       return;
     }
@@ -88,14 +87,7 @@ export default async function handler(req, res) {
       res.status(400).json({ error: 'Invalid email address' });
       return;
     }
-    const organizations = new Set(['DECA']);
-    const normalizedOrganization = String(organization).trim();
-    if (!organizations.has(normalizedOrganization)) {
-      res.status(400).json({ error: 'Invalid organization' });
-      return;
-    }
-
-    const subject = `[${normalizedOrganization}] Coaching Inquiry`;
+    const subject = '[DECA] Coaching Inquiry';
     const text = [
       `Name: ${name}`,
       `Parent/Student: ${role}`,
@@ -103,7 +95,6 @@ export default async function handler(req, res) {
       `Phone: ${countryCode} ${phone}`,
       `Grade: ${grade}`,
       `Region: ${region}`,
-      `Organization: ${normalizedOrganization}`,
       `Event Name/Code: ${eventCode}`,
       `Time per week: ${timePerWeek}`,
     ].join('\n');
